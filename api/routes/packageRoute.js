@@ -115,13 +115,27 @@ router.put('/packages/:id', MW.authenticateAdmin, MW.packageCheck, MW.asyncHandl
       // if the current admin is the owner of the item
       if (currentAdmin.id === pkg.adminId) {
         // if all the required information is present to update
-        if (request.title && request.description && request.estimatedTime) {
-          // if the course does not exist send (404) - status code back to user
+        if (request.title && 
+            request.description && 
+            request.estimatedTime) {
+          // if the package does not exist send (404) - status code back to user
           if (pkg === null) {
             res.status(404).json({errors: "The package you are looking for could not be found"});
           } else {
-            // update the course with the requested data
-            await pkg.update(request);
+            // update the package with the requested data
+            // await pkg.update(request);
+            await pkg.update(
+              {
+                title: request.title,
+                description: request.description,
+                estimatedTime: request.estimatedTime,
+                adminId: currentAdmin.id
+              },
+              {
+                returning: true,
+                where: { id: req.params.id }
+              }
+            );
             res.status(204).end();
           }
         } else {

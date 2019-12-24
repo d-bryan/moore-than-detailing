@@ -40,11 +40,11 @@ module.exports = ( sequelize ) => {
           msg: "Full Detail Plus requires a value"
         },
         min: {
-          args: 0,
+          args: [0],
           msg: "Price cannot be less than 0",
         },
         max: {
-          args: 999,
+          args: [999],
           msg: "Price cannot be higher than 999"
         },
       },
@@ -60,11 +60,11 @@ module.exports = ( sequelize ) => {
           msg: "Full Detail requires a value"
         },
         min: {
-          args: 0,
+          args: [0],
           msg: "Price cannot be less than 0",
         },
         max: {
-          args: 999,
+          args: [999],
           msg: "Price cannot be higher than 999"
         },
       },      
@@ -80,11 +80,11 @@ module.exports = ( sequelize ) => {
           msg: "Interior Detail requires a value"
         },
         min: {
-          args: 0,
+          args: [0],
           msg: "Price cannot be less than 0",
         },
         max: {
-          args: 999,
+          args: [999],
           msg: "Price cannot be higher than 999"
         },
       },      
@@ -100,11 +100,11 @@ module.exports = ( sequelize ) => {
           msg: "The Blitz requires a value"
         },
         min: {
-          args: 0,
+          args: [0],
           msg: "Price cannot be less than 0",
         },
         max: {
-          args: 999,
+          args: [999],
           msg: "Price cannot be higher than 999"
         },
       },      
@@ -120,11 +120,11 @@ module.exports = ( sequelize ) => {
           msg: "Exterior Detail requires a value"
         },
         min: {
-          args: 0,
+          args: [0],
           msg: "Price cannot be less than 0",
         },
         max: {
-          args: 999,
+          args: [999],
           msg: "Price cannot be higher than 999"
         },
       },      
@@ -140,11 +140,11 @@ module.exports = ( sequelize ) => {
           msg: "Basic Wash requires a value"
         },
         min: {
-          args: 0,
+          args: [0],
           msg: "Price cannot be less than 0",
         },
         max: {
-          args: 999,
+          args: [999],
           msg: "Price cannot be higher than 999"
         },
       },      

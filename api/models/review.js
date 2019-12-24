@@ -64,11 +64,11 @@ module.exports = ( sequelize ) => {
           msg: "Customer Rating is required"
         },
         min: {
-          args: 0,
+          args: [0],
           msg: "Customer Rating cannot be less than 0",
         },
         max: {
-          args: 5,
+          args: [5],
           msg: "Customer Rating cannot be more than 5"
         },
       },

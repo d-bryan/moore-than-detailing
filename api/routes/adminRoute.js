@@ -11,6 +11,7 @@ const { validationResult } = require('express-validator');
 const Admin = require('../models').Admin;
 
 // ADMIN ROUTES
+// TESTED - YES
 // GET /api/admins (200) - returns currently authenticated admin
 router.get('/admins', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
   const admin = req.currentAdmin;
@@ -23,6 +24,7 @@ router.get('/admins', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
   });
 }));
 
+// TESTED - YES
 // POST /api/admins (201) - creates a new admin, adds the data to the database and returns the location header to "/" with no content
 router.post('/admins', MW.authenticateAdmin, MW.createAdminCheck, MW.asyncHandler(async(req, res) => {
   const admin = req.currentAdmin;
@@ -84,9 +86,8 @@ router.post('/admins', MW.authenticateAdmin, MW.createAdminCheck, MW.asyncHandle
       if (err.name === "SequelizeUniqueConstraintError") {
         // send error status of (400) - bad request back to client
         res.status(400).json({ 
-          errors: [ 
+          errors: 
             `Username must be unique, please enter another "email address" (${err.errors[0].instance.emailAddress}) is already taken.`
-          ]
         });
       } else {    
         // send a (500) - status error

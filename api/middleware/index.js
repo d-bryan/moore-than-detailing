@@ -6,48 +6,32 @@ const { check } = require('express-validator');
 // other imports
 const Admin = require('../models').Admin;
 
+// const sequelizeErrors = (e) => {
+//   const error = e.array().map(err => err.errors.message);
+//   return error;
+// };
+
 /**
  * Asyncronous callback function to pass as middleware
  * @param {Callback} cb - request, response, next try catch 
  */
 function asyncHandler(cb) {
   return async(req, res, next) => {
-    try {
-      await cb(req, res, next);
-    } catch (err) {
-      console.log(err);
-      res.status(500).send(err);
-    }
+      try {
+        await cb(req, res, next);
+      } catch (err) {
+        if (err.name === "SequelizeValidationError") {
+          // send (400) - status back to client
+          // const error = err.map(err => err.errors.message);
+          console.error(err);
+          res.status(400).json({ errors: err.errors.map(e => e.message) });
+        } else {
+          console.error(err);
+          res.status(500).send(err);
+      }
+    } 
   }
 }
-
-/**
- * Check Admin password against regex pattern to ensure only certain characters are used
- * @param {Password} req - Admin password
- */
-// function regexPasswordTest (req) {
-//   const reg = /^[A-Za-z0-9!$#]{8,20}$/;
-
-//   if (reg.test(req.password) === true) {
-//     return true;
-//   } else {
-//     throw new Error("Please enter a password between 8 and 20 characters. The only special characters allowed are: ! $ # ");
-//   }
-// }
-
-/**
- * Check to see if passwords match
- * @param {Confirmed Password} value - Confirm password
- * @param {Password} req - Password
- */
-// function checkConfirmPassword (req) {
-//   if (req.body.confirmPassword !== req.body.password) {
-//     return false;
-//     // throw new Error("Password confirmation does not match password");
-//   } else {
-//     return true;
-//   }
-// }
 
 /**
  * Function to authenticate Admin login
@@ -87,14 +71,14 @@ const authenticateAdmin = async(req, res, next) => {
       message = `Admin not found for ${credentials.name}`
     }
   } else {
-    message = `Please enter your username and password`;
+    message = `Please log in to view protected resources`;
   }
 
   if (message) {
     console.warn(message);
 
     // Return with a status of 401 unauthorized
-    res.status(401).json({ message: message });
+    res.status(401).json({ errors: message });
   } else {
     next();
   }

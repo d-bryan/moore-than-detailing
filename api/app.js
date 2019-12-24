@@ -10,6 +10,8 @@ const dbName = require('./config/config.json').development.storage;
 
 // import routes
 const adminRoute = require('./routes/adminRoute');
+const packageRoute = require('./routes/packageRoute');
+const pricingRoute = require('./routes/pricingRoute');
 
 // variable to enable global error logging
 const enableGlobalErrorLogging = process.env.ENABLE_GLOBAL_ERROR_LOGGING;
@@ -49,6 +51,8 @@ app.get('/', (req, res) => {
 
 // include api routes
 app.use('/api', adminRoute);
+app.use('/api', packageRoute);
+app.use('/api', pricingRoute);
 
 // send 404 if no other route matched
 app.use((req, res) => {

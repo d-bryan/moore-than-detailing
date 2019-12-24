@@ -41,7 +41,7 @@ module.exports = ( sequelize ) => {
         },
       },
     },
-  }, { sequelize });
+  }, { modelName: 'Gallery', tableName: 'Gallery', sequelize });
 
   // associate the pricing with admin
   Gallery.associate = ( models ) => {

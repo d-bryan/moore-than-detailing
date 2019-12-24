@@ -150,7 +150,7 @@ module.exports = ( sequelize ) => {
       },      
     },
 
-  }, { sequelize });
+  }, { modelName: 'Pricing', tableName: 'Pricing', sequelize });
 
   // associate the pricing with admin
   Pricing.associate = ( models ) => {

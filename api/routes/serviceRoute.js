@@ -190,7 +190,7 @@ router.delete('/services/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, 
           });
         }
       } else {
-        // if the price list item does not exist send (404) - status back to client
+        // if the service list item does not exist send (404) - status back to client
         res.status(404).json({  errors: "The service list item your are looking for could not be found" });
       }
     } catch (err) {

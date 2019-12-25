@@ -14,6 +14,7 @@ const packageRoute = require('./routes/packageRoute');
 const pricingRoute = require('./routes/pricingRoute');
 const reviewRoute = require('./routes/reviewRoute');
 const serviceRoute = require('./routes/serviceRoute');
+const galleryRoute = require('./routes/galleryRoute');
 
 // variable to enable global error logging
 const enableGlobalErrorLogging = process.env.ENABLE_GLOBAL_ERROR_LOGGING;
@@ -52,11 +53,13 @@ app.get('/', (req, res) => {
 });
 
 // include api routes
+app.use('/uploads', express.static('uploads'));
 app.use('/api', adminRoute);
 app.use('/api', packageRoute);
 app.use('/api', pricingRoute);
 app.use('/api', reviewRoute);
 app.use('/api', serviceRoute);
+app.use('/api', galleryRoute);
 
 // send 404 if no other route matched
 app.use((req, res) => {

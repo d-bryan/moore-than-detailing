@@ -135,30 +135,18 @@ router.put('/reviews/:id', MW.authenticateAdmin, MW.checkReviews, MW.asyncHandle
         if (currentAdmin.id === reviewListItem.adminId) {
           // if all the required information is present to update
           if (
-            request.customerFirstName && 
-            request.customerLastName && 
-            request.customerReview &&
-            request.customerRating
+            request.customerFirstName !== null  && 
+            request.customerLastName !== null  && 
+            request.customerReview !== null  &&
+            request.customerRating !== null 
             ) {
             // if the review list item does not exist send (404) - status code back to user
             if (reviewListItem === null) {
               res.status(404).json({errors: "The review item you are looking for could not be found"});
             } else {
               // update the review list item with the requested data
-              // await reviewListItem.update(request);
-              await reviewListItem.update(
-                {
-                  customerFirstName: request.customerFirstName,
-                  customerLastName: request.customerLastName,
-                  customerReview: request.customerReview,
-                  customerRating: request.customerRating,
-                  adminId: currentAdmin.id
-                },
-                {
-                  returning: true,
-                  where: { id: req.params.id }
-                }
-              );
+              await reviewListItem.update(request);
+              
               res.status(204).end();
             }
           } else {
@@ -195,7 +183,7 @@ router.delete('/reviews/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, r
       
       try {
         // if the review list item exists
-        if (reviewListItem) {
+        if (reviewListItem !== null) {
           // if the review list item adminId === current Admin Id
           if (currentAdmin.id === reviewListItem.adminId) {
             // DELETE the review list item and end the cycle
@@ -209,7 +197,7 @@ router.delete('/reviews/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, r
           }
         } else {
           // if the price list item does not exist send (404) - status back to client
-          res.status(404).json({  errors: "The price list item your are looking for could not be found" });
+          res.status(404).json({  errors: "The review list item your are looking for could not be found" });
         }
       } catch (err) {
         console.error("Error deleting the review list item in the database: ", err);

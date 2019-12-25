@@ -140,36 +140,21 @@ router.put('/pricing/:id', MW.authenticateAdmin, MW.checkPricing, MW.asyncHandle
       if (currentAdmin.id === priceListItem.adminId) {
         // if all the required information is present to update
         if (
-          request.vehicleSize && 
-          request.fullDetailPlus && 
-          request.fullDetail &&
-          request.interiorDetail &&
-          request.theBlitz &&
-          request.exteriorDetail &&
-          request.basicWash
+          request.vehicleSize !== null && 
+          request.fullDetailPlus !== null && 
+          request.fullDetail !== null &&
+          request.interiorDetail !== null &&
+          request.theBlitz !== null &&
+          request.exteriorDetail !== null &&
+          request.basicWash !== null
           ) {
           // if the price list item does not exist send (404) - status code back to user
           if (priceListItem === null) {
             res.status(404).json({errors: "The pricing item you are looking for could not be found"});
           } else {
             // update the price list item with the requested data
-            // await priceListItem.update(request);
-            await priceListItem.update(
-              {
-                vehicleSize: request.vehicleSize,
-                fullDetailPlus: request.fullDetailPlus,
-                fullDetail: request.fullDetail,
-                interiorDetail: request.interiorDetail,
-                theBlitz: request.theBlitz,
-                exteriorDetail: request.exteriorDetail,
-                basicWash: request.basicWash,
-                adminId: currentAdmin.id
-              },
-              {
-                returning: true,
-                where: { id: req.params.id }
-              }
-            );
+            await priceListItem.update(request);
+            
             res.status(204).end();
           }
         } else {
@@ -204,7 +189,7 @@ router.delete('/pricing/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, r
   if (currentAdmin) {
     try {
       // if the price list item exists
-      if (priceListItem) {
+      if (priceListItem !== null) {
         // if the price list item adminId === current Admin Id
         if (currentAdmin.id === priceListItem.adminId) {
           // DELETE the price list item and end the cycle

@@ -6,11 +6,6 @@ const { check } = require('express-validator');
 // other imports
 const Admin = require('../models').Admin;
 
-// const sequelizeErrors = (e) => {
-//   const error = e.array().map(err => err.errors.message);
-//   return error;
-// };
-
 /**
  * Asyncronous callback function to pass as middleware
  * @param {Callback} cb - request, response, next try catch 
@@ -21,8 +16,6 @@ function asyncHandler(cb) {
         await cb(req, res, next);
       } catch (err) {
         if (err.name === "SequelizeValidationError") {
-          // send (400) - status back to client
-          // const error = err.map(err => err.errors.message);
           console.error(err);
           res.status(400).json({ errors: err.errors.map(e => e.message) });
         } else {

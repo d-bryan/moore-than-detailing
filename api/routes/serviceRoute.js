@@ -75,20 +75,93 @@ router.get('/services/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res
 
 }));
 
-// TESTED - NO
+// TESTED - YES
 // POST - /api/services (201) - creates a new service item, sets the location header for the service item and returns no content to the user
-router.post('/services', MW.authenticateAdmin, MW.asyncHandler(async(req, res, next) => {
+router.post('/services', MW.authenticateAdmin, MW.checkServices, MW.asyncHandler(async(req, res, next) => {
   const currentAdmin = req.currentAdmin;
+  const errors = validationResult(req);
+  const errorMessages = errors.array().map(error => error.msg);
+  const createService = await Service.create(req.body);
 
+    // if an admin is signed in
+    if (currentAdmin) {
+      try {
+        
+        // if there are validation errors
+        if (!errors.isEmpty()) {
+          // send (400) - status back to user letting them know it was a bad request
+          res.status(400).json({ errors: errorMessages });
+        } else {
+          // add the service to the database
+          createService;
 
+          // set the location header for the URI
+          res.location(`/services/${createService.id}`);
+
+          // send a (201) - status for newly created review item
+          res.status(201).end();        
+        }
+
+      } catch (err) {
+        console.error("Error posting new service item to the database: ", err);
+        next(err);
+      }
+
+    } else {
+      // return (401) - unauthorized to the user letting them know they must log in first
+      res.status(401).json({ errors: "Please log in to view protected resources" });
+    }
 
 }));
 
-// TESTED - NO
+// TESTED - YES
 // PUT - /api/services/:id (204) - Updates a service item and returns no content
-router.put('/services/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res, next) => {
+router.put('/services/:id', MW.authenticateAdmin, MW.checkServices, MW.asyncHandler(async(req, res, next) => {
   const currentAdmin = req.currentAdmin;
+  const serviceListItem = await Service.findByPk(req.params.id);
+  const request = req.body;
+  const errors = validationResult(req);
+  const errorMessages = errors.array().map(error => error.msg);
 
+    // if an admin is signed in
+    if (currentAdmin) {  
+      try {    
+        // if the current admin is the owner of the item
+        if (currentAdmin.id === serviceListItem.adminId) {                  
+          // if all the required information is present to update
+          if (
+            request.serviceName !== null && 
+            request.pricing !== null
+            ) {          
+            // if the service list item does not exist send (404) - status code back to user
+            if (serviceListItem === null) {          
+              res.status(404).json({errors: "The service item you are looking for could not be found"});
+            } else {          
+              // update the service list item with the requested data
+              await serviceListItem.update(request);
+              res.status(204).end();
+            }
+          } else {        
+            // there is missing information for the update send (400) status code back to user
+            if (!errors.isEmpty()){          
+              res.status(400).json({ errors: errorMessages})
+            }
+          }
+        } else {      
+          // if user does not own the course send (403) - status code back for unauthorized
+          res.status(403).json({
+            errors: `The user administrator ${currentAdmin.firstName}, ${currentAdmin.lastName.slice(0,1)} that you are logged is as is not the owner of this information.`
+          });
+        }
+
+      } catch (err) {    
+        console.error("Error updating the service list item in the database: ", err);
+        next(err);
+      }
+    } else {
+      // return (401) - unauthorized to the user letting them know they must log in first
+      res.status(401).json({ errors: "Please log in to view protected resources" });
+    }
 
 
 }));
@@ -97,8 +170,38 @@ router.put('/services/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res
 // DELETE - /api/services/:id (204) - Deletes a service item and returns no content
 router.delete('/services/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res, next) => {
   const currentAdmin = req.currentAdmin;
+  const serviceListItem = await Service.findByPk(req.params.id);
 
+  // if an admin is signed in
+  if (currentAdmin) {
+    
+    try {
+      // if the review list item exists
+      if (serviceListItem !== null) {
+        // if the review list item adminId === current Admin Id
+        if (currentAdmin.id === serviceListItem.adminId) {
+          // DELETE the review list item and end the cycle
+          await serviceListItem.destroy();
+          res.status(204).end();
+        } else {
+          // the current admin is not authorized to delete review send (403) - status to client
+          res.status(403).json({
+            errors: `The user administrator ${currentAdmin.firstName}, ${currentAdmin.lastName.slice(0,1)} that you are logged is as is not the owner of this information.`
+          });
+        }
+      } else {
+        // if the price list item does not exist send (404) - status back to client
+        res.status(404).json({  errors: "The service list item your are looking for could not be found" });
+      }
+    } catch (err) {
+      console.error("Error deleting the service list item in the database: ", err);
+      next(err);      
+    }      
 
+  } else {
+    // return (401) - unauthorized to the user letting them know they must log in first
+    res.status(401).json({ errors: "Please log in to view protected resources" });
+  }
 
 }));
 

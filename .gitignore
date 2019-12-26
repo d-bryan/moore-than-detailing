@@ -12,6 +12,8 @@
 /seed
 /migrations
 /seeders
+api/routes/calendar/credentials.json
+api/routes/calendar/token.json
 
 # misc
 .DS_Store

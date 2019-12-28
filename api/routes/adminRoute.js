@@ -97,7 +97,7 @@ router.post('/admins', MW.authenticateAdmin, MW.createAdminCheck, MW.asyncHandle
     }
   } else {
     // else send a (401) - Unauthorize status code back telling the user that an admin must be logged in to create another administrative user
-    res.status(401).json({ message: "Unauthorized, you must first be logged in to create an administrative user" });
+    res.status(401).json({ errors: "Unauthorized, you must first be logged in to create an administrative user" });
   }
 }));
 

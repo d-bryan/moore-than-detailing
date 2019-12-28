@@ -120,7 +120,7 @@ router.put('/packages/:id', MW.authenticateAdmin, MW.packageCheck, MW.asyncHandl
             request.estimatedTime !== null) {
           // if the package does not exist send (404) - status code back to user
           if (pkg === null) {
-            res.status(404).json({errors: "The package you are looking for could not be found"});
+            res.status(404).json({ errors: "The package you are looking for could not be found" });
           } else {
             // update the package with the requested data
             await pkg.update(request);

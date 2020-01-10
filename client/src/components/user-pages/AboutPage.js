@@ -3,6 +3,8 @@ import React from 'react';
 // image imports
 import StevenAboutProfile from '../../website-mockups-assets/steven-about-profile.png';
 import MeagenAboutProfile from '../../website-mockups-assets/meagen-about-profile.png';
+// component imports
+import SignUpForm from './SignUpForm';
 
 export default class AboutPage extends React.PureComponent {
 
@@ -11,7 +13,7 @@ export default class AboutPage extends React.PureComponent {
       <>
         <div className="about--container">
           <section className="steven--profile--container">
-            <img id="steven--about--profile" src={StevenAboutProfile} alt="Steven Moore profile picture"/>
+            <img id="steven--about--profile" src={StevenAboutProfile} alt="Steven Moore profile"/>
             <h3>Steven Moore</h3>
             <p>With over 15 years of automotive detailing experience
               in Frederick Maryland. His interest in cars has always
@@ -25,13 +27,16 @@ export default class AboutPage extends React.PureComponent {
               vehicles became passion, and soon to be history.</p>
           </section>
           <section className="meagen--profile--container">
-            <img id="meagen--about--profile" src={MeagenAboutProfile} alt="Meagen Moore profile picture"/>
+            <img id="meagen--about--profile" src={MeagenAboutProfile} alt="Meagen Moore profile"/>
             <h3>Meagen Moore</h3>
             <p>Where Steven is the go-to car guy, his significant other is the one behind the scenes.
               Whether it's scheduling appointments or communicating with customers, Meagen supports Steven at home and at the office. Between managing the office and being the assistant detailer, Meagen loves being a part of the Moore Than Detailing family.
             </p>
           </section>
         </div>
+        <>
+          <SignUpForm />
+        </>
       </>
     );
   }

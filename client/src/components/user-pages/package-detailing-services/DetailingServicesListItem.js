@@ -1,8 +1,14 @@
 import React from 'react';
 
+import ReactMarkdown from 'react-markdown';
+
+// detailing list item
 const DetailingServicesListItem = (props) => {
   return (
-    <li>{}</li>
+    <ReactMarkdown
+      source={props.description}
+      escapeHtml={false}
+    />
   );
 };
 

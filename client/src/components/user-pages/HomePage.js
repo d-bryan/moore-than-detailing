@@ -1,5 +1,8 @@
 import React from 'react';
-
+import { 
+  Link,
+  NavLink
+} from 'react-router-dom';
 // component imports
 import SignUpForm from './SignUpForm';
 import DetailingServices from './DetailingServices';
@@ -17,10 +20,6 @@ import Slide6Image from '../../website-mockups-assets/truck-home-page.png';
 
 export default class HomePage extends React.PureComponent {
 
-  state = {
-
-  }
-
   render() {
 
     const { context } = this.props;
@@ -34,11 +33,11 @@ export default class HomePage extends React.PureComponent {
           <img id="header--logo" src={HeaderLogo} alt="Moore Than Detailing Logo"/>
           <nav className="jumbotron--nav">
             <ul>
-              <li><a href="./index.html">HOME</a></li>
-              <li><a href="./about.html">ABOUT US</a></li>
-              <li><a href="./services.html">SERVICES</a></li>
-              <li><a href="./appointments.html">APPOINTMENTS</a></li>
-              <li><a href="./gallery.html">GALLERY</a></li>
+              <li><NavLink to="/">HOME</NavLink></li>
+              <li><NavLink to="/about-us">ABOUT US</NavLink></li>
+              <li><NavLink to="/services">SERVICES</NavLink></li>
+              <li><NavLink to="/appointments">APPOINTMENTS</NavLink></li>
+              <li><NavLink to="/gallery">GALLERY</NavLink></li>
             </ul>
           </nav>
           <p className="jumbotron--description">

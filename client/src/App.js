@@ -12,10 +12,12 @@ import PrivateRoute from './PrivateRoute';
 // import components
 import Footer from './components/footer/Footer';
 import HomePage from './components/user-pages/HomePage';
+import AboutPage from './components/user-pages/AboutPage';
 
 // set up context components
 const FooterWithContext = withContext(Footer);
 const HomePageWithContext = withContext(HomePage);
+const AboutPageWithContext = withContext(AboutPage);
 
 export default () => (
   <Router>
@@ -39,6 +41,7 @@ export default () => (
       </header> */}
 
     <Switch>
+      <Route path="/about-us" component={AboutPageWithContext} />
       <Route path="/" component={HomePageWithContext} />
       {/* // dashboard
       <PrivateRoute path="/admin-dashboard" component={} />

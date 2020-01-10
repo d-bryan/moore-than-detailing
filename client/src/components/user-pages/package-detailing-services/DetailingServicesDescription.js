@@ -1,32 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import DetailingServicesListItem from './DetailingServicesListItem';
 
-export default class DetailingServicesDescription extends Component {
+const DetailingServicesDescription = (props) => {
 
-  state = {
-    fullDetailPlus: '',
-    fullDetail: '',
-    interiorDetail: '',
-    theBlitz: '',
-    exteriorDetail: '',
-    basicWash: '',
-  }
-
-  componentDidMount () {
-
-    
-
-
-  }
-
-  render() {
-    return (
-      <div className="detail--services--description">
-        <ul>
-
-        </ul>
-      </div>
-    );
-  }
+  return (
+    <ul>
+      <DetailingServicesListItem 
+        description={props.description}
+      />
+    </ul>
+  );
 };
+
+export default DetailingServicesDescription;
+
+// Source SectionComponent.js

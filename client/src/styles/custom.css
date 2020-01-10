@@ -20,4 +20,11 @@ div.clear input {
 .slide--4--rating {
   padding-bottom: 1.5rem;
 }
+
+.detail--services--description p {
+  line-height: 2rem;
+  padding: .5rem 1rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
   

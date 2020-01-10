@@ -7,7 +7,6 @@ import TableHeader from './TableHeader';
 const PriceListTable = (props) => {
   var mapPricingContainer;
   var mapPackageData;
-  console.log(props.packageData);
 
   if (props.data) {
    mapPricingContainer = props.data.map(d => {

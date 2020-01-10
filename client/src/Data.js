@@ -22,12 +22,12 @@ export default class Data {
       },
     };
 
-    const galleryOptions = {
-      method,
-      headers: {
-        'Content-Type': 'multipart/form-data;',
-      },
-    };
+    // const galleryOptions = {
+    //   method,
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data;',
+    //   },
+    // };
 
     // Convert body to JSON string if not null
     if (body !== null) {
@@ -62,7 +62,7 @@ export default class Data {
    */
   async getAdmin (email, password) {
     // route parameters
-    const response = await this.api('/admins', 'GET', null, true, { email, password });
+    const response = await this.api('/admin', 'GET', null, true, { email, password });
 
     // Authenticate the admin login
     if (response.status === 200) {
@@ -72,6 +72,24 @@ export default class Data {
         .then(data => data.errors);
     } else {
       throw new Error("there was an issue when attempting to get this admin.");
+    }
+  }
+
+  /**
+   * Retrieves a list of administrative users in the database
+   * @param {Admin} credentials - Admin login credentials
+   */
+  async getTotalAdmins (credentials) {
+    // route parameters
+    const response = await this.api('/admins', 'GET', null, true, credentials);
+
+    // validate the response from the API
+    if (response.status === 200) {
+      return response.json();
+    } else if (response.status === 401) {
+      return response.json().then(data => data.errors);
+    } else {
+      throw new Error("There was an issue when attempting to retreive the admin list.");
     }
   }
 
@@ -95,20 +113,40 @@ export default class Data {
     }
   }
 
+  /**
+   * Deletes an administrative user from the database
+   * @param {Admin} credentials - Admin login credentials
+   */  
+  async deleteAdmin (credentials, id) {
+    // route parameters
+    const response = await this.api(`/admins/${id}`, 'DELETE', null, true, credentials);
+
+    // validate the response from the API
+    if (response.status === 204) {
+      return [];
+    } else if (response.status === 401) {
+      return response.json().then(data => data.errors);
+    } else if (response.status === 403) {
+      return response.json().then(data => data.errors);
+    } else if (response.status === 404) {
+      return response.json().then(data => data.errors);
+    } else {
+      throw new Error("There was an error when attempting to delete the administrative user.");
+    }
+
+  }
+
   /*********** PACKAGES *************************************** */
 
   /**
    * Retrieve the list of detail packages from the API
-   * @param {Admin} credentials - Login credentials
    */
-  async getPackages (credentials) {
+  async getPackages () {
     // route parameters
-    const response = await this.api('/packages', 'GET', null, true, credentials);
+    const response = await this.api('/packages', 'GET', null, false, null);
 
     // validate the response from API
     if (response.status === 200) {
-      return response.json();
-    } else if (response.status === 401) {
       return response.json();
     } else {
       throw new Error("There was an issue when attempting to retrieve the Packages");
@@ -118,17 +156,14 @@ export default class Data {
   /**
    * Retrieve individual package from the database
    * @param {Package} id - Table ID number for package
-   * @param {Admin} credentials - Admin credentials
    */
-  async getPackage (id, credentials) {
+  async getPackage (id) {
     // route parameter
-    const response = await this.api(`/packages/${id}`, 'GET', null, true, credentials);
+    const response = await this.api(`/packages/${id}`, 'GET', null, false, null);
 
     // validate the response from API
     if (response.status === 200) {
       return response.json();
-    } else if (response.status === 401) {
-      return response.json().then(data => data.errors);
     } else if (response.status === 404) {
       return response.json().then(data => data.errors);
     } else {
@@ -210,17 +245,14 @@ export default class Data {
 
   /**
    * Retrieve the images from the database
-   * @param {Admin} credentials - Admin login credentials
    */
-  async getImages (credentials) {
+  async getImages () {
     // route parameters
-    const response = this.api('/gallery', 'GET', null, true, credentials);
+    const response = this.api('/gallery', 'GET', null, false, null);
 
     // validate the response API
     if (response.status === 200) {
       return response.json();
-    } else if (response.status === 401) {
-      return response.json().then(data => data.errors);
     } else {
       throw new Error("There was an issue when attempting to retrieve the Images");
     }
@@ -229,19 +261,18 @@ export default class Data {
   /**
    * Retrieve an individual image from the database
    * @param {ImageID} id - image id
-   * @param {Admin} credentials - Admin login info
    */
-  async getImage (id, credentials) {
+  async getImage (id) {
     // route parameters
-    const response = await this.api(`/gallery/${id}`, 'GET', null, true, credentials);
+    const response = await this.api(`/gallery/${id}`, 'GET', null, false, null);
 
     // validate the response API
     if (response.status === 200) {
       return response.json();
     } else if (response.status === 404) {
       return response.json().then(data => data.errors);
-    } else if (response.status === 401) {
-      return response.json().then(data => data.errors);
+    } else {
+      throw new Error("There was an issue when attempting to retreive the Image.");
     }
   }
 
@@ -275,17 +306,14 @@ export default class Data {
 
   /**
    * Retrieve the Services list
-   * @param {Admin} credentials - Admin login credentials
    */
-  async getServices (credentials) {
+  async getServices () {
     // route parameters
-    const response = await this.api('/services', 'GET', null, true, credentials);
+    const response = await this.api('/services', 'GET', null, false, null);
 
     // validate the response
     if (response.status === 200) {
       return response.json();
-    } else if (response.status === 401) {
-      return response.json().then(data => data.errors);
     } else {
       throw new Error("There was an error attempting to get the Service List");
     }
@@ -294,17 +322,14 @@ export default class Data {
   /**
    * Retrieve a Service Item from Database
    * @param {Service} id - Service item ID
-   * @param {Admin} credentials - Admin login credentials
    */
-  async getServiceItem (id, credentials) {
+  async getServiceItem (id) {
     // route parameters
-    const response = await this.api(`/services/${id}`, 'GET', null, true, credentials);
+    const response = await this.api(`/services/${id}`, 'GET', null, false, null);
 
     // validate the response
     if (response.status === 200) {
       return response.json();
-    } else if (response.status === 401) {
-      return response.json().then(data => data.errors);
     } else if (response.status === 404) {
       return response.json().then(data => data.errors);
     } else {
@@ -387,17 +412,14 @@ export default class Data {
 
   /**
    * Retrieve the Reviews list
-   * @param {Admin} credentials - Admin login credentials
    */
-  async getReviews (credentials) {
+  async getReviews () {
     // route parameters
-    const response = await this.api('/reviews', 'GET', null, true, credentials);
+    const response = await this.api('/reviews', 'GET', null, false, null);
 
     // validate the response
     if (response.status === 200) {
       return response.json();
-    } else if (response.status === 401) {
-      return response.json().then(data => data.errors);
     } else {
       throw new Error("There was an error attempting to get the Review List");
     }
@@ -406,17 +428,14 @@ export default class Data {
   /**
    * Retrieve a Review Item from Database
    * @param {Review} id - Review item ID
-   * @param {Admin} credentials - Admin login credentials
    */
-  async getReviewItem (id, credentials) {
+  async getReviewItem (id) {
     // route parameters
-    const response = await this.api(`/reviews/${id}`, 'GET', null, true, credentials);
+    const response = await this.api(`/reviews/${id}`, 'GET', null, false, null);
 
     // validate the response
     if (response.status === 200) {
       return response.json();
-    } else if (response.status === 401) {
-      return response.json().then(data => data.errors);
     } else if (response.status === 404) {
       return response.json().then(data => data.errors);
     } else {
@@ -479,7 +498,7 @@ export default class Data {
    */
   async deleteReview (id, credentials) {
     // route parameters
-    const response = this.api(`/reviews/${id}`, 'DELETE', null, true, credentials);
+    const response = this.api(`/reviews/${id}`, 'DELETE', null, false, credentials);
 
     // validate the response API
     if (response.status === 204) {
@@ -499,17 +518,14 @@ export default class Data {
 
   /**
    * Retrieve the Pricing list
-   * @param {Admin} credentials - Admin login credentials
    */
-  async getPricing (credentials) {
+  async getPricing () {
     // route parameters
-    const response = await this.api('/pricing', 'GET', null, true, credentials);
+    const response = await this.api('/pricing', 'GET', null, false, null);
 
     // validate the response
     if (response.status === 200) {
       return response.json();
-    } else if (response.status === 401) {
-      return response.json().then(data => data.errors);
     } else {
       throw new Error("There was an error attempting to get the Price List");
     }
@@ -518,17 +534,14 @@ export default class Data {
   /**
    * Retrieve a Price Item from Database
    * @param {PriceID} id - Pricing item ID
-   * @param {Admin} credentials - Admin login credentials
    */
-  async getPriceItem (id, credentials) {
+  async getPriceItem (id) {
     // route parameters
-    const response = await this.api(`/pricing/${id}`, 'GET', null, true, credentials);
+    const response = await this.api(`/pricing/${id}`, 'GET', null, false, null);
 
     // validate the response
     if (response.status === 200) {
       return response.json();
-    } else if (response.status === 401) {
-      return response.json().then(data => data.errors);
     } else if (response.status === 404) {
       return response.json().then(data => data.errors);
     } else {

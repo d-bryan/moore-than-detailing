@@ -1,0 +1,3241 @@
+/***************************************** IMPORTS **********************************************/
+/************************* RESETS ***********************/
+/* line 7, ../sass/reset.sass */
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+dialog,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+font,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+meter,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+progress,
+q,
+rp,
+rt,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video,
+xmp {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 100%; }
+
+/* line 102, ../sass/reset.sass */
+html,
+body {
+  height: 100%; }
+
+/* line 106, ../sass/reset.sass */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: block; }
+
+/* line 125, ../sass/reset.sass */
+b,
+strong {
+  font-weight: bold; }
+
+/* line 132, ../sass/reset.sass */
+img {
+  color: transparent;
+  font-size: 0;
+  vertical-align: middle;
+  -ms-interpolation-mode: bicubic; }
+
+/* line 140, ../sass/reset.sass */
+ul,
+ol {
+  list-style: none; }
+
+/* line 144, ../sass/reset.sass */
+li {
+  display: list-item; }
+
+/* line 151, ../sass/reset.sass */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 155, ../sass/reset.sass */
+th,
+td,
+caption {
+  font-weight: normal;
+  vertical-align: top;
+  text-align: left; }
+
+/* line 162, ../sass/reset.sass */
+q {
+  quotes: none; }
+
+/* line 165, ../sass/reset.sass */
+q:before,
+q:after {
+  content: "";
+  content: none; }
+
+/* line 170, ../sass/reset.sass */
+sub,
+sup,
+small {
+  font-size: 75%; }
+
+/* line 175, ../sass/reset.sass */
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+/* line 181, ../sass/reset.sass */
+sub {
+  bottom: -0.25em; }
+
+/* line 184, ../sass/reset.sass */
+sup {
+  top: -0.5em; }
+
+/* line 187, ../sass/reset.sass */
+svg {
+  overflow: hidden; }
+
+/************************* VARIABLES ***********************/
+/***************************************** STYLES **********************************************/
+/***************************************** GRID SETUP **********************************************/
+body {
+  background-color: #2b241b; }
+
+button a {
+  color: #fff;
+  text-decoration: none; }
+  button a :hover {
+    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.7); }
+  button a :target {
+    text-decoration: underline; }
+
+button:hover, button:target {
+  background-color: #2890ce;
+  cursor: pointer; }
+
+.error--pages {
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin: 5rem auto; }
+
+.page-wrap {
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: calc(100vh - 170px);
+  background-color: #fff; }
+
+.bounds {
+  max-width: 100%;
+  margin: 0 auto; }
+
+.grid, .grid-25, .grid-33, .grid-50, .grid-66, .grid-100 {
+  float: left;
+  padding: 0 15px;
+  box-sizing: border-box; }
+
+.grid-25 {
+  width: 25%; }
+
+.grid-33 {
+  width: 33.3%; }
+
+.grid-50 {
+  width: 50%; }
+
+.grid-66 {
+  width: 66.6%; }
+
+.grid-100 {
+  width: 100%; }
+
+.grid-right {
+  float: right; }
+
+.centered {
+  float: none;
+  margin: 0 auto; }
+
+.btn {
+  color: #fff;
+  background-color: #2e3192;
+  border: none;
+  border-radius: 15px;
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal; }
+
+.submit--errors {
+  text-align: center;
+  margin: 0 auto;
+  color: rgba(255, 92, 92, 0.7);
+  font-size: 1.125rem;
+  line-height: 1.5rem; }
+  .submit--errors div {
+    padding-top: 3rem; }
+
+.actions--button--container {
+  padding-top: 2rem;
+  padding-left: 1.5rem;
+  background-color: #2890ce;
+  color: #2a231a;
+  padding-bottom: 2rem;
+  margin-bottom: 2.75rem;
+  box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 10px 10px; }
+  .actions--button--container button {
+    padding: .5rem 1.25rem;
+    margin-left: 1.5rem;
+    background-color: #2a231a;
+    color: #fff;
+    border-radius: 10px;
+    border: solid 1px #fff; }
+    .actions--button--container button:hover {
+      border: none;
+      background-color: #fff;
+      color: #2a231a; }
+    .actions--button--container button:focus {
+      outline: 0; }
+    .actions--button--container button:target {
+      border: none;
+      background-color: rgba(255, 255, 255, 0.5);
+      color: #2a231a; }
+
+/***************************************** JUMBOTRON **********************************************/
+.jumbotron--container {
+  display: block;
+  position: relative;
+  box-sizing: border-box; }
+  .jumbotron--container::before, .jumbotron--container::after {
+    content: ' ';
+    display: table; }
+  .jumbotron--container::after {
+    clear: both; }
+
+.jumbotron {
+  width: 100%;
+  z-index: 0; }
+
+#header--logo {
+  z-index: 3;
+  float: left;
+  margin-top: .65rem;
+  position: absolute;
+  width: 15%;
+  margin-left: 2rem; }
+
+.jumbotron--nav {
+  z-index: 3;
+  float: right;
+  margin-top: .65rem;
+  position: absolute;
+  top: 2%;
+  right: 7%; }
+  .jumbotron--nav a {
+    color: #e0e0e0;
+    text-decoration: none; }
+  .jumbotron--nav a:hover {
+    color: rgba(224, 224, 224, 0.7);
+    text-decoration: underline; }
+  .jumbotron--nav a:target {
+    color: rgba(224, 224, 224, 0.7);
+    text-decoration: underline; }
+  .jumbotron--nav li {
+    display: inline-block;
+    padding-right: .25rem;
+    font-size: 2vw;
+    color: #e0e0e0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-style: normal; }
+    .jumbotron--nav li:hover {
+      color: rgba(224, 224, 224, 0.6); }
+    .jumbotron--nav li:active {
+      text-decoration: underline; }
+
+.jumbotron--description, .jumbotron--button {
+  z-index: 3;
+  position: absolute; }
+
+.jumbotron--description {
+  top: 27%;
+  left: 10%;
+  line-height: 2.5vh;
+  color: #e0e0e0;
+  font-size: 4vw; }
+
+#washed-waxed {
+  font-size: 1.5rem;
+  display: inline-block;
+  padding-left: 1.5rem;
+  font-size: 4vw; }
+
+.jumbotron--button {
+  top: 65%;
+  left: 12.5%;
+  font-size: 3.5vw;
+  position: absolute; }
+
+/***************************************** SLIDE 2 HOME PAGE **********************************************/
+.slide--2--container {
+  background-color: #2b241b;
+  position: relative;
+  height: 192px; }
+  .slide--2--container p:first-of-type {
+    left: 5%;
+    top: 40%;
+    position: absolute; }
+  .slide--2--container p:last-of-type {
+    left: 58%;
+    top: 20%;
+    padding-right: 15px;
+    font-size: .85rem;
+    position: absolute; }
+  .slide--2--container::before, .slide--2--container::after {
+    content: ' ';
+    display: table; }
+  .slide--2--container::after {
+    clear: both; }
+
+#slide--2--image {
+  width: 60%;
+  height: 100%;
+  float: right;
+  z-index: 1; }
+
+.slide--2--description {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  z-index: 2;
+  position: relative;
+  color: #e0e0e0; }
+
+/***************************************** SLIDE 3 HOME PAGE **********************************************/
+.slide--3--container {
+  position: relative;
+  height: 240px;
+  background-color: #2b241b; }
+  .slide--3--container::before, .slide--3--container::after {
+    content: ' ';
+    display: table; }
+  .slide--3--container::after {
+    clear: both; }
+
+#slide--3--bg {
+  float: left;
+  z-index: 0;
+  width: 100%;
+  height: 100%; }
+
+.slide--3--description {
+  position: absolute;
+  padding: 0 .75rem 0 0;
+  color: #fff;
+  font-size: .825rem;
+  left: 60%;
+  top: 10%;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-style: normal; }
+
+.slide--3--button {
+  position: absolute;
+  left: 60%;
+  top: 85%; }
+
+#steven--portrait--home {
+  position: absolute;
+  width: 40%;
+  height: 120%;
+  left: 8%;
+  top: -20%; }
+
+/***************************************** SLIDE 4 HOME PAGE **********************************************/
+.slide--4--container {
+  display: inline-block;
+  background-color: #2b241b;
+  z-index: 4;
+  text-align: center;
+  padding: 2rem 2.5rem;
+  color: #e0e0e0; }
+  .slide--4--container::before, .slide--4--container::after {
+    content: ' ';
+    display: table; }
+  .slide--4--container::after {
+    clear: both; }
+  .slide--4--container h3 {
+    line-height: 2rem;
+    padding-bottom: 10px; }
+  .slide--4--container h4 {
+    font-size: .75rem;
+    padding-bottom: 1rem;
+    text-decoration: underline; }
+
+.slide--4--hr {
+  height: 4px;
+  background-color: #e0e0e0;
+  text-align: center;
+  position: relative;
+  left: 27%;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  width: 45%; }
+
+.slide--4--name {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: .75rem;
+  padding-bottom: 1.2rem; }
+
+#right--review, #left--review {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.5rem; }
+
+#slide--4--left--arrow, #slide--4--right--arrow {
+  padding: 1rem;
+  display: none; }
+
+/***************************************** SLIDE 5 HOME PAGE **********************************************/
+.slide--5--container {
+  background-color: #fff;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #e0e0e0;
+  width: 100%; }
+  .slide--5--container h2 {
+    padding: 1.25rem 0 1.25rem 0;
+    color: #2a231a;
+    font-size: 1.25rem; }
+  .slide--5--container h2 + p {
+    padding: 0 0 1.25rem 0;
+    font-size: 12px;
+    color: #2a231a; }
+
+#full--detail--plus--home {
+  background: no-repeat center/100% url("../website-mockups-assets/full-detail-plus.png"); }
+
+#full--detail--home {
+  background: no-repeat center/100% url("../website-mockups-assets/full-detail.png"); }
+
+#interior--detail--home {
+  background: no-repeat center/100% url("../website-mockups-assets/interior-detail.png"); }
+
+#the--blitz--home {
+  background: no-repeat center/100% url("../website-mockups-assets/the-blitz.png"); }
+
+#exterior--detail--home {
+  background: no-repeat center/100% url("../website-mockups-assets/exterior-wash.png"); }
+
+#basic--wash--home {
+  background: no-repeat center/100% url("../website-mockups-assets/basic-wash.png"); }
+
+.slide--5--image {
+  height: 200px; }
+  .slide--5--image p {
+    padding: 1.25rem 0 0 0;
+    line-height: 2rem;
+    font-weight: 600; }
+
+.detail--services--description {
+  background-color: #e0e0e0;
+  color: #2a231a; }
+  .detail--services--description ul {
+    padding: 1.5rem 1.65rem;
+    line-height: 2rem; }
+  .detail--services--description li {
+    padding: .5rem 0;
+    font-weight: 600; }
+  .detail--services--description button {
+    margin: 0 0 1.75rem 0;
+    padding: .65rem 1rem;
+    font-weight: 600; }
+
+.underline {
+  text-decoration: underline; }
+
+.price--list--container {
+  padding-bottom: 2rem; }
+
+.full--price--list {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 1.25rem;
+  margin: 1rem auto;
+  margin-bottom: 2rem;
+  border: solid 2px #2a231a;
+  font-size: 10px;
+  width: 80%; }
+  .full--price--list th {
+    background-color: #2b241b;
+    color: #fff;
+    border: solid 2px;
+    border-color: #2a231a #fff #2a231a #2a231a;
+    text-align: center;
+    vertical-align: middle;
+    padding: .5rem 0;
+    line-height: 1.15rem;
+    width: 11.4%; }
+  .full--price--list td {
+    background-color: #e0e0e0;
+    color: #2a231a;
+    border: solid 2px #2a231a;
+    vertical-align: middle;
+    text-align: center;
+    padding: .6rem 0;
+    width: 11.4%; }
+
+#last-table-header {
+  border-color: #2a231a; }
+
+/***************************************** SLIDE 6 HOME PAGE **********************************************/
+.slide--6--container {
+  height: 240px;
+  position: relative;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #2b241b; }
+  .slide--6--container::before, .slide--6--container::after {
+    content: ' ';
+    display: table; }
+  .slide--6--container::after {
+    clear: both; }
+
+#slide--6--bg--image {
+  height: 100%;
+  z-index: 0;
+  float: right;
+  width: 60%; }
+
+#slide--6--image {
+  position: absolute;
+  width: 50vw;
+  z-index: 0;
+  top: 40%;
+  left: 8%; }
+
+#slide--6--description--right, #slide--6--description--left {
+  position: absolute;
+  color: #fff; }
+
+#slide--6--description--left {
+  left: 0%;
+  top: 30%;
+  padding: 0 2rem; }
+
+#slide--6--description--right {
+  left: 53%;
+  top: 10%;
+  padding: 0 2rem;
+  font-size: 12px; }
+
+.slide--6--btn {
+  position: absolute;
+  top: 80%;
+  left: 60%; }
+
+/***************************************** SLIDE 7 HOME PAGE **********************************************/
+.slide--7--container {
+  background-color: #48494b;
+  color: #fff;
+  text-align: center;
+  padding: 5rem 0 1rem 0;
+  padding-bottom: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal; }
+  .slide--7--container h3, .slide--7--container p {
+    padding-bottom: 1.25rem; }
+  .slide--7--container h3 {
+    font-size: 24px; }
+  .slide--7--container p {
+    font-size: 18px;
+    line-height: 1.25rem;
+    font-family: 'adobe-caslon-pro', serif;
+    font-weight: 400;
+    font-style: normal; }
+  .slide--7--container input {
+    background-color: rgba(224, 224, 224, 0.8);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: .5rem 1rem .5rem;
+    margin-bottom: 1rem; }
+
+.slide--7--btn {
+  font-size: 1rem;
+  padding: .25rem 1rem; }
+
+.textwidget {
+  padding: 4rem 2rem 3rem; }
+
+#mc_embed_signup_scroll {
+  text-align: left; }
+  #mc_embed_signup_scroll h3, #mc_embed_signup_scroll p {
+    color: #fff;
+    text-align: center; }
+
+#mc-embedded-subscribe {
+  color: #fff;
+  background-color: #2e3192;
+  border: none;
+  border-radius: 15px;
+  font-size: 1em;
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal; }
+
+/*************************************** NAVIGATION ALTERNATE PAGES **************************************/
+.navigation--container {
+  background-color: #000;
+  position: relative;
+  box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.5);
+  height: 75px; }
+
+#nav--phone--number {
+  position: absolute;
+  top: 65%;
+  left: 8%;
+  font-size: 10px;
+  margin-top: 5px; }
+  #nav--phone--number a {
+    color: #e0e0e0;
+    text-decoration: none; }
+    #nav--phone--number a:hover, #nav--phone--number a:target {
+      color: rgba(224, 224, 224, 0.7);
+      text-decoration: underline; }
+
+.navigation {
+  float: right;
+  margin-top: .65rem;
+  position: absolute;
+  top: 14%;
+  right: 10%; }
+  .navigation::before, .navigation::after {
+    content: ' ';
+    display: table; }
+  .navigation::after {
+    clear: both; }
+  .navigation li {
+    display: inline-block;
+    padding-right: .25rem;
+    font-size: .45rem;
+    color: #e0e0e0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-style: normal; }
+  .navigation a {
+    color: #fff;
+    text-decoration: none; }
+    .navigation a:hover, .navigation a:target {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: underline; }
+
+/***************************************** ABOUT PAGE **********************************************/
+.about--container {
+  text-align: center;
+  padding: 2rem;
+  margin: 1.75rem 0; }
+  .about--container h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    padding-bottom: 1.75rem;
+    font-size: 1.75rem; }
+  .about--container p {
+    font-family: 'adobe-caslon-pro', serif;
+    font-weight: 400;
+    font-style: normal; }
+
+#steven--about--profile, #meagen--about--profile {
+  width: 50%;
+  padding-bottom: 1.75rem; }
+
+#meagen--about--profile {
+  padding-top: 2rem; }
+
+/***************** ADDITIONAL SERVICES ***************/
+.additional--services h3 {
+  text-align: center;
+  padding-bottom: 1.75rem;
+  font-size: 1.25rem; }
+.additional--services section {
+  background-color: #e0e0e0;
+  margin: 0 1rem;
+  border-radius: 10px; }
+.additional--services table {
+  margin-bottom: 2.25rem;
+  width: 100%;
+  line-height: 1.5rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal; }
+.additional--services th, .additional--services td {
+  padding-bottom: 10px; }
+.additional--services thead:first-child {
+  padding-top: 15px; }
+.additional--services th {
+  font-weight: 600; }
+.additional--services td, .additional--services th {
+  padding-right: 20px;
+  padding-left: 20px; }
+
+.services--left, .service--table {
+  text-align: left; }
+
+.services--right, .price--table {
+  text-align: right; }
+
+/***************************************** APPOINTMENTS PAGE **********************************************/
+.appointment--details {
+  text-align: center;
+  margin: 2.5rem 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal; }
+  .appointment--details h1 {
+    padding-bottom: 1.5rem; }
+  .appointment--details p {
+    line-height: 1.5rem;
+    padding: .5rem 2rem; }
+
+#google--calendar--container {
+  margin: 2.5rem 1rem; }
+
+#google--calendar {
+  width: 100%;
+  height: 300px; }
+
+#calendar--appointment--time {
+  margin-bottom: 1.5rem; }
+
+.native--time--picker, .native--date--picker {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal; }
+  .native--time--picker input, .native--date--picker input {
+    margin-top: 1.5rem; }
+  .native--time--picker label, .native--date--picker label {
+    font-weight: 600; }
+
+.fallback--label, .fallback--time--picker, .fallback--date--picker {
+  display: none;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-style: normal; }
+
+#day, #month, #year {
+  margin-bottom: 1.5rem; }
+
+.form--appointment {
+  text-align: center; }
+  .form--appointment input, .form--appointment textarea, .form--appointment select {
+    padding: .5rem 2.5rem;
+    background-color: #e0e0e0;
+    box-shadow: inset 2px 2px rgba(42, 35, 26, 0.3);
+    border-radius: 7px;
+    max-width: 80%; }
+  .form--appointment label {
+    text-decoration: underline; }
+  .form--appointment button {
+    margin-bottom: 1.5rem;
+    margin-top: .75rem; }
+
+.form--styling {
+  margin: 1rem 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-weight: 600; }
+
+/***************************************** GALLERY PAGE **********************************************/
+.gallery--modal, .gallery--link--container {
+  text-align: center; }
+  .gallery--modal h1, .gallery--link--container h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-decoration: underline; }
+
+#gallery--modal--image {
+  padding: 0 1rem;
+  width: 70%;
+  margin-bottom: 1rem;
+  border-radius: 50px; }
+
+.gallery--link--container {
+  margin-top: 3.5rem;
+  padding-bottom: 3.5rem; }
+  .gallery--link--container h3 {
+    margin: 1rem 0 1.5rem 0;
+    font-size: 1.5rem;
+    text-decoration: underline; }
+
+#coupe--gallery--link img, #four-door--gallery--link img,
+#suv--gallery--link img, #mini--van--gallery--link img {
+  border-radius: 50px;
+  width: 70%;
+  box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.7); }
+#coupe--gallery--link img:hover, #coupe--gallery--link img:target,
+#coupe--gallery--link a:hover, #coupe--gallery--link a:target, #four-door--gallery--link img:hover, #four-door--gallery--link img:target,
+#four-door--gallery--link a:hover, #four-door--gallery--link a:target,
+#suv--gallery--link img:hover,
+#suv--gallery--link img:target,
+#suv--gallery--link a:hover,
+#suv--gallery--link a:target, #mini--van--gallery--link img:hover, #mini--van--gallery--link img:target,
+#mini--van--gallery--link a:hover, #mini--van--gallery--link a:target {
+  box-shadow: none;
+  cursor: pointer; }
+
+/**************************************** GALLERY INDIVIDUAL **********************************************/
+.image--container {
+  padding: 3rem 5rem 5rem;
+  text-align: center;
+  margin: auto; }
+  .image--container h2 {
+    padding-bottom: 2rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 2rem; }
+  .image--container img {
+    border-radius: 50px;
+    width: 100%;
+    margin-bottom: 2rem;
+    box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.7); }
+  .image--container img:hover {
+    box-shadow: 5px 10px 10px 1px rgba(40, 144, 206, 0.7); }
+
+/***************************************** FOOTER **********************************************/
+.footer--container {
+  background-color: #3b3d40;
+  color: #fff;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+  height: 195px;
+  line-height: 1rem;
+  padding: 0 1.5rem; }
+  .footer--container a {
+    color: #2890ce;
+    text-decoration: none; }
+    .footer--container a:hover {
+      color: rgba(40, 144, 206, 0.7); }
+    .footer--container a:target {
+      color: #2e3192; }
+
+#footer--logo, .footer--text {
+  padding: 1.25rem 0;
+  padding-left: 1.75rem; }
+
+#footer--logo {
+  width: 30%;
+  height: 25%;
+  padding-top: 2.25rem; }
+
+#attribute {
+  padding: 1.5rem; }
+
+.footer--text {
+  font-size: 9px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  justify-content: space-around; }
+
+.footer--moore--than--detailing--desc {
+  display: inline-block; }
+
+.footer--container:before, .footer--container:after {
+  content: " ";
+  display: table; }
+
+.footer--container:after {
+  clear: both; }
+
+/***************************************** ADMIN LOGIN **********************************************/
+.admin--footer--container {
+  background-color: #3b3d40;
+  color: #fff;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+  height: 220px;
+  line-height: 1rem;
+  padding: 0 1.5rem; }
+  .admin--footer--container a {
+    color: #2890ce;
+    text-decoration: none; }
+    .admin--footer--container a:hover {
+      color: rgba(40, 144, 206, 0.7); }
+    .admin--footer--container a:target {
+      color: #2e3192; }
+
+.admin--footer {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal; }
+  .admin--footer li {
+    padding: .35rem 0; }
+
+#menu-header {
+  padding-top: 2rem;
+  padding-bottom: 8px;
+  border-bottom: solid 1px white;
+  max-width: 150px;
+  margin: auto; }
+  #menu-header + li {
+    padding-top: 18px; }
+
+#login--page,
+#logout--page {
+  margin: auto;
+  text-align: center;
+  padding-top: 3rem; }
+  #login--page #username,
+  #login--page #password,
+  #login--page h1,
+  #logout--page #username,
+  #logout--page #password,
+  #logout--page h1 {
+    margin-bottom: 1.5rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-style: normal; }
+  #login--page h1,
+  #logout--page h1 {
+    font-size: 1.5rem; }
+  #login--page #username,
+  #login--page #password,
+  #logout--page #username,
+  #logout--page #password {
+    padding: .25rem 1rem;
+    width: 15%; }
+  #login--page label,
+  #logout--page label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    padding-right: 14px; }
+
+#admin--name--container {
+  color: #fff;
+  z-index: 3;
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  font-size: 1.5rem;
+  font-family: 'adobe-caslon-pro', serif;
+  font-weight: 400;
+  font-style: normal; }
+
+.admin--input--container input[type="submit"],
+#logout--page input[type="submit"] {
+  background-color: #2890ce;
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 1px 4px 2px 1px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  margin-top: 1.5rem;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal; }
+  .admin--input--container input[type="submit"]:hover, .admin--input--container input[type="submit"]:target,
+  #logout--page input[type="submit"]:hover,
+  #logout--page input[type="submit"]:target {
+    background-color: rgba(40, 144, 206, 0.6);
+    box-shadow: none; }
+.admin--input--container input[type="text"],
+.admin--input--container input[type="password"],
+#logout--page input[type="text"],
+#logout--page input[type="password"] {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  color: #fff; }
+  .admin--input--container input[type="text"]:focus,
+  .admin--input--container input[type="password"]:focus,
+  #logout--page input[type="text"]:focus,
+  #logout--page input[type="password"]:focus {
+    outline: 0; }
+
+/***************************************** ADMIN TABLES **********************************************/
+#admins--table--container,
+#admin--packages--table--container,
+#admin--pricing--table--container,
+#admin--reviews--table--container {
+  text-align: center;
+  padding-top: 3rem; }
+  #admins--table--container h1,
+  #admin--packages--table--container h1,
+  #admin--pricing--table--container h1,
+  #admin--reviews--table--container h1 {
+    padding-bottom: 2rem;
+    font-size: 2rem; }
+  #admins--table--container table,
+  #admin--packages--table--container table,
+  #admin--pricing--table--container table,
+  #admin--reviews--table--container table {
+    margin: 0 auto;
+    width: 90%;
+    padding: 1.5rem 0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-style: normal; }
+    #admins--table--container table tr,
+    #admin--packages--table--container table tr,
+    #admin--pricing--table--container table tr,
+    #admin--reviews--table--container table tr {
+      padding: 2rem .25rem; }
+      #admins--table--container table tr td,
+      #admin--packages--table--container table tr td,
+      #admin--pricing--table--container table tr td,
+      #admin--reviews--table--container table tr td {
+        vertical-align: middle; }
+  #admins--table--container thead,
+  #admin--packages--table--container thead,
+  #admin--pricing--table--container thead,
+  #admin--reviews--table--container thead {
+    background-color: #2a231a;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 18px; }
+    #admins--table--container thead td,
+    #admin--packages--table--container thead td,
+    #admin--pricing--table--container thead td,
+    #admin--reviews--table--container thead td {
+      border-right: solid 2px #fff;
+      text-align: center;
+      padding: 1.5rem 0; }
+  #admins--table--container tbody,
+  #admin--packages--table--container tbody,
+  #admin--pricing--table--container tbody,
+  #admin--reviews--table--container tbody {
+    color: #2a231a;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px; }
+    #admins--table--container tbody td,
+    #admin--packages--table--container tbody td,
+    #admin--pricing--table--container tbody td,
+    #admin--reviews--table--container tbody td {
+      padding: 1.5rem 1rem .75rem;
+      border: solid 1px #2a231a; }
+
+.admin--review--cell {
+  width: 50%;
+  padding: 0 3.5rem;
+  line-height: 1.5rem; }
+
+#admin--packages--table--container,
+#admin--pricing--table--container,
+#admin--reviews--table--container {
+  padding: 2rem 0 5rem; }
+  #admin--packages--table--container h1,
+  #admin--pricing--table--container h1,
+  #admin--reviews--table--container h1 {
+    font-size: 2.5rem;
+    padding-bottom: 3rem; }
+
+.admin--table--update--button {
+  background-color: green; }
+
+.admin--table--delete--button {
+  background-color: red; }
+
+.admin--table--update--button,
+.admin--table--delete--button {
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 5px;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-style: normal; }
+  .admin--table--update--button:focus,
+  .admin--table--delete--button:focus {
+    outline: 0; }
+
+/************************************ ADMIN FORMS **********************************************/
+#create--new--admin--container {
+  margin: auto;
+  text-align: center;
+  padding: 2rem 0 4rem; }
+  #create--new--admin--container button {
+    color: #fff;
+    background-color: #2890ce;
+    padding: .75rem 1.5rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 1px #000; }
+    #create--new--admin--container button:hover, #create--new--admin--container button:target, #create--new--admin--container button:focus {
+      background-color: rgba(40, 144, 206, 0.7);
+      box-shadow: none;
+      outline: 0; }
+
+#create--new--admin--form,
+#create--new--packages--form,
+#create--new--pricing--form,
+#create--new--reviews--form,
+#create--new--service--form,
+#update--package--form,
+#update--pricing--form {
+  margin: 0 auto;
+  padding: 3rem 0 5rem;
+  text-align: center;
+  width: 100%;
+  display: table; }
+  #create--new--admin--form h1,
+  #create--new--packages--form h1,
+  #create--new--pricing--form h1,
+  #create--new--reviews--form h1,
+  #create--new--service--form h1,
+  #update--package--form h1,
+  #update--pricing--form h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.5rem;
+    padding-bottom: 1.75rem; }
+  #create--new--admin--form p,
+  #create--new--packages--form p,
+  #create--new--pricing--form p,
+  #create--new--reviews--form p,
+  #create--new--service--form p,
+  #update--package--form p,
+  #update--pricing--form p {
+    margin-bottom: 1.5rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-style: normal; }
+  #create--new--admin--form input,
+  #create--new--admin--form label,
+  #create--new--admin--form textarea,
+  #create--new--packages--form input,
+  #create--new--packages--form label,
+  #create--new--packages--form textarea,
+  #create--new--pricing--form input,
+  #create--new--pricing--form label,
+  #create--new--pricing--form textarea,
+  #create--new--reviews--form input,
+  #create--new--reviews--form label,
+  #create--new--reviews--form textarea,
+  #create--new--service--form input,
+  #create--new--service--form label,
+  #create--new--service--form textarea,
+  #update--package--form input,
+  #update--package--form label,
+  #update--package--form textarea,
+  #update--pricing--form input,
+  #update--pricing--form label,
+  #update--pricing--form textarea {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px; }
+  #create--new--admin--form label,
+  #create--new--packages--form label,
+  #create--new--pricing--form label,
+  #create--new--reviews--form label,
+  #create--new--service--form label,
+  #update--package--form label,
+  #update--pricing--form label {
+    display: table-row; }
+  #create--new--admin--form input[type="text"],
+  #create--new--admin--form input[type="password"],
+  #create--new--admin--form input[type="number"],
+  #create--new--packages--form input[type="text"],
+  #create--new--packages--form input[type="password"],
+  #create--new--packages--form input[type="number"],
+  #create--new--pricing--form input[type="text"],
+  #create--new--pricing--form input[type="password"],
+  #create--new--pricing--form input[type="number"],
+  #create--new--reviews--form input[type="text"],
+  #create--new--reviews--form input[type="password"],
+  #create--new--reviews--form input[type="number"],
+  #create--new--service--form input[type="text"],
+  #create--new--service--form input[type="password"],
+  #create--new--service--form input[type="number"],
+  #update--package--form input[type="text"],
+  #update--package--form input[type="password"],
+  #update--package--form input[type="number"],
+  #update--pricing--form input[type="text"],
+  #update--pricing--form input[type="password"],
+  #update--pricing--form input[type="number"] {
+    background-color: rgba(42, 35, 26, 0.7);
+    color: #fff;
+    width: 25%;
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+    margin-top: .25rem;
+    padding: .25rem 1rem;
+    display: table-row; }
+  #create--new--admin--form option,
+  #create--new--admin--form select,
+  #create--new--admin--form input[type="file"],
+  #create--new--packages--form option,
+  #create--new--packages--form select,
+  #create--new--packages--form input[type="file"],
+  #create--new--pricing--form option,
+  #create--new--pricing--form select,
+  #create--new--pricing--form input[type="file"],
+  #create--new--reviews--form option,
+  #create--new--reviews--form select,
+  #create--new--reviews--form input[type="file"],
+  #create--new--service--form option,
+  #create--new--service--form select,
+  #create--new--service--form input[type="file"],
+  #update--package--form option,
+  #update--package--form select,
+  #update--package--form input[type="file"],
+  #update--pricing--form option,
+  #update--pricing--form select,
+  #update--pricing--form input[type="file"] {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: .25rem auto 1.25rem;
+    background-color: rgba(42, 35, 26, 0.7);
+    display: table-row;
+    width: 25%;
+    padding: .25rem 1rem;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: inset 0px 1px rgba(255, 255, 255, 0.7); }
+    #create--new--admin--form option:focus,
+    #create--new--admin--form select:focus,
+    #create--new--admin--form input[type="file"]:focus,
+    #create--new--packages--form option:focus,
+    #create--new--packages--form select:focus,
+    #create--new--packages--form input[type="file"]:focus,
+    #create--new--pricing--form option:focus,
+    #create--new--pricing--form select:focus,
+    #create--new--pricing--form input[type="file"]:focus,
+    #create--new--reviews--form option:focus,
+    #create--new--reviews--form select:focus,
+    #create--new--reviews--form input[type="file"]:focus,
+    #create--new--service--form option:focus,
+    #create--new--service--form select:focus,
+    #create--new--service--form input[type="file"]:focus,
+    #update--package--form option:focus,
+    #update--package--form select:focus,
+    #update--package--form input[type="file"]:focus,
+    #update--pricing--form option:focus,
+    #update--pricing--form select:focus,
+    #update--pricing--form input[type="file"]:focus {
+      outline: 0; }
+  #create--new--admin--form textarea,
+  #create--new--packages--form textarea,
+  #create--new--pricing--form textarea,
+  #create--new--reviews--form textarea,
+  #create--new--service--form textarea,
+  #update--package--form textarea,
+  #update--pricing--form textarea {
+    height: 300px;
+    min-height: 300px;
+    background-color: rgba(42, 35, 26, 0.7);
+    color: #fff;
+    max-width: 25%;
+    min-width: 25%;
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+    padding: .5rem 1rem;
+    display: table-row; }
+  #create--new--admin--form input[type="text"],
+  #create--new--admin--form input[type="password"],
+  #create--new--admin--form input[type="number"],
+  #create--new--admin--form textarea,
+  #create--new--packages--form input[type="text"],
+  #create--new--packages--form input[type="password"],
+  #create--new--packages--form input[type="number"],
+  #create--new--packages--form textarea,
+  #create--new--pricing--form input[type="text"],
+  #create--new--pricing--form input[type="password"],
+  #create--new--pricing--form input[type="number"],
+  #create--new--pricing--form textarea,
+  #create--new--reviews--form input[type="text"],
+  #create--new--reviews--form input[type="password"],
+  #create--new--reviews--form input[type="number"],
+  #create--new--reviews--form textarea,
+  #create--new--service--form input[type="text"],
+  #create--new--service--form input[type="password"],
+  #create--new--service--form input[type="number"],
+  #create--new--service--form textarea,
+  #update--package--form input[type="text"],
+  #update--package--form input[type="password"],
+  #update--package--form input[type="number"],
+  #update--package--form textarea,
+  #update--pricing--form input[type="text"],
+  #update--pricing--form input[type="password"],
+  #update--pricing--form input[type="number"],
+  #update--pricing--form textarea {
+    box-shadow: inset 0px 1px rgba(255, 255, 255, 0.7); }
+    #create--new--admin--form input[type="text"]:focus,
+    #create--new--admin--form input[type="password"]:focus,
+    #create--new--admin--form input[type="number"]:focus,
+    #create--new--admin--form textarea:focus,
+    #create--new--packages--form input[type="text"]:focus,
+    #create--new--packages--form input[type="password"]:focus,
+    #create--new--packages--form input[type="number"]:focus,
+    #create--new--packages--form textarea:focus,
+    #create--new--pricing--form input[type="text"]:focus,
+    #create--new--pricing--form input[type="password"]:focus,
+    #create--new--pricing--form input[type="number"]:focus,
+    #create--new--pricing--form textarea:focus,
+    #create--new--reviews--form input[type="text"]:focus,
+    #create--new--reviews--form input[type="password"]:focus,
+    #create--new--reviews--form input[type="number"]:focus,
+    #create--new--reviews--form textarea:focus,
+    #create--new--service--form input[type="text"]:focus,
+    #create--new--service--form input[type="password"]:focus,
+    #create--new--service--form input[type="number"]:focus,
+    #create--new--service--form textarea:focus,
+    #update--package--form input[type="text"]:focus,
+    #update--package--form input[type="password"]:focus,
+    #update--package--form input[type="number"]:focus,
+    #update--package--form textarea:focus,
+    #update--pricing--form input[type="text"]:focus,
+    #update--pricing--form input[type="password"]:focus,
+    #update--pricing--form input[type="number"]:focus,
+    #update--pricing--form textarea:focus {
+      outline: 0; }
+  #create--new--admin--form input[type="submit"],
+  #create--new--packages--form input[type="submit"],
+  #create--new--pricing--form input[type="submit"],
+  #create--new--reviews--form input[type="submit"],
+  #create--new--service--form input[type="submit"],
+  #update--package--form input[type="submit"],
+  #update--pricing--form input[type="submit"] {
+    background-color: #2890ce;
+    color: #fff;
+    border-radius: 10px;
+    padding: .5rem 1.25rem;
+    box-shadow: 2px 2px 2px 1px #000; }
+    #create--new--admin--form input[type="submit"]:hover, #create--new--admin--form input[type="submit"]:target, #create--new--admin--form input[type="submit"]:focus,
+    #create--new--packages--form input[type="submit"]:hover,
+    #create--new--packages--form input[type="submit"]:target,
+    #create--new--packages--form input[type="submit"]:focus,
+    #create--new--pricing--form input[type="submit"]:hover,
+    #create--new--pricing--form input[type="submit"]:target,
+    #create--new--pricing--form input[type="submit"]:focus,
+    #create--new--reviews--form input[type="submit"]:hover,
+    #create--new--reviews--form input[type="submit"]:target,
+    #create--new--reviews--form input[type="submit"]:focus,
+    #create--new--service--form input[type="submit"]:hover,
+    #create--new--service--form input[type="submit"]:target,
+    #create--new--service--form input[type="submit"]:focus,
+    #update--package--form input[type="submit"]:hover,
+    #update--package--form input[type="submit"]:target,
+    #update--package--form input[type="submit"]:focus,
+    #update--pricing--form input[type="submit"]:hover,
+    #update--pricing--form input[type="submit"]:target,
+    #update--pricing--form input[type="submit"]:focus {
+      background-color: rgba(40, 144, 206, 0.7);
+      box-shadow: none;
+      outline: 0; }
+
+/***************************************** ADMIN DELETE **********************************************/
+.admin--delete--item {
+  margin: auto;
+  padding: 3rem 5rem;
+  text-align: center; }
+  .admin--delete--item h1,
+  .admin--delete--item h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-style: normal; }
+  .admin--delete--item h1 {
+    padding-bottom: 2.5rem;
+    font-size: 2rem; }
+  .admin--delete--item h3 {
+    font-size: 1.5rem; }
+
+/***************************************** ADMIN DASHBOARD **********************************************/
+#admin--dashboard--container {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  display: table;
+  text-align: center; }
+  #admin--dashboard--container h2 {
+    padding-bottom: 2.5rem;
+    padding-top: 1rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.75rem; }
+  #admin--dashboard--container .admin--dashboard {
+    margin: 0 auto;
+    text-align: center;
+    float: none;
+    width: 70%; }
+    #admin--dashboard--container .admin--dashboard button {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      background-color: #2890ce;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.125rem;
+      border-radius: 10px;
+      padding: 2rem 3rem;
+      margin-bottom: 1.5rem;
+      margin-right: .75rem;
+      box-shadow: 2px 2px 2px 1px #000; }
+      #admin--dashboard--container .admin--dashboard button:hover, #admin--dashboard--container .admin--dashboard button:target, #admin--dashboard--container .admin--dashboard button:focus {
+        background-color: rgba(40, 144, 206, 0.7);
+        box-shadow: none;
+        outline: 0; }
+
+/***************************************** MEDIA QUERIES **********************************************/
+/***************************************** APPOINTMENTS PAGE *********************** TODO /
+
+/***************************************** 426px - 576px **********************************************/
+@media screen and (min-width: 426px) and (max-width: 576px) {
+  /***************************************** JUMBOTRON **********************************************/
+  .jumbotron--description {
+    line-height: 1.5rem; }
+
+  .jumbotron--button {
+    top: 70%;
+    left: 10%;
+    font-size: 3vw; }
+
+  /************************************** SLIDE 2 HOME PAGE *********************************************/
+  .slide--2--container {
+    height: 275px; }
+    .slide--2--container p:first-of-type {
+      left: 5%;
+      top: 40%;
+      font-size: 1.25rem;
+      line-height: 1.5rem; }
+    .slide--2--container p:last-of-type {
+      left: 57%;
+      top: 15%;
+      line-height: 1.5rem;
+      font-size: 1rem; }
+
+  /************************************** SLIDE 3 HOME PAGE *********************************************/
+  .slide--3--container {
+    height: 275px; }
+
+  .slide--3--description {
+    padding: 0 1rem 0 0;
+    font-size: .825rem;
+    line-height: 1.15rem;
+    left: 60%;
+    top: 10%; }
+    .slide--3--description :first-child {
+      font-size: 1rem; }
+
+  .slide--3--button {
+    left: 60%;
+    top: 85%; }
+
+  #steven--portrait--home {
+    width: 40%;
+    height: 120%;
+    left: 8%;
+    top: -20; }
+
+  /*************************************** SLIDE 5 HOME PAGE ********************************************/
+  .slide--5--container {
+    width: 100%; }
+    .slide--5--container h2 {
+      padding: 2rem 0 1.25rem 0;
+      font-size: 1.25rem; }
+    .slide--5--container h2 + p {
+      padding: 0 0 2rem 0;
+      font-size: 12px; }
+
+  .slide--5--image {
+    height: 200px; }
+    .slide--5--image p {
+      padding: 1.25rem 0 0 0;
+      line-height: 2rem;
+      font-weight: 600; }
+
+  .detail--services--description ul {
+    padding: 1.5rem 1.65rem;
+    line-height: 2rem; }
+  .detail--services--description li {
+    padding: .5rem 0;
+    font-weight: 600; }
+  .detail--services--description button {
+    margin: 0 0 1.75rem 0;
+    padding: .65rem 1rem;
+    font-weight: 600; }
+
+  .price--list--container {
+    padding-bottom: 2rem; }
+
+  .full--price--list {
+    padding: 1.25rem;
+    margin: 1rem auto;
+    margin-bottom: 2rem;
+    font-size: 10px; }
+    .full--price--list th {
+      padding: .5rem 0;
+      line-height: 1.15rem; }
+    .full--price--list td {
+      padding: .6rem 0; }
+
+  /*************************************** SLIDE 6 HOME PAGE ********************************************/
+  .slide--6--container {
+    height: 275px; }
+
+  #slide--6--image {
+    width: 50vw;
+    top: 40%;
+    left: 8%; }
+
+  #slide--6--description--left {
+    left: 0%;
+    top: 30%;
+    padding: 0 2rem; }
+
+  #slide--6--description--right {
+    left: 53%;
+    top: 15%;
+    padding: 0 2rem;
+    line-height: 1.15rem;
+    font-size: 12.5px; }
+
+  .slide--6--btn {
+    top: 80%;
+    left: 60%; }
+
+  /*************************************** SLIDE 7 HOME PAGE ********************************************/
+  .slide--7--container {
+    padding: 5rem 0 1rem 0;
+    padding-bottom: 1rem; }
+    .slide--7--container h3, .slide--7--container p {
+      padding-bottom: 1.25rem; }
+    .slide--7--container h3 {
+      font-size: 24px; }
+    .slide--7--container p {
+      font-size: 18px;
+      line-height: 1.25rem; }
+    .slide--7--container input {
+      padding: .5rem 1rem .5rem;
+      margin-bottom: 1rem; }
+
+  .slide--7--btn {
+    font-size: 1rem;
+    padding: .25rem 1rem; }
+
+  .textwidget {
+    padding: 4rem 2rem 3rem; }
+
+  #mc-embedded-subscribe {
+    font-size: 1.25rem; }
+
+  /***************************************** FOOTER **********************************************/
+  .footer--container {
+    line-height: 1rem; }
+
+  #footer--logo, .footer--text {
+    padding: 1.25rem 0;
+    padding-left: 1.75rem; }
+
+  #footer--logo {
+    width: 30%;
+    height: 25%; }
+
+  #attribute {
+    padding: 1.5rem;
+    font-size: 12px; }
+
+  .footer--text {
+    font-size: 10px; }
+
+  /********************************** NAVIGATION ALTERNATE PAGES ****************************************/
+  .navigation--container {
+    height: 100px; }
+
+  .navigation {
+    float: right;
+    margin-top: .65rem;
+    position: absolute;
+    top: 14%;
+    right: 10%; }
+    .navigation li {
+      padding-right: .25rem;
+      font-size: .6rem; }
+
+  #nav--phone--number {
+    position: absolute;
+    top: 65%;
+    left: 8%;
+    font-size: 10px; }
+
+  /***************************************** ABOUT PAGE **********************************************/
+  .about--container {
+    padding: 2rem;
+    margin: 1.75rem 0; }
+    .about--container h3 {
+      padding-bottom: 1.75rem;
+      font-size: 1.75rem; }
+    .about--container p {
+      padding: 0 3rem;
+      font-size: 1.15rem; }
+
+  #steven--about--profile, #meagen--about--profile {
+    width: 50%;
+    padding-bottom: 1.75rem; }
+
+  #meagen--about--profile {
+    padding-top: 2rem; }
+
+  /***************************************** GALLERY **********************************************/ }
+/***************************************** 577px - 767px **********************************************/
+@media screen and (min-width: 577px) and (max-width: 767px) {
+  /***************************************** JUMBOTRON **********************************************/
+  .jumbotron--description {
+    line-height: 1.75rem; }
+
+  .jumbotron--button {
+    top: 65%;
+    left: 10%;
+    font-size: 3vw; }
+
+  /*************************************** SLIDE 2 HOME PAGE ********************************************/
+  .slide--2--container {
+    height: 280px; }
+    .slide--2--container p:first-of-type {
+      left: 5%;
+      top: 35%;
+      font-size: 1.5rem;
+      line-height: 2rem; }
+    .slide--2--container p:last-of-type {
+      left: 57%;
+      top: 20%;
+      line-height: 1.5rem;
+      font-size: 1rem; }
+
+  /************************************** SLIDE 3 HOME PAGE ********************************************/
+  .slide--3--container {
+    height: 280px; }
+
+  .slide--3--description {
+    padding: 0 1rem 0 0;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    left: 60%;
+    top: 10%; }
+    .slide--3--description :first-child {
+      font-size: 1.5rem; }
+
+  .slide--3--button {
+    left: 60%;
+    top: 85%;
+    font-size: 1.15rem; }
+
+  #steven--portrait--home {
+    width: 35%;
+    height: 120%;
+    left: 8%;
+    top: -20; }
+
+  /************************************** SLIDE 4 HOME PAGE ********************************************/
+  .slide--4--container {
+    padding: 2rem 6.5rem; }
+    .slide--4--container h3 {
+      font-size: 1.25rem;
+      line-height: 2rem;
+      padding-bottom: 1rem; }
+    .slide--4--container h4 {
+      font-size: 1rem;
+      padding-bottom: 2rem; }
+
+  .slide--4--hr {
+    height: 4px;
+    left: 27%;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    width: 45%; }
+
+  .slide--4--name {
+    font-size: 1rem;
+    padding-bottom: 1.2rem; }
+
+  #right--review, #left--review {
+    line-height: 2rem; }
+
+  /************************************** SLIDE 5 HOME PAGE ********************************************/
+  .slide--5--container {
+    width: 100%; }
+    .slide--5--container h2 {
+      padding: 2.25rem 0 1.25rem 0;
+      font-size: 1.5rem; }
+    .slide--5--container h2 + p {
+      padding: 0 0 2.25rem 0;
+      font-size: 12px; }
+
+  .slide--5--image {
+    height: 250px; }
+    .slide--5--image p {
+      padding: 2.5rem 0 0 0;
+      line-height: 2.25rem;
+      font-weight: 600;
+      font-size: 1.5rem; }
+
+  .detail--services--description ul {
+    padding: 1.5rem 1.65rem;
+    line-height: 2.5rem; }
+  .detail--services--description li {
+    padding: .5rem 0;
+    font-weight: 600;
+    font-size: 1.25rem; }
+  .detail--services--description button {
+    margin: 0 0 1.75rem 0;
+    padding: .65rem 1rem;
+    font-weight: 600; }
+
+  .price--list--container {
+    padding-bottom: 2rem; }
+
+  .full--price--list {
+    padding: 1.25rem;
+    margin: 1rem auto;
+    margin-bottom: 2rem; }
+    .full--price--list th {
+      padding: 1rem .35rem;
+      line-height: 1.15rem;
+      font-size: 12px; }
+    .full--price--list td {
+      padding: 1rem .25rem;
+      font-size: 11.5px; }
+
+  /************************************** SLIDE 6 HOME PAGE ********************************************/
+  .slide--6--container {
+    height: 280px; }
+
+  #slide--6--image {
+    width: 40vw;
+    top: 35%;
+    left: 18%; }
+
+  #slide--6--description--left {
+    left: 0%;
+    top: 27%;
+    padding: 0 2rem;
+    font-size: 1.6rem; }
+
+  #slide--6--description--right {
+    left: 55%;
+    top: 15%;
+    padding: 0 2rem;
+    line-height: 1.25rem;
+    font-size: 14px; }
+
+  .slide--6--btn {
+    top: 80%;
+    left: 70%;
+    font-size: 1.15rem; }
+
+  /************************************** SLIDE 7 HOME PAGE ********************************************/
+  .slide--7--container {
+    padding: 5rem 0 1rem 0;
+    padding-bottom: 1rem; }
+    .slide--7--container h3, .slide--7--container p {
+      padding-bottom: 1.25rem; }
+    .slide--7--container h3 {
+      font-size: 24px; }
+    .slide--7--container p {
+      font-size: 18px;
+      line-height: 1.25rem; }
+    .slide--7--container input {
+      padding: .5rem 1rem .5rem;
+      margin-bottom: 1rem; }
+
+  .slide--7--btn {
+    font-size: 1rem;
+    padding: .25rem 1rem; }
+
+  .textwidget {
+    padding: 4rem 2rem 3rem; }
+
+  #mc-embedded-subscribe {
+    font-size: 1.25rem; }
+
+  #mc_embed_signup_scroll {
+    padding: 0 8rem; }
+
+  /***************************************** FOOTER **********************************************/
+  .footer--container {
+    line-height: 1rem;
+    height: 180px; }
+
+  #footer--logo, .footer--text {
+    padding: 1.25rem 0;
+    padding-left: 1.75rem; }
+
+  #footer--logo {
+    width: 30%;
+    height: 25%; }
+
+  #attribute {
+    padding: 1.5rem;
+    font-size: 14px;
+    line-height: 1.15rem; }
+
+  .footer--text {
+    font-size: 12px; }
+
+  /********************************** ADDITIONAL SERVICES *********************************************/
+  .additional--services {
+    padding: 0 5rem; }
+
+  /********************************** NAVIGATION ALTERNATE PAGES ****************************************/
+  .navigation--container {
+    height: 120px; }
+
+  .navigation {
+    float: right;
+    margin-top: .65rem;
+    position: absolute;
+    top: 14%;
+    right: 10%; }
+    .navigation li {
+      padding-right: .25rem;
+      font-size: .85rem; }
+
+  #nav--phone--number {
+    top: 65%;
+    left: 6%;
+    font-size: 14px;
+    margin-top: 10px; }
+
+  /***************************************** ABOUT PAGE **********************************************/
+  .about--container {
+    padding: 2rem;
+    margin: 1.75rem 0; }
+    .about--container h3 {
+      padding-bottom: 1.75rem;
+      font-size: 1.75rem; }
+    .about--container p {
+      padding: 0 5rem;
+      font-size: 1.25rem; }
+
+  #steven--about--profile, #meagen--about--profile {
+    width: 50%;
+    padding-bottom: 1.75rem; }
+
+  #meagen--about--profile {
+    padding-top: 2rem; } }
+/***************************************** 768px - 1023px **********************************************/
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /***************************************** JUMBOTRON **********************************************/
+  .jumbotron--description {
+    line-height: 2.5rem; }
+
+  .jumbotron--nav {
+    top: 5%;
+    right: 10%; }
+    .jumbotron--nav li {
+      font-size: 1.5vw;
+      padding-right: 1rem; }
+
+  .jumbotron--button {
+    top: 65%;
+    left: 10%;
+    font-size: 3vw; }
+
+  #header--logo {
+    margin-top: 1rem;
+    margin-left: 2rem; }
+
+  /************************************* SLIDE 2 HOME PAGE **********************************************/
+  .slide--2--container {
+    height: 300px; }
+    .slide--2--container p:first-of-type {
+      left: 10%;
+      top: 40%;
+      font-size: 1.5rem;
+      line-height: 2rem; }
+    .slide--2--container p:last-of-type {
+      left: 57%;
+      top: 20%;
+      line-height: 2rem;
+      font-size: 1.25rem; }
+
+  /************************************* SLIDE 3 HOME PAGE **********************************************/
+  .slide--3--container {
+    height: 300px; }
+
+  .slide--3--description {
+    padding: 0 1rem 0 0;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    left: 55%;
+    top: 10%; }
+    .slide--3--description :first-child {
+      font-size: 1.5rem; }
+
+  .slide--3--button {
+    left: 55%;
+    top: 85%;
+    font-size: 1.15rem; }
+
+  #steven--portrait--home {
+    width: 30%;
+    height: 120%;
+    left: 8%;
+    top: -20; }
+
+  /************************************** SLIDE 4 HOME PAGE ********************************************/
+  .slide--4--container {
+    padding: 2rem 10rem; }
+    .slide--4--container h3 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      padding-bottom: 1.5rem; }
+    .slide--4--container h4 {
+      font-size: 1rem;
+      padding-bottom: 2rem; }
+
+  .slide--4--hr {
+    height: 4px;
+    left: 27%;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    width: 45%; }
+
+  .slide--4--name {
+    font-size: 1rem;
+    padding-bottom: 1.2rem; }
+
+  #right--review, #left--review {
+    line-height: 2rem; }
+
+  /************************************** SLIDE 5 HOME PAGE ********************************************/
+  .slide--5--container {
+    width: 100%; }
+    .slide--5--container h2 {
+      padding: 3.25rem 0 1.25rem 0;
+      font-size: 1.5rem; }
+    .slide--5--container h2 + p {
+      padding: 0 0 3.25rem 0;
+      font-size: 12px; }
+
+  .slide--5--image {
+    height: 250px; }
+    .slide--5--image p {
+      padding: 2.5rem 0 0 0;
+      line-height: 2.25rem;
+      font-weight: 600;
+      font-size: 1.5rem; }
+
+  .detail--services--description ul {
+    padding: 1.5rem 1.65rem;
+    line-height: 2.5rem; }
+  .detail--services--description li {
+    padding: .5rem 0;
+    font-weight: 600;
+    font-size: 1.25rem; }
+  .detail--services--description button {
+    margin: 0 0 1.75rem 0;
+    padding: .65rem 1rem;
+    font-weight: 600; }
+
+  .price--list--container {
+    padding-bottom: 2rem; }
+
+  .full--price--list {
+    padding: 1.25rem;
+    margin: 1rem auto;
+    margin-bottom: 2rem; }
+    .full--price--list th {
+      padding: 1rem .35rem;
+      line-height: 1.15rem;
+      font-size: 12px; }
+    .full--price--list td {
+      padding: 1rem .25rem;
+      font-size: 11.5px; }
+
+  /************************************** SLIDE 6 HOME PAGE ********************************************/
+  .slide--6--container {
+    height: 300px; }
+
+  #slide--6--image {
+    width: 35vw;
+    top: 35%;
+    left: 22%; }
+
+  #slide--6--description--left {
+    left: 0%;
+    top: 27%;
+    padding: 0 2rem;
+    font-size: 1.8rem; }
+
+  #slide--6--description--right {
+    left: 55%;
+    top: 15%;
+    padding: 0 2rem;
+    line-height: 1.65rem;
+    font-size: 18px; }
+
+  .slide--6--btn {
+    top: 80%;
+    left: 70%;
+    font-size: 1.125rem; }
+
+  /************************************** SLIDE 7 HOME PAGE ********************************************/
+  .slide--7--container {
+    padding: 7rem 0 1rem 0;
+    padding-bottom: 1.25rem; }
+    .slide--7--container h3, .slide--7--container p {
+      padding-bottom: 1.5rem; }
+    .slide--7--container h3 {
+      font-size: 30px; }
+    .slide--7--container p {
+      font-size: 18px;
+      line-height: 1.5rem; }
+    .slide--7--container input {
+      padding: .75rem 1rem .75rem;
+      margin-bottom: 1rem; }
+
+  .slide--7--btn {
+    font-size: 1rem;
+    padding: .25rem 1rem; }
+
+  .textwidget {
+    padding: 4rem 2rem 3rem; }
+
+  #mc-embedded-subscribe {
+    font-size: 1.25rem; }
+
+  #mc_embed_signup_scroll {
+    padding: 0 12rem; }
+
+  /***************************************** FOOTER **********************************************/
+  .footer--container {
+    line-height: 1rem;
+    height: 200px; }
+
+  #footer--logo, .footer--text {
+    padding: 1.25rem 0;
+    padding-left: 1.75rem; }
+
+  #footer--logo {
+    width: 30%;
+    height: 25%; }
+
+  #attribute {
+    padding: 1.5rem;
+    font-size: 14px;
+    line-height: 1.2rem; }
+
+  .footer--text {
+    font-size: 14px; }
+
+  /********************************** ADDITIONAL SERVICES ***********************************************/
+  .additional--services {
+    padding: 0 7rem; }
+
+  /********************************** NAVIGATION ALTERNATE PAGES ****************************************/
+  .navigation--container {
+    height: 140px; }
+
+  .navigation {
+    float: right;
+    margin-top: .65rem;
+    position: absolute;
+    top: 30%;
+    right: 10%; }
+    .navigation li {
+      padding-right: .75rem;
+      font-size: 1rem; }
+
+  #nav--phone--number {
+    margin-top: 10px;
+    font-size: 14px;
+    top: 65%;
+    left: 6%; }
+
+  /***************************************** ABOUT PAGE **********************************************/
+  .about--container {
+    padding: 2rem;
+    margin: 1.75rem 0; }
+    .about--container h3 {
+      padding-bottom: 1.75rem;
+      font-size: 1.75rem; }
+    .about--container p {
+      padding: 0 5rem;
+      font-size: 1.25rem; }
+
+  #steven--about--profile, #meagen--about--profile {
+    width: 50%;
+    padding-bottom: 1.75rem; }
+
+  #meagen--about--profile {
+    padding-top: 2rem; }
+
+  /************************************** GALLERY INDIVIDUAL ********************************************/
+  .image--container {
+    padding: 3rem 10rem 5rem;
+    margin: auto; }
+    .image--container h2 {
+      padding-bottom: 5rem;
+      font-size: 3.5rem; }
+    .image--container img {
+      border-radius: 50px;
+      margin-bottom: 5rem;
+      width: 100%; } }
+/***************************************** 1024px - 1199px **********************************************/
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+  /***************************************** JUMBOTRON **********************************************/
+  .jumbotron--description {
+    line-height: 2.75rem;
+    font-size: 3.25vw; }
+
+  .jumbotron--nav {
+    top: 5%;
+    right: 10%;
+    bottom: 0; }
+    .jumbotron--nav li {
+      font-size: 1.5vw;
+      padding-right: 1rem; }
+
+  .jumbotron--button {
+    top: 60%;
+    left: 10%;
+    font-size: 3.25vw; }
+
+  #header--logo {
+    margin-top: 1rem;
+    margin-left: 2rem; }
+
+  /************************************** SLIDE 2 HOME PAGE ********************************************/
+  .slide--2--container {
+    height: 350px; }
+    .slide--2--container p:first-of-type {
+      left: 8%;
+      top: 35%;
+      font-size: 2.25rem;
+      line-height: 3.25rem; }
+    .slide--2--container p:last-of-type {
+      left: 57%;
+      top: 20%;
+      line-height: 2.5rem;
+      font-size: 1.75rem;
+      padding-right: 4rem; }
+
+  /************************************** SLIDE 3 HOME PAGE ********************************************/
+  .slide--3--container {
+    height: 350px; }
+
+  .slide--3--description {
+    padding: 0 5rem 0 0;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    left: 55%;
+    top: 10%; }
+    .slide--3--description :first-child {
+      font-size: 1.5rem; }
+
+  .slide--3--button {
+    left: 55%;
+    top: 80%;
+    font-size: 1.25rem; }
+
+  #steven--portrait--home {
+    width: 30%;
+    height: 120%;
+    left: 8%;
+    top: -20; }
+
+  /************************************** SLIDE 4 HOME PAGE ********************************************/
+  .slide--4--container {
+    padding: 2rem 10rem; }
+    .slide--4--container h3 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      padding-bottom: 1.5rem; }
+    .slide--4--container h4 {
+      font-size: 1rem;
+      padding-bottom: 2rem; }
+
+  .slide--4--hr {
+    height: 4px;
+    left: 27%;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    width: 45%; }
+
+  .slide--4--name {
+    font-size: 1.25rem;
+    padding-bottom: 1.2rem; }
+
+  #right--review, #left--review {
+    line-height: 2.75rem;
+    font-size: 1.5rem; }
+
+  /************************************** SLIDE 5 HOME PAGE ********************************************/
+  .slide--5--container {
+    width: 100%; }
+    .slide--5--container h2 {
+      padding: 3.25rem 0 1.25rem 0;
+      font-size: 3rem; }
+    .slide--5--container h2 + p {
+      padding: 0 0 3.25rem 0;
+      font-size: 1rem; }
+
+  .slide--5--image {
+    height: 250px; }
+    .slide--5--image p {
+      padding: 2.5rem 0 0 0;
+      line-height: 2.25rem;
+      font-weight: 600;
+      font-size: 1.5rem; }
+
+  .detail--services--description ul {
+    padding: 1.5rem 1.65rem;
+    line-height: 2.5rem; }
+  .detail--services--description li {
+    padding: .5rem 0;
+    font-weight: 600;
+    font-size: 1.25rem; }
+  .detail--services--description button {
+    margin: 0 0 1.75rem 0;
+    padding: .65rem 1rem;
+    font-weight: 600; }
+
+  .price--list--container {
+    padding-bottom: 2rem; }
+
+  .full--price--list {
+    padding: 1.25rem;
+    margin: 1rem auto;
+    margin-bottom: 2rem; }
+    .full--price--list th {
+      padding: 1rem .35rem;
+      line-height: 1.15rem;
+      font-size: 14px; }
+    .full--price--list td {
+      padding: 1rem .25rem;
+      font-size: 12.5px; }
+
+  /************************************** SLIDE 6 HOME PAGE ********************************************/
+  .slide--6--container {
+    height: 350px; }
+
+  #slide--6--image {
+    width: 35vw;
+    top: 33%;
+    left: 23%; }
+
+  #slide--6--description--left {
+    left: 5%;
+    top: 27%;
+    padding: 0 2rem;
+    font-size: 2.25rem; }
+
+  #slide--6--description--right {
+    left: 55%;
+    top: 15%;
+    padding: 0 4rem;
+    line-height: 1.65rem;
+    font-size: 18px; }
+
+  .slide--6--btn {
+    top: 80%;
+    left: 70%;
+    font-size: 1.25rem; }
+
+  /************************************** SLIDE 7 HOME PAGE ********************************************/
+  .slide--7--container {
+    padding: 7rem 0 1rem 0;
+    padding-bottom: 1.25rem; }
+    .slide--7--container h3, .slide--7--container p {
+      padding-bottom: 1.5rem; }
+    .slide--7--container h3 {
+      font-size: 30px; }
+    .slide--7--container p {
+      font-size: 18px;
+      line-height: 1.5rem; }
+    .slide--7--container input {
+      padding: .75rem 1rem .75rem;
+      margin-bottom: 1rem; }
+
+  .slide--7--btn {
+    font-size: 1rem;
+    padding: .25rem 1rem; }
+
+  .textwidget {
+    padding: 6rem 2rem 3rem; }
+
+  #mc-embedded-subscribe {
+    font-size: 1.25rem; }
+
+  #mc_embed_signup_scroll {
+    padding: 0 18rem; }
+
+  /***************************************** FOOTER **********************************************/
+  .footer--container {
+    line-height: 1rem;
+    height: 200px; }
+
+  #footer--logo, .footer--text {
+    padding: 1.25rem 0;
+    padding-left: 1.75rem; }
+
+  #footer--logo {
+    width: 30%;
+    height: 25%; }
+
+  #attribute {
+    padding: 1.5rem; }
+
+  .footer--text {
+    font-size: 14px; }
+
+  .middle--footer--text {
+    flex: 50%;
+    justify-content: center;
+    text-align: center; }
+
+  /********************************** ADDITIONAL SERVICES **********************************************/
+  .additional--services {
+    padding: 0 12rem; }
+
+  /********************************** NAVIGATION ALTERNATE PAGES ****************************************/
+  .navigation--container {
+    height: 170px; }
+
+  .navigation {
+    float: right;
+    margin-top: .65rem;
+    position: absolute;
+    top: 30%;
+    right: 10%; }
+    .navigation li {
+      padding-right: .75rem;
+      font-size: 1.25rem; }
+
+  #nav--phone--number {
+    margin-top: 10px;
+    font-size: 15px;
+    top: 65%;
+    left: 6%; }
+
+  /***************************************** ABOUT PAGE **********************************************/
+  .about--container {
+    padding: 5rem 3rem 14rem;
+    margin: 1.75rem 0; }
+    .about--container h3 {
+      padding-bottom: 1.75rem;
+      font-size: 1.75rem; }
+    .about--container p {
+      padding: 0 5rem;
+      font-size: 1.25rem; }
+
+  #steven--about--profile, #meagen--about--profile {
+    width: 35%;
+    padding-bottom: 1.75rem; }
+
+  #steven--about--profile {
+    float: right;
+    padding-left: 2rem; }
+
+  #meagen--about--profile {
+    float: left;
+    padding-top: 2rem;
+    padding-right: 2rem; }
+
+  .steven--profile--container {
+    padding-bottom: 5rem; }
+    .steven--profile--container p {
+      text-align: left;
+      padding-right: 25rem;
+      line-height: 2.5rem;
+      font-size: 1.25rem; }
+
+  .meagen--profile--container {
+    padding-top: 5rem; }
+    .meagen--profile--container p {
+      text-align: right;
+      padding-left: 25rem;
+      line-height: 2.5rem;
+      font-size: 1.25rem; }
+
+  /************************************** GALLERY INDIVIDUAL *******************************************/
+  .image--container {
+    padding: 3rem 15rem 5rem;
+    margin: auto; }
+    .image--container h2 {
+      padding-bottom: 5rem;
+      font-size: 4rem; }
+    .image--container img {
+      border-radius: 50px;
+      margin-bottom: 5rem;
+      width: 100%; } }
+/***************************************** 1200px - 1399px **********************************************/
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  /***************************************** JUMBOTRON **********************************************/
+  .jumbotron--description {
+    line-height: 3.5rem;
+    font-size: 3vw; }
+
+  .jumbotron--nav {
+    top: 5%;
+    right: 5%;
+    bottom: 0; }
+    .jumbotron--nav li {
+      padding-right: 1rem;
+      font-size: 1.5vw; }
+
+  .jumbotron--button {
+    top: 62.5%;
+    left: 10%;
+    font-size: 3vw; }
+
+  #header--logo {
+    margin-top: 1rem;
+    margin-left: 2rem; }
+
+  /************************************** SLIDE 2 HOME PAGE *******************************************/
+  .slide--2--container {
+    height: 380px; }
+    .slide--2--container p:first-of-type {
+      left: 8%;
+      top: 35%;
+      font-size: 2.25rem;
+      line-height: 3.25rem; }
+    .slide--2--container p:last-of-type {
+      left: 57%;
+      top: 20%;
+      line-height: 2.5rem;
+      font-size: 1.75rem;
+      padding-right: 4rem; }
+
+  /************************************** SLIDE 3 HOME PAGE *******************************************/
+  .slide--3--container {
+    height: 500px; }
+
+  .slide--3--description {
+    padding: 0 5rem 0 0;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    left: 55%;
+    top: 10%; }
+    .slide--3--description :first-child {
+      font-size: 2rem; }
+
+  .slide--3--button {
+    left: 55%;
+    top: 80%;
+    font-size: 1.75rem; }
+
+  #steven--portrait--home {
+    width: 30%;
+    height: 120%;
+    left: 8%;
+    top: -20; }
+
+  /************************************** SLIDE 4 HOME PAGE *******************************************/
+  .slide--4--container {
+    padding: 5rem 5rem; }
+    .slide--4--container h3 {
+      font-size: 2rem;
+      line-height: 2rem;
+      padding-bottom: 1.5rem; }
+    .slide--4--container h4 {
+      font-size: 1.25rem;
+      padding-bottom: 4rem; }
+
+  .slide--4--hr {
+    height: 4px;
+    left: 27%;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    width: 45%; }
+
+  .slide--4--name {
+    font-size: 1.25rem;
+    padding-bottom: 1.2rem; }
+
+  #right--review, #left--review {
+    line-height: 2.75rem;
+    font-size: 1.5rem; }
+
+  #left--review {
+    float: left;
+    width: 45%; }
+
+  #right--review {
+    float: right;
+    width: 45%; }
+
+  /************************************** SLIDE 5 HOME PAGE *******************************************/
+  .slide--5--container h2 {
+    padding: 3.25rem 0 1.25rem 0;
+    font-size: 3rem; }
+  .slide--5--container h2 + p {
+    padding: 0 0 3.25rem 0;
+    font-size: 1rem; }
+
+  .slide--5--image {
+    height: 250px; }
+    .slide--5--image p {
+      padding: 2.5rem 2rem 0;
+      line-height: 2.25rem;
+      font-weight: 600;
+      font-size: 1.5rem; }
+
+  .detail--services--description ul {
+    padding: 1.5rem 1.65rem;
+    line-height: 2.5rem; }
+  .detail--services--description li {
+    padding: .5rem 0;
+    font-weight: 600;
+    font-size: 1.25rem; }
+  .detail--services--description button {
+    margin: 0 0 1.75rem 0;
+    padding: .65rem 1rem;
+    font-weight: 600; }
+
+  .price--list--container {
+    padding-bottom: 2rem; }
+
+  .full--price--list {
+    padding: 1.25rem;
+    margin: 1rem auto;
+    margin-bottom: 2rem; }
+    .full--price--list th {
+      padding: 1rem .35rem;
+      line-height: 1.15rem;
+      font-size: 14px; }
+    .full--price--list td {
+      padding: 1rem .25rem;
+      font-size: 12.5px; }
+
+  .desktop--flex--container {
+    display: flex;
+    flex-wrap: wrap; }
+
+  .desktop--float--services {
+    flex: 1 25%;
+    margin: 1rem 1rem; }
+
+  /************************************** SLIDE 6 HOME PAGE *******************************************/
+  .slide--6--container {
+    height: 380px; }
+
+  #slide--6--image {
+    width: 30vw;
+    top: 30%;
+    left: 25%; }
+
+  #slide--6--description--left {
+    left: 5%;
+    top: 27%;
+    padding: 0 2rem;
+    font-size: 2.75rem; }
+
+  #slide--6--description--right {
+    left: 55%;
+    top: 15%;
+    padding: 0 4rem;
+    line-height: 2rem;
+    font-size: 24px; }
+
+  .slide--6--btn {
+    top: 80%;
+    left: 70%;
+    font-size: 1.25rem; }
+
+  /************************************** SLIDE 7 HOME PAGE *******************************************/
+  .slide--7--container {
+    padding: 7rem 0 1rem 0;
+    padding-bottom: 1.25rem; }
+    .slide--7--container h3, .slide--7--container p {
+      padding-bottom: 1.5rem; }
+    .slide--7--container h3 {
+      font-size: 30px; }
+    .slide--7--container p {
+      font-size: 18px;
+      line-height: 1.5rem; }
+    .slide--7--container input {
+      padding: .75rem 1rem .75rem;
+      margin-bottom: 1rem; }
+
+  .slide--7--btn {
+    font-size: 1rem;
+    padding: .25rem 1rem; }
+
+  .textwidget {
+    padding: 6rem 2rem 3rem; }
+
+  #mc-embedded-subscribe {
+    font-size: 1.25rem; }
+
+  #mc_embed_signup_scroll {
+    padding: 0 20rem; }
+
+  /***************************************** FOOTER **********************************************/
+  .footer--container {
+    line-height: 1rem;
+    height: 220px; }
+
+  #footer--logo, .footer--text {
+    padding: 1.25rem 0;
+    padding-left: 1.75rem; }
+
+  #footer--logo {
+    width: 30%;
+    height: 35%; }
+
+  #attribute {
+    padding: 1.5rem; }
+
+  .footer--text {
+    font-size: 14px;
+    line-height: 1.5rem; }
+
+  /***************** ADDITIONAL SERVICES ***************/
+  .additional--services {
+    margin: 0 7rem 0; }
+    .additional--services h3 {
+      padding-bottom: 1.75rem;
+      font-size: 1.25rem;
+      font-size: 2rem; }
+    .additional--services section {
+      margin: 0 1rem; }
+    .additional--services table {
+      margin-bottom: 2.25rem;
+      line-height: 1.5rem; }
+    .additional--services th, .additional--services td {
+      padding-bottom: 10px; }
+    .additional--services thead:first-child {
+      padding-top: 15px; }
+    .additional--services th {
+      font-weight: 600; }
+    .additional--services td, .additional--services th {
+      padding-right: 20px;
+      padding-left: 20px; }
+
+  .additional--services--container {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 2rem; }
+
+  #additional--services--1, #additional--services--2 {
+    flex-wrap: wrap;
+    flex: 40%;
+    width: 40%; }
+
+  /********************************** NAVIGATION ALTERNATE PAGES ***************************************/
+  .navigation--container {
+    height: 180px; }
+
+  .navigation {
+    float: right;
+    margin-top: .65rem;
+    position: absolute;
+    top: 30%;
+    right: 10%; }
+    .navigation li {
+      padding-right: .75rem;
+      font-size: 1.25rem; }
+
+  #nav--phone--number {
+    margin-top: 10px;
+    font-size: 16px;
+    top: 70%;
+    left: 6%; }
+
+  /***************************************** ABOUT PAGE **********************************************/
+  .about--container {
+    padding: 5rem 3rem 14rem;
+    margin: 1.75rem 0 3rem; }
+    .about--container h3 {
+      padding-bottom: 1.75rem;
+      font-size: 1.75rem; }
+    .about--container p {
+      padding: 0 5rem;
+      font-size: 1.25rem; }
+
+  #steven--about--profile, #meagen--about--profile {
+    width: 25%;
+    padding-bottom: 1.75rem; }
+
+  #steven--about--profile {
+    float: right;
+    padding-left: 2rem; }
+
+  #meagen--about--profile {
+    float: left;
+    padding-top: 2rem;
+    padding-right: 2rem; }
+
+  .steven--profile--container {
+    padding-bottom: 5rem; }
+    .steven--profile--container p {
+      text-align: left;
+      padding-right: 25rem;
+      line-height: 2.5rem;
+      font-size: 1.5rem; }
+
+  .meagen--profile--container {
+    padding-top: 5rem; }
+    .meagen--profile--container p {
+      text-align: right;
+      padding-left: 25rem;
+      line-height: 2.5rem;
+      font-size: 1.5rem; }
+
+  /************************************** GALLERY INDIVIDUAL *******************************************/
+  .image--container {
+    padding: 3rem 3rem 5rem;
+    margin: auto; }
+    .image--container h2 {
+      padding-bottom: 5rem;
+      font-size: 4rem; }
+
+  .desktop--flex--images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; }
+    .desktop--flex--images img {
+      border-radius: 50px;
+      margin-bottom: 5rem;
+      margin-right: 1rem;
+      justify-content: space-evenly;
+      width: 35%;
+      flex: 0 1 25%;
+      flex-direction: row; }
+
+  /***************************************** GALLERY PAGE **********************************************/
+  .gallery--modal h1, .gallery--link--container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem; }
+
+  .gallery--link--container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; }
+
+  #gallery--modal--image {
+    padding: 0 1rem;
+    width: 70%;
+    margin-bottom: 1rem;
+    border-radius: 50px; }
+
+  .gallery--link--container {
+    margin-top: 3.5rem;
+    padding-bottom: 3.5rem; }
+    .gallery--link--container h3 {
+      margin: 1rem 0 1.5rem 0;
+      font-size: 1.5rem;
+      text-decoration: underline; }
+
+  #coupe--gallery--link img, #four-door--gallery--link img,
+  #suv--gallery--link img, #mini--van--gallery--link img {
+    border-radius: 50px;
+    width: 100%;
+    flex: 0 1 25%;
+    flex-direction: row; } }
+/*************************************** 1339px - MAX-WIDTH ********************************************/
+@media screen and (min-width: 1400px) {
+  /***************************************** JUMBOTRON **********************************************/
+  .jumbotron--description {
+    line-height: 3.75rem;
+    font-size: 3vw; }
+
+  .jumbotron--nav {
+    top: 5%;
+    right: 10%; }
+    .jumbotron--nav li {
+      padding-right: 1rem;
+      font-size: 1.5vw; }
+
+  .jumbotron--button {
+    top: 60%;
+    left: 10%;
+    font-size: 3vw; }
+
+  #header--logo {
+    margin-top: 1rem;
+    margin-left: 2rem; }
+
+  /*************************************** SLIDE 2 HOME PAGE ********************************************/
+  .slide--2--container {
+    height: 420px; }
+    .slide--2--container p:first-of-type {
+      left: 8%;
+      top: 30%;
+      font-size: 3rem;
+      line-height: 4rem; }
+    .slide--2--container p:last-of-type {
+      left: 57%;
+      top: 22.5%;
+      line-height: 3rem;
+      font-size: 2rem;
+      padding-right: 4rem; }
+
+  /*************************************** SLIDE 3 HOME PAGE ********************************************/
+  .slide--3--container {
+    height: 600px; }
+
+  .slide--3--description {
+    padding: 0 5rem 0 0;
+    font-size: 2rem;
+    line-height: 2.75rem;
+    left: 55%;
+    top: 10%; }
+    .slide--3--description :first-child {
+      font-size: 2.5rem; }
+
+  .slide--3--button {
+    left: 55%;
+    top: 80%;
+    font-size: 2rem; }
+
+  #steven--portrait--home {
+    width: 30%;
+    height: 120%;
+    left: 8%;
+    top: -20; }
+
+  /************************************** SLIDE 4 HOME PAGE *******************************************/
+  .slide--4--container {
+    padding: 5rem 5rem; }
+    .slide--4--container h3 {
+      font-size: 2rem;
+      line-height: 2rem;
+      padding-bottom: 1.5rem; }
+    .slide--4--container h4 {
+      font-size: 1.25rem;
+      padding-bottom: 5rem; }
+
+  .slide--4--hr {
+    height: 4px;
+    left: 27%;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    width: 45%; }
+
+  .slide--4--name {
+    font-size: 1.25rem;
+    padding-bottom: 1.2rem; }
+
+  #right--review, #left--review {
+    line-height: 2.75rem;
+    font-size: 1.5rem; }
+
+  #left--review {
+    float: left;
+    width: 45%; }
+
+  #right--review {
+    float: right;
+    width: 45%; }
+
+  /*************************************** SLIDE 5 HOME PAGE ********************************************/
+  .slide--5--container h2 {
+    padding: 3.25rem 0 1.25rem 0;
+    font-size: 3rem; }
+  .slide--5--container h2 + p {
+    padding: 0 0 3.25rem 0;
+    font-size: 1rem; }
+
+  .slide--5--image {
+    height: 250px; }
+    .slide--5--image p {
+      padding: 2.5rem 2rem 0;
+      line-height: 2.25rem;
+      font-weight: 600;
+      font-size: 1.5rem; }
+
+  .detail--services--description ul {
+    padding: 1.5rem 1.65rem;
+    line-height: 2.5rem; }
+  .detail--services--description li {
+    padding: .5rem 0;
+    font-weight: 600;
+    font-size: 1.25rem; }
+  .detail--services--description button {
+    margin: 0 0 1.75rem 0;
+    padding: .65rem 1rem;
+    font-weight: 600; }
+
+  .price--list--container {
+    padding-bottom: 2rem; }
+
+  .full--price--list {
+    padding: 1.25rem;
+    margin: 1rem auto;
+    margin-bottom: 2rem; }
+    .full--price--list th {
+      padding: 1.25rem .35rem;
+      line-height: 1.15rem;
+      font-size: 18px; }
+    .full--price--list td {
+      padding: 1.25rem .25rem;
+      font-size: 16px; }
+
+  .desktop--flex--container {
+    display: flex;
+    flex-wrap: wrap; }
+
+  .desktop--float--services {
+    flex: 1 25%;
+    margin: 1rem 1rem; }
+
+  /*************************************** SLIDE 6 HOME PAGE ********************************************/
+  .slide--6--container {
+    height: 420px; }
+
+  #slide--6--image {
+    width: 30vw;
+    top: 30%;
+    left: 28%; }
+
+  #slide--6--description--left {
+    left: 5%;
+    top: 27%;
+    padding: 0 2rem;
+    font-size: 2.75rem; }
+
+  #slide--6--description--right {
+    left: 55%;
+    top: 15%;
+    padding: 0 6rem;
+    line-height: 2.75rem;
+    font-size: 24px; }
+
+  .slide--6--btn {
+    top: 80%;
+    left: 70%;
+    font-size: 1.75rem; }
+
+  /************************************** SLIDE 7 HOME PAGE *******************************************/
+  .slide--7--container {
+    padding: 7rem 0 1rem 0;
+    padding-bottom: 1.25rem; }
+    .slide--7--container h3, .slide--7--container p {
+      padding-bottom: 1.5rem; }
+    .slide--7--container h3 {
+      font-size: 30px; }
+    .slide--7--container p {
+      font-size: 18px;
+      line-height: 1.5rem; }
+    .slide--7--container input {
+      padding: .75rem 1rem .75rem;
+      margin-bottom: 1rem; }
+
+  .slide--7--btn {
+    font-size: 1rem;
+    padding: .25rem 1rem; }
+
+  .textwidget {
+    padding: 6rem 2rem 3rem; }
+
+  #mc-embedded-subscribe {
+    font-size: 1.25rem; }
+
+  #mc_embed_signup_scroll {
+    padding: 0 30rem; }
+
+  /***************************************** FOOTER **********************************************/
+  .footer--container {
+    line-height: 1rem;
+    height: 220px; }
+
+  #footer--logo, .footer--text {
+    padding: 1.25rem 0;
+    padding-left: 1.75rem; }
+
+  #footer--logo {
+    width: 30%;
+    height: 15%; }
+
+  #attribute {
+    padding: 1.5rem; }
+
+  .footer--text {
+    font-size: 14px;
+    line-height: 1.5rem; }
+
+  /***************** ADDITIONAL SERVICES ***************/
+  .additional--services {
+    margin: 0 8.5rem 0; }
+    .additional--services h3 {
+      padding-bottom: 1.75rem;
+      font-size: 1.25rem; }
+    .additional--services section {
+      margin: 0 1rem; }
+    .additional--services table {
+      margin-bottom: 2.25rem;
+      line-height: 1.5rem; }
+    .additional--services th, .additional--services td {
+      padding-bottom: 10px; }
+    .additional--services thead:first-child {
+      padding-top: 15px; }
+    .additional--services th {
+      font-weight: 600; }
+    .additional--services td, .additional--services th {
+      padding-right: 20px;
+      padding-left: 20px; }
+
+  .additional--services--container {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 2rem; }
+
+  #additional--services--1, #additional--services--2 {
+    flex-wrap: wrap;
+    flex: 40%;
+    width: 40%; }
+
+  /********************************** NAVIGATION ALTERNATE PAGES ***************************************/
+  .navigation--container {
+    height: 195px; }
+
+  .navigation {
+    float: right;
+    margin-top: .65rem;
+    position: absolute;
+    top: 30%;
+    right: 10%; }
+    .navigation li {
+      padding-right: .75rem;
+      font-size: 1.25rem; }
+
+  #nav--phone--number {
+    margin-top: 10px;
+    font-size: 16px;
+    top: 75%;
+    left: 6%; }
+
+  /***************************************** ABOUT PAGE **********************************************/
+  .about--container {
+    padding: 5rem 3rem 14rem;
+    margin: 1.75rem 0 3rem; }
+    .about--container h3 {
+      padding-bottom: 1.75rem;
+      font-size: 1.75rem; }
+    .about--container p {
+      padding: 0 5rem;
+      font-size: 1.25rem; }
+
+  #steven--about--profile, #meagen--about--profile {
+    width: 25%;
+    padding-bottom: 1.75rem; }
+
+  #steven--about--profile {
+    float: right;
+    padding-left: 2rem; }
+
+  #meagen--about--profile {
+    float: left;
+    padding-top: 2rem;
+    padding-right: 2rem; }
+
+  .steven--profile--container {
+    padding-bottom: 5rem; }
+    .steven--profile--container h3 {
+      font-size: 2.5rem; }
+    .steven--profile--container p {
+      text-align: left;
+      padding-right: 35rem;
+      line-height: 2.75rem;
+      font-size: 1.75rem; }
+
+  .meagen--profile--container {
+    padding-top: 5rem; }
+    .meagen--profile--container h3 {
+      font-size: 2.5rem; }
+    .meagen--profile--container p {
+      text-align: right;
+      padding-left: 35rem;
+      line-height: 2.75rem;
+      font-size: 1.75rem; }
+
+  /************************************** GALLERY INDIVIDUAL *******************************************/
+  .image--container {
+    padding: 3rem 3rem 5rem;
+    margin: auto; }
+    .image--container h2 {
+      padding-bottom: 5rem;
+      font-size: 4rem; }
+
+  .desktop--flex--images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; }
+    .desktop--flex--images img {
+      border-radius: 50px;
+      margin-bottom: 5rem;
+      margin-right: 1rem;
+      justify-content: space-evenly;
+      width: 35%;
+      flex: 0 1 25%;
+      flex-direction: row; }
+
+  /***************************************** GALLERY PAGE **********************************************/
+  .gallery--modal h1, .gallery--link--container h1 {
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem; }
+
+  .gallery--modal {
+    width: 70%;
+    margin: auto; }
+
+  #gallery--left--arrow,
+  #gallery--right--arrow {
+    width: 2%;
+    height: 2%; }
+
+  .gallery--link--container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; }
+
+  #gallery--modal--image {
+    padding: 0 1rem;
+    width: 70%;
+    margin-bottom: 1rem;
+    border-radius: 50px; }
+
+  .gallery--link--container {
+    margin-top: 3.5rem;
+    padding-bottom: 3.5rem; }
+    .gallery--link--container h3 {
+      margin: 1rem 0 1.5rem 0;
+      font-size: 1.5rem;
+      text-decoration: underline; }
+
+  #coupe--gallery--link img, #four-door--gallery--link img,
+  #suv--gallery--link img, #mini--van--gallery--link img {
+    border-radius: 50px;
+    width: 100%;
+    flex: 0 1 25%;
+    flex-direction: row; } }
+/***************************************** 900px - MAX **********************************************/
+@media screen and (min-width: 900px) {
+  /***************************************** JUMBOTRON **********************************************/
+  .jumbotron {
+    width: 100%;
+    text-align: center; } }

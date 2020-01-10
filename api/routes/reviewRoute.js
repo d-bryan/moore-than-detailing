@@ -13,8 +13,7 @@ const Review = require('../models').Review;
 // REVIEW ROUTES
 // TESTED - YES
 // GET - /api/reviews (200) - Returns a list of reviews (including the admin that owns the review)
-router.get('/reviews', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
-  const currentAdmin = req.currentAdmin;
+router.get('/reviews', MW.asyncHandler(async(req, res) => {
   const reviewList = await Review.findAll({
     attributes: [
       'id', 
@@ -30,21 +29,14 @@ router.get('/reviews', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => 
     }]
   });
 
-    // if an admin is signed in
-    if (currentAdmin) {
-      // return (200) - with the review list to the currently logged in admin
-      res.status(200).json(reviewList);
-    } else {
-      // return (401) - unauthorized to the user letting them know they must log in first
-      res.status(401).json({ errors: "Please log in to view protected resources" });
-    }
+    // return (200) - with the review list to the currently logged in admin
+    res.status(200).json(reviewList);
 
 }));
 
 // TESTED - YES
 // GET - /api/reviews/:id (200) - returns the review item (including the admin that owns the review)
-router.get('/reviews/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
-  const currentAdmin = req.currentAdmin;
+router.get('/reviews/:id', MW.asyncHandler(async(req, res) => {
   const reviewListItem = await Review.findOne({
     attributes: [
       'id', 
@@ -63,18 +55,12 @@ router.get('/reviews/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res)
     }]
   });
 
-    // if an admin is signed in
-    if (currentAdmin) {
-      // if the review item does not exist
-      if (reviewListItem === null) {
-        res.status(404).json({errors: "The review item you are looking for could not be found"});
-      } else {
-        // return (200) - with the review list item to the currently logged in admin
-        res.status(200).json(reviewListItem);
-      }
+    // if the review item does not exist
+    if (reviewListItem === null) {
+      res.status(404).json({errors: "The review item you are looking for could not be found"});
     } else {
-      // return (401) - unauthorized to the user letting them know they must log in first
-      res.status(401).json({ errors: "Please log in to view protected resources" });
+      // return (200) - with the review list item to the currently logged in admin
+      res.status(200).json(reviewListItem);
     }
     
 }));

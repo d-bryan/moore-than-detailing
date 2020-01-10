@@ -26,31 +26,41 @@ export class Provider extends Component {
       authenticatedAdmin,
       data: this.data,
       actions: { // add the actions property to call for later use
+        // authentication
         signIn: this.signIn,
         signOut: this.signOut,
+        // administrative
+        getAdminList: this.getAdminList,
+        deleteAdmin: this.deleteAdmin,
+        // packages
         generatePackageList: this.generatePackageList,
         generatePackageDetail: this.generatePackageDetail,
         createPackage: this.createPackage,
         updatePackage: this.updatePackage,
         deletePackage: this.deletePackage,
+        // images
         generateImageList: this.generateImageList,
         generateImageDetail: this.generateImageDetail,
         deleteGalleryItem: this.deleteGalleryItem,
+        // services
         generateServiceList: this.generateServiceList,
         generateServiceDetail: this.generateServiceDetail,
         createService: this.createService,
         updateService: this.updateService,
         deleteService: this.deleteService,
+        // reviews
         generateReviewList: this.generateReviewList,
         generateReviewDetail: this.generateReviewDetail,
         createReview: this.createReview,
         updateReview: this.updateReview,
         deleteReview: this.deleteReview,
+        // prices
         generatePriceList: this.generatePriceList,
         generatePriceDetail: this.generatePriceDetail,
         createPriceItem: this.createPriceItem,
         updatePriceItem: this.updatePriceItem,
         deletePriceItem: this.deletePriceItem,
+
       },
     }
 
@@ -97,21 +107,39 @@ export class Provider extends Component {
     Cookies.remove('authenticatedAdmin');
   }
 
+  /*********** ADMINS *************************************** */
+
+  /**
+   * Retrieves a list of all the administrative users
+   */
+  getAdminList = async(credentials) => {
+    const admins = await this.data.getTotalAdmins(credentials);
+    return admins;
+  }
+
+  /**
+   * Deletes an individual admin from the database
+   */
+  deleteAdmin = async(credentials, id) => {
+    const admin = await this.data.deleteAdmin(credentials,id);
+    return admin;
+  }
+
   /*********** PACKAGES *************************************** */
 
   /**
    * Retrieves a list of all packages in the database
    */
-  generatePackageList = async(credentials) => {
-    const packages = await this.data.getPackages(credentials);
+  generatePackageList = async() => {
+    const packages = await this.data.getPackages();
     return packages;
   }
 
   /**
    * Retrieves an individual package from the database
    */
-  generatePackageDetail = async(id, credentials) => {
-    const pkg = await this.data.getPackage(id, credentials);
+  generatePackageDetail = async(id) => {
+    const pkg = await this.data.getPackage(id);
     return pkg;
   }
 
@@ -144,16 +172,16 @@ export class Provider extends Component {
   /**
    * Retreives a list of available images
    */
-  generateImageList = async(credentials) => {
-    const images = await this.data.getImages(credentials);
+  generateImageList = async() => {
+    const images = await this.data.getImages();
     return images;
   }
 
   /**
    * Retrieves an individual image
    */
-  generateImageDetail = async(id, credentials) => {
-    const image = await this.data.getImage(id, credentials);
+  generateImageDetail = async(id) => {
+    const image = await this.data.getImage(id);
     return image;
   }
 
@@ -170,16 +198,16 @@ export class Provider extends Component {
   /**
    * Retrieves a list of all services in the database
    */
-  generateServiceList = async(credentials) => {
-    const services = await this.data.getServices(credentials);
+  generateServiceList = async() => {
+    const services = await this.data.getServices();
     return services;
   }
 
   /**
    * Retrieves an individual service from the database
    */
-  generateServiceDetail = async(id, credentials) => {
-    const service = await this.data.getServiceItem(id, credentials);
+  generateServiceDetail = async(id) => {
+    const service = await this.data.getServiceItem(id);
     return service;
   }
 
@@ -212,16 +240,16 @@ export class Provider extends Component {
   /**
    * Retrieves a list of all reviews in the database
    */
-  generateReviewList = async(credentials) => {
-    const reviews = await this.data.getReviews(credentials);
+  generateReviewList = async() => {
+    const reviews = await this.data.getReviews();
     return reviews;
   }
 
   /**
    * Retrieves an individual review from the database
    */
-  generateReviewDetail = async(id, credentials) => {
-    const review = await this.data.getReviewItem(id, credentials);
+  generateReviewDetail = async(id) => {
+    const review = await this.data.getReviewItem(id);
     return review;
   }
 
@@ -254,16 +282,16 @@ export class Provider extends Component {
   /**
    * Retrieves a list of all pricing in the database
    */
-  generatePriceList = async(credentials) => {
-    const prices = await this.data.getPricing(credentials);
+  generatePriceList = async() => {
+    const prices = await this.data.getPricing();
     return prices;
   }
 
   /**
    * Retrieves an individual price from the database
    */
-  generatePriceDetail = async(id, credentials) => {
-    const price = await this.data.getPriceItem(id, credentials);
+  generatePriceDetail = async(id) => {
+    const price = await this.data.getPriceItem(id);
     return price;
   }
 

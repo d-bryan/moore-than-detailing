@@ -13,8 +13,7 @@ const Package = require('../models').Package;
 // PACKAGE ROUTES
 // TESTED - YES
 // GET - /api/packages (200) - Returns a list of packages (including the admin that owns the package)
-router.get('/packages', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
-  const currentAdmin = req.currentAdmin;
+router.get('/packages', MW.asyncHandler(async(req, res) => {
   const packages = await Package.findAll({
     attributes: ['id', 'adminId', 'title', 'description', 'estimatedTime'],
     include: [{
@@ -23,20 +22,14 @@ router.get('/packages', MW.authenticateAdmin, MW.asyncHandler(async(req, res) =>
     }]
   });
 
-  // if an admin is signed in
-  if (currentAdmin) {
-    // return (200) - with the package list to the currently logged in admin
-    res.status(200).json(packages);
-  } else {
-    // return (401) - unauthorized to the user letting them know they must log in first
-    res.status(401).json({ errors: "Please log in to view protected resources" });
-  }
+  // return (200) - with the package list to the currently logged in admin
+  res.status(200).json(packages);
+
 }));
 
 // TESTED - YES
 // GET - /api/packages/:id (200) - returns the package (including the admin that owns the package)
-router.get('/packages/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
-  const currentAdmin = req.currentAdmin;
+router.get('/packages/:id', MW.asyncHandler(async(req, res) => {
   const pkg = await Package.findOne({
     attributes: ['id', 'adminId', 'title', 'description', 'estimatedTime'],
     where: {
@@ -48,9 +41,6 @@ router.get('/packages/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res
     }]
   });
 
-  // if an admin is signed in
-  if (currentAdmin) {
-
     if (pkg === null) {
       // if the package does not exist return (404) - let the user know it could not be located
       res.status(404).json({ errors: "Sorry the package you are looking for could not be found" });
@@ -58,11 +48,6 @@ router.get('/packages/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res
       // return (200) - with the package list to the currently logged in admin
       res.status(200).json(pkg);
     }
-
-  } else {
-    // return (401) - unauthorized to the user letting them know they must log in first
-    res.status(401).json({ errors: "Please log in to view protected resources" });
-  }
 }));
 
 // TESTED - YES

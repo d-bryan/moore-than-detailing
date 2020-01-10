@@ -13,8 +13,7 @@ const Pricing = require('../models').Pricing;
 // PRICING ROUTES
 // TESTED - YES
 // GET - /api/pricing (200) - Returns a list of pricing (including the admin that owns the list item)
-router.get('/pricing', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
-  const currentAdmin = req.currentAdmin;
+router.get('/pricing', MW.asyncHandler(async(req, res) => {
   const priceList = await Pricing.findAll({
     attributes: [
       'id', 
@@ -33,22 +32,14 @@ router.get('/pricing', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => 
     }]
   });
 
-  // if an admin is signed in
-  if (currentAdmin) {
     // return (200) - with the package list to the currently logged in admin
     res.status(200).json(priceList);
-  } else {
-    // return (401) - unauthorized to the user letting them know they must log in first
-    res.status(401).json({ errors: "Please log in to view protected resources" });
-  }
-
 
 }));
 
 // TESTED - YES
 // GET - /api/pricing/:id (200) - returns the list item (including the admin that owns the list item)
-router.get('/pricing/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
-  const currentAdmin = req.currentAdmin;
+router.get('/pricing/:id', MW.asyncHandler(async(req, res) => {
   const priceListItem = await Pricing.findOne({
     attributes: [
       'id', 
@@ -70,20 +61,13 @@ router.get('/pricing/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res)
     }]
   });
 
-    // if an admin is signed in
-    if (currentAdmin) {
 
-      if (priceListItem === null) {
-        // if the list item does not exist return (404) - let the user know it could not be located
-        res.status(404).json({ errors: "Sorry the package item you are looking for could not be found" });
-      } else {
-        // return (200) - with the package list item to the currently logged in admin
-        res.status(200).json(priceListItem);
-      }
-  
+    if (priceListItem === null) {
+      // if the list item does not exist return (404) - let the user know it could not be located
+      res.status(404).json({ errors: "Sorry the package item you are looking for could not be found" });
     } else {
-      // return (401) - unauthorized to the user letting them know they must log in first
-      res.status(401).json({ errors: "Please log in to view protected resources" });
+      // return (200) - with the package list item to the currently logged in admin
+      res.status(200).json(priceListItem);
     }
 
 }));

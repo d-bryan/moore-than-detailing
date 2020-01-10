@@ -12,8 +12,8 @@ const Admin = require('../models').Admin;
 
 // ADMIN ROUTES
 // TESTED - YES
-// GET /api/admins (200) - returns currently authenticated admin
-router.get('/admins', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
+// GET /api/admin (200) - returns currently authenticated admin
+router.get('/admin', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
   const admin = req.currentAdmin;
 
   await res.status(200).json({
@@ -22,6 +22,23 @@ router.get('/admins', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
     lastName: admin.lastName,
     email: admin.emailAddress
   });
+}));
+
+// TESTED - YES
+// GET /api/admins (200) - returns list of administrative users
+router.get('/admins', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
+  const admin = req.currentAdmin;
+  const totalAdmins = await Admin.findAll({
+    attributes: ['id', 'firstName', 'lastName', 'emailAddress']
+  });
+
+  if (admin) {
+    // response with (200) - with a list of the current admins in the database
+    res.status(200).json(totalAdmins);
+  } else {
+    // else send a (401) - Unauthorize status code back telling the user that an admin must be logged in to view the admin list
+    res.status(401).json({ errors: "Unauthorized, you must first be logged in to create an administrative user" });
+  }
 }));
 
 // TESTED - YES
@@ -100,5 +117,54 @@ router.post('/admins', MW.authenticateAdmin, MW.createAdminCheck, MW.asyncHandle
     res.status(401).json({ errors: "Unauthorized, you must first be logged in to create an administrative user" });
   }
 }));
+
+// TESTED - YES
+// DELETE /api/admins (204) - deletes a selected administrative user if not a primary admin and not the currently logged in user
+router.delete('/admins/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
+  const admin = req.currentAdmin;
+  const delAdmin = await Admin.findByPk(req.params.id);
+  const delAdminInt = parseInt(req.params.id, 10);
+  
+  // if there is an administraive user logged in
+  if (admin) {
+    
+    try {
+
+      // if the administraive user attempting to delete exists
+      if (delAdmin !== null) {
+
+        // if the administrative user is not a primary user
+        if (delAdmin.firstName === "Dylan" || 
+        delAdmin.firstName === "Steven" ||
+        delAdmin.emailAddress === "dylan.g.bryan@gmail.com" ||
+        delAdmin.emailAddress === "moorethandetailing@yahoo.com"
+        ) {
+          // return with (403) - forbidden action status as these are the primary admins for the application.
+          res.status(403).json({ errors: "These are primary administrative users and cannot be deleted." });
+        } else if (delAdminInt === admin.id) {
+          // return with (403) - forbidden action as this is the currently logged in admin and the user cannot delete themselves
+          res.status(403).json({ errors: "This is the currently logged in admin, you cannot delete this user." });
+        } else {
+          // delete the administrative user
+          await delAdmin.destroy();
+          res.status(204).end();
+        }
+
+      } else {
+        // return with (404) - cannot locate this admin
+        res.status(404).json({ errors: "The administrative user you are attempting to delete cannot be found." });
+      }
+
+    } catch (err) {
+      console.log ("There was an error when attempting to delete the Administrator.", err);
+    }
+  
+  } else {
+    // else send a (401) - Unauthorize status code back telling the user that an admin must be logged in to delete an administrative user
+    res.status(401).json({ errors: "Unauthorized, you must first be logged in to create an administrative user" });
+  }
+}));
+
+
 
 module.exports = router;

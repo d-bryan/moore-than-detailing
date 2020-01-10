@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import 'normalize.css';
-import './styles/index.css';
+import './styles/style.min.css';
+import './styles/custom.css';
 
 import { Provider } from './Context'
 import App from './App';

@@ -42,8 +42,7 @@ const Gallery = require('../models').Gallery;
 // GALLERY ROUTES
 // TESTED - YES
 // GET - /api/gallery (200) - Returns a list of images (including the admin that owns the image)
-router.get('/gallery', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
-  const currentAdmin = req.currentAdmin;
+router.get('/gallery', MW.asyncHandler(async(req, res) => {
   const galleryList = await Gallery.findAll({
     attributes: [
       'id', 
@@ -57,21 +56,14 @@ router.get('/gallery', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => 
     }]
   });
 
-    // if an admin is signed in
-    if (currentAdmin) {
-      // return (200) - with the image list to the currently logged in admin
-      res.status(200).json(galleryList);
-    } else {
-      // return (401) - unauthorized to the user letting them know they must log in first
-      res.status(401).json({ errors: "Please log in to view protected resources" });
-    }
+  // return (200) - with the image list
+  res.status(200).json(galleryList);
 
 }));
 
 // TESTED - YES
 // GET - /api/gallery/:id (200) - returns the image item (including the admin that owns the image)
-router.get('/gallery/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res) => {
-  const currentAdmin = req.currentAdmin;
+router.get('/gallery/:id', MW.asyncHandler(async(req, res) => {
   const galleryListItem = await Gallery.findOne({
     attributes: [
       'id', 
@@ -88,18 +80,12 @@ router.get('/gallery/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res)
     }]
   });
 
-    // if an admin is signed in
-    if (currentAdmin) {
-      // if the image item does not exist
-      if (galleryListItem === null) {
-        res.status(404).json({errors: "The image item you are looking for could not be found"});
-      } else {
-        // return (200) - with the image list item to the currently logged in admin
-        res.status(200).json(galleryListItem);
-      }
+    // if the image item does not exist
+    if (galleryListItem === null) {
+      res.status(404).json({errors: "The image item you are looking for could not be found"});
     } else {
-      // return (401) - unauthorized to the user letting them know they must log in first
-      res.status(401).json({ errors: "Please log in to view protected resources" });
+      // return (200) - with the image list item to the currently logged in admin
+      res.status(200).json(galleryListItem);
     }
 
 }));

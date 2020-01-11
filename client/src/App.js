@@ -13,35 +13,21 @@ import PrivateRoute from './PrivateRoute';
 import Footer from './components/footer/Footer';
 import HomePage from './components/user-pages/HomePage';
 import AboutPage from './components/user-pages/AboutPage';
+import Services from './components/user-pages/Services';
 
 
 // set up context components
 const FooterWithContext = withContext(Footer);
 const HomePageWithContext = withContext(HomePage);
 const AboutPageWithContext = withContext(AboutPage);
+const ServicesWithContext = withContext(Services);
 
 export default () => (
   <Router>
     <div className="page-wrap bounds">
-      {/* <header class="navigation--container bounds">
-        <div id="admin--name--container">
-          <p>Hello, User first name</p>
-        </div>
-        <nav class="navigation">
-          <ul>
-            <li><a href="./admin-dashboard.html">DASHBOARD</a></li>
-            <li><a href="./admins-table.html">ADMINS</a></li>
-            <li><a href="./packages.html">PACKAGES</a></li>
-            <li><a href="./pricing.html">PRICING</a></li>
-            <li><a href="./customer-reviews.html">REVIEWS</a></li>
-            <li><a href="./services-table.html">SERVICES</a></li>
-            <li><a href="./admin-login.html">LOGIN</a></li>
-            <li><a href="./admin-logout.html">LOGOUT</a></li>
-          </ul>
-        </nav>
-      </header> */}
 
     <Switch>
+      <Route path="/services" component={ServicesWithContext} />
       <Route path="/about-us" component={AboutPageWithContext} />
       <Route path="/" component={HomePageWithContext} />
       {/* // dashboard

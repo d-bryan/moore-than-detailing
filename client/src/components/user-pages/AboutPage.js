@@ -1,16 +1,33 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 // image imports
 import StevenAboutProfile from '../../website-mockups-assets/steven-about-profile.png';
 import MeagenAboutProfile from '../../website-mockups-assets/meagen-about-profile.png';
 // component imports
 import SignUpForm from './SignUpForm';
+import NavUser from '../navigation/NavUser';
 
 export default class AboutPage extends React.PureComponent {
 
   render () {
     return (
       <>
+        <Helmet>
+          <title>About Us | Moore Than Detailing</title>
+          <meta name="description" content="Steven has been in the automotive industry for over fifteen years, and Meagen helps out behind the scenes with scheduling, speaking to customers and more."/>
+          <meta property="og:title" content="About Us | Learn About the Team"/>
+          <meta property="og:description" content="Steven has been in the automotive industry for over fifteen years, and Meagen helps out behind the scenes with scheduling, speaking to customers and more."/>
+          <meta property="og:type" content="website"/>
+          <meta property="og:url" content="https://www.moorethandetailing.com/about-us"/>
+          <meta property="og:image" content="../../website-mockups-assets/steven-about-profile.png"/>
+          <meta name="keywords" content="Moore Than Detailing, About Us, Steven Moore, Meagen Moore"/>
+        </Helmet>
+
+        <>
+          <NavUser />
+        </>
+
         <div className="about--container">
           <section className="steven--profile--container">
             <img id="steven--about--profile" src={StevenAboutProfile} alt="Steven Moore profile"/>

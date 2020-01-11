@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // import components
 import SectionComponent from './SectionComponent';
 
-export default class SectionContainer extends Component {
+export default class SectionContainer extends React.PureComponent {
   
   render() {
     const descriptionArray = this.props.description;

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // component imports
 import PriceListTable from './price-list-table/PriceListTable';
 import SectionContainer from './package-detailing-services/SectionContainer';
 
-export default class DetailingServices extends Component {
+export default class DetailingServices extends React.PureComponent {
 
   state = {
     packages: '',

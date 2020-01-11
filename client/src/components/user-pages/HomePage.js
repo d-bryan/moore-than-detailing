@@ -3,6 +3,8 @@ import {
   Link,
   NavLink
 } from 'react-router-dom';
+import { Helmet } from 'react-helmet'
+
 // component imports
 import SignUpForm from './SignUpForm';
 import DetailingServices from './DetailingServices';
@@ -27,6 +29,18 @@ export default class HomePage extends React.PureComponent {
 
     return (
       <>
+
+        <Helmet>
+          <title>Home | Moore Than Detailing</title>
+          <meta name="description" content="The Leader in Automotive Detailing for Frederick, MD for the past ten years."/>
+          <meta property="og:title" content="Home | Moore Than Detailing"/>
+          <meta property="og:description" content="The Leader in Automotive Detailing for Frederick, MD for the past ten years."/>
+          <meta property="og:type" content="website"/>
+          <meta property="og:url" content="https://www.moorethandetailing.com"/>
+          <meta property="og:image" content="../../website-mockups-assets/logo-grey-text.png"/>
+          <meta name="keywords" content="Car, Detailing, Car Wax, Frederick Maryland"/>
+        </Helmet>
+
         {/* // slide 1 home page */}
         <>
         <div className="jumbotron--container">
@@ -73,7 +87,7 @@ export default class HomePage extends React.PureComponent {
             <br/>
             <span>Steven began working as a mechanic during highschool and into college. Providing exceptional detailing service to customers and their vehicles became passion, and soon to be history.</span>
           </p>
-          <button className="slide--3--button btn"><a href="./about.html">Read More</a></button>
+          <button className="slide--3--button btn"><Link to="/about-us">Read More</Link></button>
         </div>
         </>
 
@@ -100,7 +114,7 @@ export default class HomePage extends React.PureComponent {
         <p id="slide--6--description--right">Ceramic coatings provide overall protection and leave a deep, glossy finish for years to come.
           The 9H hardness of the coating is self cleaning and gives your clear coat an extra layer of protection from harmful environments.
         </p>
-        <button className="slide--6--btn btn"><a href="./services.html">Read More</a></button>
+        <button className="slide--6--btn btn"><Link to="/services">Read More</Link></button>
         </div>
         </>
 

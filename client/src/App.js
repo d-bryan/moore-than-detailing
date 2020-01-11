@@ -14,6 +14,7 @@ import Footer from './components/footer/Footer';
 import HomePage from './components/user-pages/HomePage';
 import AboutPage from './components/user-pages/AboutPage';
 
+
 // set up context components
 const FooterWithContext = withContext(Footer);
 const HomePageWithContext = withContext(HomePage);

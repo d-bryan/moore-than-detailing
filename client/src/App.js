@@ -14,6 +14,8 @@ import Footer from './components/footer/Footer';
 import HomePage from './components/user-pages/HomePage';
 import AboutPage from './components/user-pages/AboutPage';
 import Services from './components/user-pages/Services';
+import Gallery from './components/user-pages/Gallery';
+import GalleryImagesFull from './components/user-pages/gallery-pages/GalleryImagesFull'
 
 
 // set up context components
@@ -21,12 +23,16 @@ const FooterWithContext = withContext(Footer);
 const HomePageWithContext = withContext(HomePage);
 const AboutPageWithContext = withContext(AboutPage);
 const ServicesWithContext = withContext(Services);
+const GalleryWithContext = withContext(Gallery);
+const GalleryImagesFullWithContext = withContext(GalleryImagesFull);
 
 export default () => (
   <Router>
     <div className="page-wrap bounds">
 
     <Switch>
+      <Route path="/gallery/:type" component={GalleryImagesFullWithContext} />
+      <Route path="/gallery" component={GalleryWithContext} />
       <Route path="/services" component={ServicesWithContext} />
       <Route path="/about-us" component={AboutPageWithContext} />
       <Route path="/" component={HomePageWithContext} />

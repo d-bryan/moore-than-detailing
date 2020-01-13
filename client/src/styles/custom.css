@@ -27,4 +27,42 @@ div.clear input {
   font-weight: 600;
   font-size: 1.2rem;
 }
+
+.gallery--modal {
+  padding-top: 2rem;
+}
+
+.gallery--modal--elipses {
+  padding-left: .75rem;
+}
+
+.gallery--modal--button {
+  cursor: pointer;
+}
+
+.gallery--image--full {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-radius: 10%;
+  /* box-shadow: inset 10px 5px rgba(0, 0, 0, 0.7); */
+}
+
+.gallery--image--container--full {
+  margin: auto;
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.gallery--image--container--full h1 {
+  font-size: 2.25rem;
+  padding-bottom: 2rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: underline;
+}
   

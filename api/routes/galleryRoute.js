@@ -4,6 +4,7 @@
 require('dotenv').config();
 const express = require('express');
 const router = express.Router();
+const fs = require('fs');
 const MW = require('../middleware');
 // multer for saving images
 const multer = require('multer');
@@ -129,6 +130,7 @@ router.post('/gallery', MW.authenticateAdmin, upload.single('imageLocation'), MW
 router.delete('/gallery/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, res, next) => {
   const currentAdmin = req.currentAdmin;
   const galleryListItem = await Gallery.findByPk(req.params.id);
+  const imageLocation = await galleryListItem.dataValues.imageLocation;
 
   // if an admin is signed in
   if (currentAdmin) {
@@ -140,6 +142,16 @@ router.delete('/gallery/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, r
         if (currentAdmin.id === galleryListItem.adminId) {
           // DELETE the image list item and end the cycle
           await galleryListItem.destroy();
+
+          // DELETE the image from the uploads folder
+          fs.unlink(await imageLocation, (err) => {
+            if (err) {
+              throw new Error("There was an issue when attempting to delete the image from the uploads folder.", err);
+            } else {
+              console.log(`Sucessfully deleted ${imageLocation} from the uploads folder.`);
+            }
+          });
+
           await res.status(204).end();
         } else {
           // the current admin is not authorized to delete image send (403) - status to client
@@ -162,6 +174,69 @@ router.delete('/gallery/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, r
   }
 
 }));
+
+// Gallery {
+//   dataValues: {
+//     id: 8,
+//     adminId: 1,
+//     vehicleType: 'Coupe',
+//     imageLocation: 'uploads/2019-12-25T18:05:20.039Z-Coupe-368.jpg',
+//     createdAt: 2019-12-25T18:05:20.047Z,
+//     updatedAt: 2019-12-25T18:05:20.047Z
+//   },
+//   _previousDataValues: {
+//     id: 8,
+//     adminId: 1,
+//     vehicleType: 'Coupe',
+//     imageLocation: 'uploads/2019-12-25T18:05:20.039Z-Coupe-368.jpg',
+//     createdAt: 2019-12-25T18:05:20.047Z,
+//     updatedAt: 2019-12-25T18:05:20.047Z
+//   },
+//   _changed: {},
+//   _modelOptions: {
+//     timestamps: true,
+//     validate: {},
+//     freezeTableName: false,
+//     underscored: false,
+//     paranoid: false,
+//     rejectOnEmpty: false,
+//     whereCollection: { id: '8' },
+//     schema: null,
+//     schemaDelimiter: '',
+//     defaultScope: {},
+//     scopes: {},
+//     indexes: [],
+//     name: { plural: 'Galleries', singular: 'Gallery' },
+//     omitNull: false,
+//     tableName: 'Gallery',
+//     sequelize: Sequelize {
+//       options: [Object],
+//       config: [Object],
+//       dialect: [SqliteDialect],
+//       queryInterface: [QueryInterface],
+//       models: [Object],
+//       modelManager: [ModelManager],
+//       connectionManager: [ConnectionManager],
+//       importCache: [Object]
+//     },
+//     hooks: {}
+//   },
+//   _options: {
+//     isNewRecord: false,
+//     _schema: null,
+//     _schemaDelimiter: '',
+//     raw: true,
+//     attributes: [
+//       'id',
+//       'adminId',
+//       'vehicleType',
+//       'imageLocation',
+//       'createdAt',
+//       'updatedAt'
+//     ]
+//   },
+//   isNewRecord: false
+// }
 
 
 module.exports = router;

@@ -1,0 +1,4 @@
+- Fix the on click events for the gallery modal
+- create the uploads for the gallery
+- create the scheduling page, the api routes for scheduling and all that goes with it
+- build the admin pages and link all the creating, updating and deleting

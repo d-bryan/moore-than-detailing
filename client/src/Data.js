@@ -225,7 +225,7 @@ export default class Data {
    */
   async deletePackage (id, credentials) {
     // route parameters
-    const response = this.api(`/packages/${id}`, 'DELETE', null, true, credentials);
+    const response = await this.api(`/packages/${id}`, 'DELETE', null, true, credentials);
 
     // validate the response API
     if (response.status === 204) {
@@ -248,7 +248,7 @@ export default class Data {
    */
   async getImages () {
     // route parameters
-    const response = this.api('/gallery', 'GET', null, false, null);
+    const response = await this.api('/gallery', 'GET', null, false, null);
 
     // validate the response API
     if (response.status === 200) {
@@ -392,7 +392,7 @@ export default class Data {
    */
   async deleteService (id, credentials) {
     // route parameters
-    const response = this.api(`/services/${id}`, 'DELETE', null, true, credentials);
+    const response = await this.api(`/services/${id}`, 'DELETE', null, true, credentials);
 
     // validate the response API
     if (response.status === 204) {
@@ -498,7 +498,7 @@ export default class Data {
    */
   async deleteReview (id, credentials) {
     // route parameters
-    const response = this.api(`/reviews/${id}`, 'DELETE', null, false, credentials);
+    const response = await this.api(`/reviews/${id}`, 'DELETE', null, false, credentials);
 
     // validate the response API
     if (response.status === 204) {
@@ -604,7 +604,7 @@ export default class Data {
    */
   async deletePricing (id, credentials) {
     // route parameters
-    const response = this.api(`/pricing/${id}`, 'DELETE', null, true, credentials);
+    const response = await this.api(`/pricing/${id}`, 'DELETE', null, true, credentials);
 
     // validate the response API
     if (response.status === 204) {

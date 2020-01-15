@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import 'normalize.css';
-import './styles/style.min.css';
+import './styles/style.css';
 import './styles/custom.css';
 
 import { Provider } from './Context'

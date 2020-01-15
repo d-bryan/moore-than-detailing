@@ -21,63 +21,68 @@ export default class GalleryImagesFull extends Component {
 
   async checkForType() {
     const context = this.props.context;
-    const locationState = this.props.location.state.vehicleType;
+    const locationPath = this.props.location.pathname;
 
-    if (locationState === 'coupe') {
-
+    // if the location state from the link is coupe
+    if (locationPath === '/gallery/coupe') {
+      // request the list of images from the database
       await context.actions.generateImageList()
         .then(data => {
+          // filter out for coupe vehicles and set the image state to this
           let coupeData = data.filter(d => d.vehicleType === "coupe");
           this.setState({
             images: coupeData
           });
         });
-
+      // set state for use in react helmet
       this.setState({
         type: 'coupe',
         keywords: ['coupe images', 'gallery images', 'moore than detailing gallery'],
       });
-
-    } else if (locationState === 'four-door') {
-
+      // if the location state from the link is four-door
+    } else if (locationPath === '/gallery/four-door') {
+      // request the list of images from the database
       await context.actions.generateImageList()
         .then(data => {
+          // filter out for four-door vehicles and set the image state to this
           let fourDoorData = data.filter(d => d.vehicleType === "four-door");
           this.setState({
             images: fourDoorData
           });
         });
-
+        // set state for use in react helmet
       this.setState({
         type: 'four-door',
         keywords: ['four door images', 'gallery images', 'moore than detailing gallery'],
       });
-
-    } else if (locationState === 'suv') {
-
+      // if the location state from the link is suv
+    } else if (locationPath === '/gallery/suv') {
+      // request the list of images from the database
       await context.actions.generateImageList()
         .then(data => {
+          // filter out for suv vehicles and set the image state to this
           let suvData = data.filter(d => d.vehicleType === "suv");
           this.setState({
             images: suvData
           });
         });
-      
+      // set state for use in react helmet
       this.setState({
         type: 'suv',
         keywords: ['suv images', 'gallery images', 'moore than detailing gallery'],
       });
-
-    } else if (locationState === 'large') {
-
+      // if the location state from the link is four-door
+    } else if (locationPath === '/gallery/large') {
+      // request the list of images from the database
       await context.actions.generateImageList()
         .then(data => {
+          // filter out for large vehicles and set the image state to this
           let largeData = data.filter(d => d.vehicleType === "large");
           this.setState({
             images: largeData
           });
         });
-
+        // set state for use in react helmet
       this.setState({
         type: 'large-vehicle',
         keywords: ['large vehicle images', 'gallery images', 'moore than detailing gallery'],
@@ -85,6 +90,7 @@ export default class GalleryImagesFull extends Component {
 
     } else {
       console.error("There was an error when attempting to set the state for the type of gallery image.");
+      this.props.history.push('/not-found');
     }
   }
 
@@ -122,11 +128,13 @@ export default class GalleryImagesFull extends Component {
         <NavUser />
         </>
 
-        <div className="gallery--image--container--full">
-          <h1>{metaTitle}</h1>
-          <>        
-          { mapImages }
-          </>
+        <div className="image--container">
+          <h2>{metaTitle}</h2>
+          <section className="desktop--flex--images">
+            <>        
+              { mapImages }
+            </>
+          </section>
         </div>
 
         <>

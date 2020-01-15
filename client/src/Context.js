@@ -31,6 +31,7 @@ export class Provider extends Component {
         signOut: this.signOut,
         // administrative
         getAdminList: this.getAdminList,
+        createAdmin: this.createAdmin,
         deleteAdmin: this.deleteAdmin,
         // packages
         generatePackageList: this.generatePackageList,
@@ -78,18 +79,17 @@ export class Provider extends Component {
    * @param {Username} username - Users username for login
    * @param {Password} password - Users password for login
    */
-  signIn = async (username, password) => {
-    const admin = await this.data.getAdmin(username, password);
+  signIn = async (emailAddress, password) => {
+    const admin = await this.data.getAdmin(emailAddress, password);
 
     if (admin !== null) {
-      this.setState(() => {
-        return {
-          authenticatedAdmin: admin,
-        };
+      this.setState({
+        authenticatedAdmin: admin,
       });
-      admin.data = btoa(`${username}:${password}`);
+      
+      admin.data = btoa(`${emailAddress}:${password}`);
       localStorage.setItem('admin', JSON.stringify(admin));
-      Cookies.set('authenticatedUser', JSON.stringify(admin), { expires: 30 });
+      Cookies.set('authenticatedAdmin', JSON.stringify(admin), { expires: 30 });
     }
 
     return admin;
@@ -99,10 +99,8 @@ export class Provider extends Component {
    * Signs out the user and removes the set cookie
    */  
   signOut = () => {
-    this.setState(() => {
-      return {
-        authenticatedAdmin: null,
-      };
+    this.setState({
+      authenticatedAdmin: null,
     });
     Cookies.remove('authenticatedAdmin');
   }
@@ -115,6 +113,14 @@ export class Provider extends Component {
   getAdminList = async(credentials) => {
     const admins = await this.data.getTotalAdmins(credentials);
     return admins;
+  }
+
+  /**
+   * Creates a new administrative User for the database
+   */
+  createAdmin = async(adminInfo, credentials) => {
+    const request = await this.data.createAdmin(adminInfo, credentials);
+    return request;
   }
 
   /**

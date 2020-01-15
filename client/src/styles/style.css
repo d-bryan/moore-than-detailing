@@ -264,6 +264,8 @@ button:hover, button:target {
   font-size: 1.125rem;
   line-height: 1.5rem; }
   .submit--errors div {
+    padding-top: 1rem; }
+  .submit--errors h2 {
     padding-top: 3rem; }
 
 .actions--button--container {
@@ -272,10 +274,12 @@ button:hover, button:target {
   background-color: #2890ce;
   color: #2a231a;
   padding-bottom: 2rem;
+  padding-right: 10rem;
   margin-bottom: 2.75rem;
   box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.5);
   border-radius: 0 0 10px 10px; }
   .actions--button--container button {
+    float: right;
     padding: .5rem 1.25rem;
     margin-left: 1.5rem;
     background-color: #2a231a;
@@ -879,7 +883,7 @@ button:hover, button:target {
 #coupe--gallery--link img, #four-door--gallery--link img,
 #suv--gallery--link img, #mini--van--gallery--link img {
   border-radius: 50px;
-  width: 70%;
+  width: 50%;
   box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.7); }
 #coupe--gallery--link img:hover, #coupe--gallery--link img:target,
 #coupe--gallery--link a:hover, #coupe--gallery--link a:target, #four-door--gallery--link img:hover, #four-door--gallery--link img:target,
@@ -963,11 +967,12 @@ button:hover, button:target {
 .admin--footer--container {
   background-color: #3b3d40;
   color: #fff;
-  display: block;
-  position: relative;
+  display: flex;
+  margin: auto;
+  /* position: relative; */
   box-sizing: border-box;
   text-align: center;
-  height: 220px;
+  height: 240px;
   line-height: 1rem;
   padding: 0 1.5rem; }
   .admin--footer--container a {
@@ -978,20 +983,25 @@ button:hover, button:target {
     .admin--footer--container a:target {
       color: #2e3192; }
 
+.admin--footer--flex {
+  flex: 1;
+}
+
 .admin--footer {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
-  font-style: normal; }
+  font-style: normal;
+  padding-top: 1rem; }
   .admin--footer li {
     padding: .35rem 0; }
 
-#menu-header {
+.menu-header {
   padding-top: 2rem;
   padding-bottom: 8px;
   border-bottom: solid 1px white;
   max-width: 150px;
   margin: auto; }
-  #menu-header + li {
+  .menu-header + li {
     padding-top: 18px; }
 
 #login--page,
@@ -999,10 +1009,10 @@ button:hover, button:target {
   margin: auto;
   text-align: center;
   padding-top: 3rem; }
-  #login--page #username,
+  #login--page #emailAddress,
   #login--page #password,
   #login--page h1,
-  #logout--page #username,
+  #logout--page #emailAddress,
   #logout--page #password,
   #logout--page h1 {
     margin-bottom: 1.5rem;
@@ -1012,9 +1022,9 @@ button:hover, button:target {
   #login--page h1,
   #logout--page h1 {
     font-size: 1.5rem; }
-  #login--page #username,
+  #login--page #emailAddress,
   #login--page #password,
-  #logout--page #username,
+  #logout--page #emailAddress,
   #logout--page #password {
     padding: .25rem 1rem;
     width: 15%; }
@@ -1074,7 +1084,8 @@ button:hover, button:target {
 #admin--pricing--table--container,
 #admin--reviews--table--container {
   text-align: center;
-  padding-top: 3rem; }
+  padding-top: 3rem;
+  padding-bottom: 3rem; }
   #admins--table--container h1,
   #admin--packages--table--container h1,
   #admin--pricing--table--container h1,
@@ -2833,7 +2844,7 @@ button:hover, button:target {
 
   .gallery--link--container {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-evenly; }
 
   #gallery--modal--image {
@@ -2853,7 +2864,7 @@ button:hover, button:target {
   #coupe--gallery--link img, #four-door--gallery--link img,
   #suv--gallery--link img, #mini--van--gallery--link img {
     border-radius: 50px;
-    width: 100%;
+    width: 70%;
     flex: 0 1 25%;
     flex-direction: row; } }
 /*************************************** 1339px - MAX-WIDTH ********************************************/
@@ -3210,7 +3221,7 @@ button:hover, button:target {
 
   .gallery--link--container {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-evenly; }
 
   #gallery--modal--image {
@@ -3230,7 +3241,8 @@ button:hover, button:target {
   #coupe--gallery--link img, #four-door--gallery--link img,
   #suv--gallery--link img, #mini--van--gallery--link img {
     border-radius: 50px;
-    width: 100%;
+    width: 70%;
+    /* flex: 1; */
     flex: 0 1 25%;
     flex-direction: row; } }
 /***************************************** 900px - MAX **********************************************/

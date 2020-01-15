@@ -14,3 +14,5 @@ const GalleryModalImage = (props) => {
 };
 
 export default GalleryModalImage;
+
+// Source GalleryModal.js

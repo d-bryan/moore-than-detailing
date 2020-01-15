@@ -10,6 +10,7 @@ const GalleryImagesContainer = (props) => {
       <GalleryImage
         src={props.src}
         alt={props.alt}
+        name={props.name}
       />
     </>
   );

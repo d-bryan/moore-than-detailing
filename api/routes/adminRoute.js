@@ -66,14 +66,14 @@ router.post('/admins', MW.authenticateAdmin, MW.createAdminCheck, MW.asyncHandle
         // if the password does not match the regex pattern
         if (reg.test(newAdmin.password) !== true) {    
           // return with a status (400) - let the user know what password requirements are
-          res.status(400).json({ errors: "Please enter a password between 8 and 20 characters. The only special characters allowed are: ! $ # " });
+          res.status(400).json({ errors: ["Please enter a password between 8 and 20 characters. The only special characters allowed are: ! $ # "] });
 
         } else {
 
           // if passwords do not match
           if (newAdmin.password !== newAdmin.confirmPassword) {      
             // return with a status (400) - let user know passwords do not match
-            res.status(400).json({ errors: "Passwords do not match" });
+            res.status(400).json({ errors: ["Passwords do not match"] });
           } else {      
 
             // hash the new admins passwords
@@ -104,7 +104,7 @@ router.post('/admins', MW.authenticateAdmin, MW.createAdminCheck, MW.asyncHandle
         // send error status of (400) - bad request back to client
         res.status(400).json({ 
           errors: 
-            `Username must be unique, please enter another "email address" (${err.errors[0].instance.emailAddress}) is already taken.`
+            [`Username must be unique, please enter another "email address" (${err.errors[0].instance.emailAddress}) is already taken.`]
         });
       } else {    
         // send a (500) - status error

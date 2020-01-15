@@ -9,13 +9,29 @@ import {
 // import context and private route components
 import withContext from './Context';
 import PrivateRoute from './PrivateRoute';
+
 // import components
 import Footer from './components/footer/Footer';
+// user pages
 import HomePage from './components/user-pages/HomePage';
 import AboutPage from './components/user-pages/AboutPage';
 import Services from './components/user-pages/Services';
 import Gallery from './components/user-pages/Gallery';
-import GalleryImagesFull from './components/user-pages/gallery-pages/GalleryImagesFull'
+import GalleryImagesFull from './components/user-pages/gallery-pages/GalleryImagesFull';
+// authentication components
+import SignIn from './components/authentication/SignIn';
+import SignOut from './components/authentication/SignOut';
+// error components
+import Forbidden from './components/error-pages/Forbidden';
+import LoginRequired from './components/error-pages/LoginRequired'
+import NotFound from './components/error-pages/NotFound';
+import ServerError from './components/error-pages/ServerError';
+// admin pages
+import AdminDashboard from './components/admin-pages/AdminDashboard';
+import AdminTable from './components/admin-pages/AdminTable';
+import CreateAdmin from './components/admin-pages/admins-table/CreateAdmin';
+import DeleteItem from './components/admin-pages/DeleteItem';
+
 
 
 // set up context components
@@ -25,17 +41,46 @@ const AboutPageWithContext = withContext(AboutPage);
 const ServicesWithContext = withContext(Services);
 const GalleryWithContext = withContext(Gallery);
 const GalleryImagesFullWithContext = withContext(GalleryImagesFull);
+const SignInWithContext = withContext(SignIn);
+const SignOutWithContext = withContext(SignOut);
+const AdminDashboardWithContext = withContext(AdminDashboard);
+const AdminTableWithContext = withContext(AdminTable);
+const DeleteItemWithContext = withContext(DeleteItem);
+const CreateAdminWithContext = withContext(CreateAdmin);
+
+
+
+
 
 export default () => (
   <Router>
     <div className="page-wrap bounds">
 
     <Switch>
-      <Route path="/gallery/:type" component={GalleryImagesFullWithContext} />
-      <Route path="/gallery" component={GalleryWithContext} />
-      <Route path="/services" component={ServicesWithContext} />
-      <Route path="/about-us" component={AboutPageWithContext} />
-      <Route path="/" component={HomePageWithContext} />
+      {/* dashboard */}
+      <PrivateRoute exact path="/admin-dashboard" component={AdminDashboardWithContext} />
+      
+      {/* admin routes */}
+      <PrivateRoute exact path="/admin-table" component={AdminTableWithContext} />
+      <PrivateRoute exact path="/admin/create" component={CreateAdminWithContext} />
+      <PrivateRoute exact path="/admin/:id/delete" component={DeleteItemWithContext} />
+
+      {/* authentication */}
+      <Route exact path="/admin-login" component={SignInWithContext} />
+      <Route exact path="/admin-logout" component={SignOutWithContext} />
+      {/* user pages */}
+      <Route exact path="/gallery/:type" component={GalleryImagesFullWithContext} />
+      <Route exact path="/gallery" component={GalleryWithContext} />
+      <Route exact path="/services" component={ServicesWithContext} />
+      <Route exact path="/about-us" component={AboutPageWithContext} />
+      {/* error routes */}
+      <Route path="/login-required" component={LoginRequired} />
+      <Route path="/forbidden" component={Forbidden} />
+      <Route path="/error" component={ServerError} />
+      <Route path="/not-found" component={NotFound} />
+      <Route exact path="/" component={HomePageWithContext} />
+      <Route component={NotFound} />
+      
       {/* // dashboard
       <PrivateRoute path="/admin-dashboard" component={} />
       // admin routes

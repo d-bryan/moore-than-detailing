@@ -47,7 +47,6 @@ div.clear input {
   padding-top: 2rem;
   padding-bottom: 2rem;
   border-radius: 10%;
-  /* box-shadow: inset 10px 5px rgba(0, 0, 0, 0.7); */
 }
 
 .gallery--image--container--full {
@@ -64,5 +63,49 @@ div.clear input {
   font-weight: 600;
   font-style: normal;
   text-decoration: underline;
+}
+
+.gallery--link--image {
+  width: 200px;
+}
+
+.button {
+  background-color: rgb(40, 144, 206);
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 1px 4px 2px 1px rgba(0,0,0,.6);
+  cursor: pointer;
+  margin-top: .5rem;
+  margin-left: .75rem;
+  margin-right: .75rem;
+  font-size: 16px;
+  font-family: Raleway,sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.button-secondary {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.button:target {
+  background-color: rgba(40, 144, 206, 0.7);
+  box-shadow: none;
+}
+
+.button-secondary:target {
+  background-color: #fff;
+  box-shadow: none;
+}
+
+.button:hover,
+.button:focus,
+.button-secondary:hover,
+.button-secondary:focus {
+  box-shadow: none;
+  outline: 0;
 }
   

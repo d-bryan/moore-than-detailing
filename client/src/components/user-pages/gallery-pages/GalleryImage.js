@@ -3,11 +3,11 @@ import React from 'react';
 const GalleryImage = (props) => {
   return (
     <>
-      <img className={"gallery--image--full"} src={props.src} alt={props.alt} />
+      <img className={props.name} src={props.src} alt={props.alt} />
     </>
   );
 };
 
 export default GalleryImage;
 
-// Source GalleryImageContainer.js
+// Source GalleryImageContainer.js, Gallery.js

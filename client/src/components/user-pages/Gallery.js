@@ -1,21 +1,64 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-
-// import images
-// import leftArrowAlt from '../../website-mockups-assets/left-arrow-alt.png';
-// import modalImage1 from '../../website-mockups-assets/interior-detail.png';
-// import rightArrowAlt from '../../website-mockups-assets/right-arrow-alt.png';
-// import elipses from '../../website-mockups-assets/modal-elipses.png';
-import coupeLink from '../../website-mockups-assets/full-detail-plus.png';
-
+import config from '../../api-config';
 
 // import components
 import SignUpForm from './SignUpForm';
 import NavUser from '../navigation/NavUser';
 import GalleryModal from './gallery-pages/GalleryModal';
+import GalleryImage from './gallery-pages/GalleryImage';
 
 export default class Gallery extends React.PureComponent {
+
+  state = {
+    coupeImage: '',
+    fourDoorImage: '',
+    suvImage: '',
+    largeImage: '',
+  }
+
+  async componentDidMount() {
+    const context = this.props.context;
+    await context.actions.generateImageList()
+      .then(data => {
+        var coupeImage;
+        var fourDoorImage;
+        var suvImage;
+        var largeImage;
+
+        /**
+         * Filters the object to prevent multiple API calls
+         * @param {vehicleType} searchValue - Type of vehicle that images are stored as
+         */
+        function filterData (searchValue) {
+          let image = data.filter(d => d.vehicleType === searchValue);
+          image = image[0].imageLocation;
+
+          return image;
+        }
+
+        // filter the data for each type of vehicle based on different links
+        coupeImage = filterData('coupe');
+        fourDoorImage = filterData('four-door');
+        suvImage = filterData('suv');
+        largeImage = filterData('large');
+        
+        // set the state for the url to the image links
+        this.setState({
+          coupeImage: config.uploads + coupeImage,
+          fourDoorImage: config.uploads + fourDoorImage,
+          suvImage: config.uploads + suvImage,
+          largeImage: config.uploads + largeImage,
+        });
+
+      })
+      .catch(err => {
+        console.log(`There was an error fetching the images for the links: ${err}`);
+        this.props.history.push('/error-500');
+      });
+  }
+
 
   render() {
 
@@ -48,14 +91,6 @@ export default class Gallery extends React.PureComponent {
               context={context}
             />
           </>
-          <br/>
-          {/* <img className="gallery--modal--elipses" src={elipses} alt="circle"/>
-          <img className="gallery--modal--elipses" src={elipses} alt="circle"/>
-          <img className="gallery--modal--elipses" src={elipses} alt="circle"/>
-          <img className="gallery--modal--elipses" src={elipses} alt="circle"/>
-          <img className="gallery--modal--elipses" src={elipses} alt="circle"/>
-          <img className="gallery--modal--elipses" src={elipses} alt="circle"/>
-          <img className="gallery--modal--elipses" src={elipses} alt="circle"/> */}
         </div>
 
         <div className="gallery--link--container">
@@ -67,8 +102,11 @@ export default class Gallery extends React.PureComponent {
                 pathname: "/gallery/coupe",
                 state: { vehicleType: "coupe" }
               }}
-            ><img src={coupeLink} alt="coupe after being detailed"/>
-            </Link>
+            ><GalleryImage 
+              name={"gallery--link--image"}
+              src={this.state.coupeImage}
+              alt={"Coupe vehicle"}
+            /></Link>
           </section>
 
           <section id="four-door--gallery--link" className="gallery--flex--container">
@@ -78,8 +116,11 @@ export default class Gallery extends React.PureComponent {
                 pathname: "/gallery/four-door",
                 state: { vehicleType: "four-door" }
               }}
-            ><img src={coupeLink} alt="four door car after being detailed"/>
-            </Link>
+            ><GalleryImage 
+              name={"gallery--link--image"}
+              src={this.state.fourDoorImage}
+              alt={"Four Door vehicle"}
+            /></Link>
           </section>
           
           <section id="suv--gallery--link" className="gallery--flex--container">
@@ -89,8 +130,11 @@ export default class Gallery extends React.PureComponent {
                 pathname: "/gallery/suv",
                 state: { vehicleType: "suv" }
               }}
-            ><img src={coupeLink} alt="suv after being detailed"/>
-            </Link>
+            ><GalleryImage 
+              name={"gallery--link--image"}
+              src={this.state.suvImage}
+              alt={"SUV vehicle"}
+            /></Link>
           </section>
           
           <section id="mini--van--gallery--link" className="gallery--flex--container">
@@ -100,8 +144,11 @@ export default class Gallery extends React.PureComponent {
                 pathname: "/gallery/large",
                 state: { vehicleType: "large" }
               }}
-            ><img src={coupeLink} alt="mini van after being detailed"/>
-            </Link>
+            ><GalleryImage 
+              name={"gallery--link--image"}
+              src={this.state.largeImage}
+              alt={"Large vehicle"}
+            /></Link>
           </section>
         </div>
 

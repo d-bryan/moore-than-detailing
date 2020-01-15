@@ -39,8 +39,8 @@ export default class Data {
 
       let encodedCredentials = null;
 
-      if (credentials.email && credentials.password) {
-        encodedCredentials = btoa(`${credentials.email}:${credentials.password}`);
+      if (credentials.emailAddress && credentials.password) {
+        encodedCredentials = btoa(`${credentials.emailAddress}:${credentials.password}`);
       } else {
         encodedCredentials = credentials;
       }
@@ -60,13 +60,16 @@ export default class Data {
    * @param {Email} email - Admin email address
    * @param {Password} password - Admin password
    */
-  async getAdmin (email, password) {
+  async getAdmin (emailAddress, password) {
     // route parameters
-    const response = await this.api('/admin', 'GET', null, true, { email, password });
+    const response = await this.api('/admin', 'GET', null, true, { emailAddress, password });
 
     // Authenticate the admin login
     if (response.status === 200) {
       return response.json()
+        .then(data => {
+          return data;
+        })
     } else if (response.status === 401) {
       return response.json()
         .then(data => data.errors);

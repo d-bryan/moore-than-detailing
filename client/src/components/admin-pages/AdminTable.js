@@ -67,7 +67,7 @@ export default class AdminTable extends React.PureComponent {
         </table>
       </div>
 
-      <div id="create--new--admin--container">
+      <div className="create--new--container">
         <Link to="/admin/create"><button>Create New Admin</button></Link>
       </div>
 

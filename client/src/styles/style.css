@@ -972,7 +972,7 @@ button:hover, button:target {
   /* position: relative; */
   box-sizing: border-box;
   text-align: center;
-  height: 240px;
+  height: 280px;
   line-height: 1rem;
   padding: 0 1.5rem; }
   .admin--footer--container a {
@@ -1184,11 +1184,11 @@ button:hover, button:target {
     outline: 0; }
 
 /************************************ ADMIN FORMS **********************************************/
-#create--new--admin--container {
+.create--new--container {
   margin: auto;
   text-align: center;
   padding: 2rem 0 4rem; }
-  #create--new--admin--container button {
+  .create--new--container button {
     color: #fff;
     background-color: #2890ce;
     padding: .75rem 1.5rem;
@@ -1198,7 +1198,8 @@ button:hover, button:target {
     font-size: 16px;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 1px #000; }
-    #create--new--admin--container button:hover, #create--new--admin--container button:target, #create--new--admin--container button:focus {
+    .create--new--container button:hover, .create--new--container button:target, 
+    .create--new--container button:focus {
       background-color: rgba(40, 144, 206, 0.7);
       box-shadow: none;
       outline: 0; }

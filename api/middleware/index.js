@@ -109,9 +109,9 @@ const packageCheck = [
   check('estimatedTime')
     .exists({ checkFalsy: true, checkNull: true })
     .withMessage("Please provide a value for Estimated Time"),
-  check('adminId')
-    .exists({ checkNull: true, checkFalsy: true })
-    .withMessage("Please provide a value for Admin ID"),
+  // check('adminId')
+  //   .exists({ checkNull: true, checkFalsy: true })
+  //   .withMessage("Please provide a value for Admin ID"),
 ];
 
 const checkPricing = [

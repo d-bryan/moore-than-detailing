@@ -43,7 +43,7 @@ router.get('/packages/:id', MW.asyncHandler(async(req, res) => {
 
     if (pkg === null) {
       // if the package does not exist return (404) - let the user know it could not be located
-      res.status(404).json({ errors: "Sorry the package you are looking for could not be found" });
+      res.status(404).json({ errors: ["Sorry the package you are looking for could not be found"] });
     } else {
       // return (200) - with the package list to the currently logged in admin
       res.status(200).json(pkg);
@@ -82,7 +82,7 @@ router.post('/packages', MW.authenticateAdmin, MW.packageCheck, MW.asyncHandler(
 
   } else {
     // return (401) - unauthorized to the user letting them know they must log in first
-    res.status(401).json({ errors: "Please log in to view protected resources" });    
+    res.status(401).json({ errors: ["Please log in to view protected resources"] });    
   }
 }));
 
@@ -97,40 +97,39 @@ router.put('/packages/:id', MW.authenticateAdmin, MW.packageCheck, MW.asyncHandl
 
   if (currentAdmin) {
     try {
-      // if the current admin is the owner of the item
-      if (currentAdmin.id === pkg.adminId) {
-        // if all the required information is present to update
-        if (request.title !== null && 
+      
+      if (pkg !== null) {
+
+        if (!errors.isEmpty()) {
+          // there is missing information for the update send (400) status code back to user
+          res.status(400).json({ errors: errorMessages });
+        } else {
+           // if all the required information is present to update
+          if (request.title !== null && 
             request.description !== null && 
             request.estimatedTime !== null) {
-          // if the package does not exist send (404) - status code back to user
-          if (pkg === null) {
-            res.status(404).json({ errors: "The package you are looking for could not be found" });
+              // update the package with the requested data
+              await pkg.update(request);
+              
+              res.status(204).end();
           } else {
-            // update the package with the requested data
-            await pkg.update(request);
-            
-            res.status(204).end();
+            res.status(400).json({ errors: ['Please ensure all fields are updated'] });
           }
-        } else {
-          // there is missing information for the update send (400) status code back to user
-          if (!errors.isEmpty()){
-            res.status(400).json({ errors: errorMessages})
-          }
+
         }
+
       } else {
-        // if user does not own the course send (403) - status code back for unauthorized
-        res.status(403).json({
-          errors: `The user administrator ${currentAdmin.firstName}, ${currentAdmin.lastName.slice(0,1)} that you are logged is as is not the owner of this information.`
-        });
+        // if the package does not exist send (404) - status code back to user
+        res.status(404).json({ errors: ["The package you are looking for could not be found"] });
       }
+      
     } catch (err) {
       console.error("Error updating the package in the database: ", err);
       next(err);
     }
   } else {
     // return (401) - unauthorized to the user letting them know they must log in first
-    res.status(401).json({ errors: "Please log in to view protected resources" });    
+    res.status(401).json({ errors: ["Please log in to view protected resources"] });    
   }
 }));
 
@@ -144,17 +143,10 @@ router.delete('/packages/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, 
     try {
       // if the package exists
       if (pkg !== null) {
-        // if the package adminId === current Admin Id
-        if (currentAdmin.id === pkg.adminId) {
-          // DELETE the package and end the cycle
-          await pkg.destroy();
-          res.status(204).end();
-        } else {
-          // the current admin is not authorized to delete package send (403) - status to client
-          res.status(403).json({
-            errors: `The user administrator ${currentAdmin.firstName}, ${currentAdmin.lastName.slice(0,1)} that you are logged is as is not the owner of this information.`
-          });
-        }
+        // DELETE the package and end the cycle
+        await pkg.destroy();
+        res.status(204).end();
+        
       } else {
         // if the package does not exist send (404) - status back to client
         res.status(404).json({  errors: "The package your are looking for could not be found" });

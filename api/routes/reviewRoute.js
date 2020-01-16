@@ -117,35 +117,33 @@ router.put('/reviews/:id', MW.authenticateAdmin, MW.checkReviews, MW.asyncHandle
     if (currentAdmin) {
       try {
 
-        // if the current admin is the owner of the item
-        if (currentAdmin.id === reviewListItem.adminId) {
-          // if all the required information is present to update
-          if (
-            request.customerFirstName !== null  && 
-            request.customerLastName !== null  && 
-            request.customerReview !== null  &&
-            request.customerRating !== null 
-            ) {
-            // if the review list item does not exist send (404) - status code back to user
-            if (reviewListItem === null) {
-              res.status(404).json({errors: "The review item you are looking for could not be found"});
-            } else {
-              // update the review list item with the requested data
-              await reviewListItem.update(request);
-              
-              res.status(204).end();
-            }
+        if (reviewListItem !== null) {
+          // there is missing information for the update send (400) status code back to user
+          if (!errors.isEmpty()) {
+            res.status(400).json({ errors: errorMessages });
           } else {
-            // there is missing information for the update send (400) status code back to user
-            if (!errors.isEmpty()){
-              res.status(400).json({ errors: errorMessages})
-            }
+
+            // if all the required information is present to update
+            if (
+              request.customerFirstName !== null  && 
+              request.customerLastName !== null  && 
+              request.customerReview !== null  &&
+              request.customerRating !== null 
+              ) {
+                // update the review list item with the requested data
+                await reviewListItem.update(request);
+                
+                res.status(204).end();
+
+              } else {
+                res.status(400).json({ errors: ['Please ensure all fields are updated'] });
+              }
+
           }
+
         } else {
-          // if user does not own the course send (403) - status code back for unauthorized
-          res.status(403).json({
-            errors: `The user administrator ${currentAdmin.firstName}, ${currentAdmin.lastName.slice(0,1)} that you are logged is as is not the owner of this information.`
-          });
+          // if the review list item does not exist send (404) - status code back to user
+          res.status(404).json({errors: ["The review item you are looking for could not be found"]});
         }
 
       } catch (err) {

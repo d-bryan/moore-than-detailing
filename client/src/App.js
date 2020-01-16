@@ -2,8 +2,7 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect
+  Switch
 } from 'react-router-dom'
 
 // import context and private route components
@@ -31,22 +30,37 @@ import AdminDashboard from './components/admin-pages/AdminDashboard';
 import AdminTable from './components/admin-pages/AdminTable';
 import CreateAdmin from './components/admin-pages/admins-table/CreateAdmin';
 import DeleteItem from './components/admin-pages/DeleteItem';
+import AdminPackagesTable from './components/admin-pages/AdminPackagesTable';
+import CreatePackage from './components/admin-pages/admin-packages/CreatePackage';
+import UpdatePackage from './components/admin-pages/admin-packages/UpdatePackage';
+import AdminPricingTable from './components/admin-pages/AdminPricingTable';
+import CreatePricing from './components/admin-pages/admin-pricing/CreatePricing';
+import UpdatePricing from './components/admin-pages/admin-pricing/UpdatePricing';
 
 
 
 // set up context components
 const FooterWithContext = withContext(Footer);
+// user pages
 const HomePageWithContext = withContext(HomePage);
 const AboutPageWithContext = withContext(AboutPage);
 const ServicesWithContext = withContext(Services);
 const GalleryWithContext = withContext(Gallery);
 const GalleryImagesFullWithContext = withContext(GalleryImagesFull);
+// authorization
 const SignInWithContext = withContext(SignIn);
 const SignOutWithContext = withContext(SignOut);
+// admin pages
 const AdminDashboardWithContext = withContext(AdminDashboard);
 const AdminTableWithContext = withContext(AdminTable);
 const DeleteItemWithContext = withContext(DeleteItem);
 const CreateAdminWithContext = withContext(CreateAdmin);
+const AdminPackagesTableWithContext = withContext(AdminPackagesTable);
+const CreatePackageWithContext = withContext(CreatePackage);
+const UpdatePackageWithContext = withContext(UpdatePackage);
+const AdminPricingTableWithContext = withContext(AdminPricingTable);
+const CreatePricingWithContext = withContext(CreatePricing);
+const UpdatePricingWithContext = withContext(UpdatePricing);
 
 
 
@@ -61,9 +75,21 @@ export default () => (
       <PrivateRoute exact path="/admin-dashboard" component={AdminDashboardWithContext} />
       
       {/* admin routes */}
-      <PrivateRoute exact path="/admin-table" component={AdminTableWithContext} />
-      <PrivateRoute exact path="/admin/create" component={CreateAdminWithContext} />
       <PrivateRoute exact path="/admin/:id/delete" component={DeleteItemWithContext} />
+      <PrivateRoute exact path="/admin/create" component={CreateAdminWithContext} />
+      <PrivateRoute exact path="/admin-table" component={AdminTableWithContext} />
+
+      {/* admin package routes */}
+      <PrivateRoute exact path="/admin-packages/:id/delete" component={DeleteItemWithContext} />
+      <PrivateRoute exact path="/admin-packages/:id/update" component={UpdatePackageWithContext} />
+      <PrivateRoute exact path="/admin-packages/create" component={CreatePackageWithContext} />
+      <PrivateRoute exact path="/admin-packages" component={AdminPackagesTableWithContext} />
+
+      {/* admin pricing routes */}
+      <PrivateRoute exact path="/admin-pricing/:id/delete" component={DeleteItemWithContext} />
+      <PrivateRoute exact path="/admin-pricing/:id/update" component={UpdatePricingWithContext} />
+      <PrivateRoute exact path="/admin-pricing/create" component={CreatePricingWithContext} />
+      <PrivateRoute exact path="/admin-pricing" component={AdminPricingTableWithContext} />
 
       {/* authentication */}
       <Route exact path="/admin-login" component={SignInWithContext} />

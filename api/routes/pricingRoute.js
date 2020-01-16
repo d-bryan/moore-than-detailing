@@ -120,46 +120,46 @@ router.put('/pricing/:id', MW.authenticateAdmin, MW.checkPricing, MW.asyncHandle
 
   if (currentAdmin) {
     try {
-      // if the current admin is the owner of the item
-      if (currentAdmin.id === priceListItem.adminId) {
-        // if all the required information is present to update
-        if (
-          request.vehicleSize !== null && 
-          request.fullDetailPlus !== null && 
-          request.fullDetail !== null &&
-          request.interiorDetail !== null &&
-          request.theBlitz !== null &&
-          request.exteriorDetail !== null &&
-          request.basicWash !== null
-          ) {
-          // if the price list item does not exist send (404) - status code back to user
-          if (priceListItem === null) {
-            res.status(404).json({errors: "The pricing item you are looking for could not be found"});
-          } else {
-            // update the price list item with the requested data
-            await priceListItem.update(request);
-            
-            res.status(204).end();
-          }
+      
+      if (priceListItem !== null) {
+        // there is missing information for the update send (400) status code back to user
+        if (!errors.isEmpty()) {
+          res.status(400).json({ errors: errorMessages });
         } else {
-          // there is missing information for the update send (400) status code back to user
-          if (!errors.isEmpty()){
-            res.status(400).json({ errors: errorMessages})
+
+          // if all the required information is present to update
+          if (
+            request.vehicleSize !== null && 
+            request.fullDetailPlus !== null && 
+            request.fullDetail !== null &&
+            request.interiorDetail !== null &&
+            request.theBlitz !== null &&
+            request.exteriorDetail !== null &&
+            request.basicWash !== null
+            ) {
+              // update the price list item with the requested data
+              await priceListItem.update(request);
+              
+              res.status(204).end();
+
+            } else {
+              res.status(400).json({ errors: ['Please ensure all fields are updated'] });
+            }
+
           }
-        }
+
       } else {
-        // if user does not own the course send (403) - status code back for unauthorized
-        res.status(403).json({
-          errors: `The user administrator ${currentAdmin.firstName}, ${currentAdmin.lastName.slice(0,1)} that you are logged is as is not the owner of this information.`
-        });
+        // if the price list item does not exist send (404) - status code back to user
+        res.status(404).json({errors: ["The pricing item you are looking for could not be found"]});
       }
+
     } catch (err) {
       console.error("Error updating the price list item in the database: ", err);
       next(err);
     }
   } else {
     // return (401) - unauthorized to the user letting them know they must log in first
-    res.status(401).json({ errors: "Please log in to view protected resources" });    
+    res.status(401).json({ errors: ["Please log in to view protected resources"] });
   }  
 
 }));
@@ -174,17 +174,11 @@ router.delete('/pricing/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, r
     try {
       // if the price list item exists
       if (priceListItem !== null) {
-        // if the price list item adminId === current Admin Id
-        if (currentAdmin.id === priceListItem.adminId) {
-          // DELETE the price list item and end the cycle
-          await priceListItem.destroy();
-          res.status(204).end();
-        } else {
-          // the current admin is not authorized to delete pricing item send (403) - status to client
-          res.status(403).json({
-            errors: `The user administrator ${currentAdmin.firstName}, ${currentAdmin.lastName.slice(0,1)} that you are logged is as is not the owner of this information.`
-          });
-        }
+
+        // DELETE the price list item and end the cycle
+        await priceListItem.destroy();
+        res.status(204).end();
+
       } else {
         // if the price list item does not exist send (404) - status back to client
         res.status(404).json({  errors: "The price list item your are looking for could not be found" });

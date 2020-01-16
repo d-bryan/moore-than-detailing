@@ -9,6 +9,7 @@ const AdminFooter = () => {
         <ul className="admin--footer">
           <li className="menu-header">Admin Pages</li>
           <li><Link to="/admin-dashboard">DASHBOARD</Link></li>
+          <li><Link to="/admin-table">ADMIN TABLE</Link></li>
           <li><Link to="/admin-packages">PACKAGES</Link></li>
           <li><Link to="/admin-pricing">PRICING</Link></li>
           <li><Link to="/admin-reviews">REVIEWS</Link></li>

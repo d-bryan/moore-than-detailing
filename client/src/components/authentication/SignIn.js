@@ -66,8 +66,7 @@ export default class SignIn extends React.PureComponent {
   render() {
     const {
       emailAddress,
-      password,
-      errors
+      password
     } = this.state;
 
     return(

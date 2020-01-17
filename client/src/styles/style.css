@@ -1079,69 +1079,78 @@ button:hover, button:target {
     outline: 0; }
 
 /***************************************** ADMIN TABLES **********************************************/
-#admins--table--container,
+/* #admins--table--container,
 #admin--packages--table--container,
 #admin--pricing--table--container,
-#admin--reviews--table--container {
+#admin--reviews--table--container, */
+.admin--table--container {
   text-align: center;
   padding-top: 3rem;
   padding-bottom: 3rem; }
-  #admins--table--container h1,
+  /* #admins--table--container h1,
   #admin--packages--table--container h1,
   #admin--pricing--table--container h1,
-  #admin--reviews--table--container h1 {
+  #admin--reviews--table--container h1, */
+  .admin--table--container h1 {
     padding-bottom: 2rem;
     font-size: 2rem; }
-  #admins--table--container table,
+  /* #admins--table--container table,
   #admin--packages--table--container table,
   #admin--pricing--table--container table,
-  #admin--reviews--table--container table {
+  #admin--reviews--table--container table, */
+  .admin--table--container table {
     margin: 0 auto;
     width: 90%;
     padding: 1.5rem 0;
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-style: normal; }
-    #admins--table--container table tr,
+    /* #admins--table--container table tr,
     #admin--packages--table--container table tr,
     #admin--pricing--table--container table tr,
-    #admin--reviews--table--container table tr {
+    #admin--reviews--table--container table tr, */
+    .admin--table--container table tr {
       padding: 2rem .25rem; }
-      #admins--table--container table tr td,
+      /* #admins--table--container table tr td,
       #admin--packages--table--container table tr td,
       #admin--pricing--table--container table tr td,
-      #admin--reviews--table--container table tr td {
+      #admin--reviews--table--container table tr td, */
+      .admin--table--container table tr td {
         vertical-align: middle; }
-  #admins--table--container thead,
+  /* #admins--table--container thead,
   #admin--packages--table--container thead,
   #admin--pricing--table--container thead,
-  #admin--reviews--table--container thead {
+  #admin--reviews--table--container thead, */
+  .admin--table--container thead {
     background-color: #2a231a;
     color: #fff;
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 18px; }
-    #admins--table--container thead td,
+    /* #admins--table--container thead td,
     #admin--packages--table--container thead td,
     #admin--pricing--table--container thead td,
-    #admin--reviews--table--container thead td {
+    #admin--reviews--table--container thead td, */
+    .admin--table--container thead td {
       border-right: solid 2px #fff;
       text-align: center;
       padding: 1.5rem 0; }
-  #admins--table--container tbody,
+  /* #admins--table--container tbody,
   #admin--packages--table--container tbody,
   #admin--pricing--table--container tbody,
-  #admin--reviews--table--container tbody {
+  #admin--reviews--table--container tbody, */
+  .admin--table--container tbody {
     color: #2a231a;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 16px; }
-    #admins--table--container tbody td,
+    /* #admins--table--container tbody td,
     #admin--packages--table--container tbody td,
     #admin--pricing--table--container tbody td,
-    #admin--reviews--table--container tbody td {
+    #admin--reviews--table--container tbody td, */
+    .admin--table--container tbody td {
       padding: 1.5rem 1rem .75rem;
       border: solid 1px #2a231a; }
 
@@ -1150,13 +1159,15 @@ button:hover, button:target {
   padding: 0 3.5rem;
   line-height: 1.5rem; }
 
-#admin--packages--table--container,
+/* #admin--packages--table--container,
 #admin--pricing--table--container,
-#admin--reviews--table--container {
+#admin--reviews--table--container, */
+.admin--table--container {
   padding: 2rem 0 5rem; }
-  #admin--packages--table--container h1,
+  /* #admin--packages--table--container h1,
   #admin--pricing--table--container h1,
-  #admin--reviews--table--container h1 {
+  #admin--reviews--table--container h1, */
+  .admin--table--container h1 {
     font-size: 2.5rem;
     padding-bottom: 3rem; }
 
@@ -1204,42 +1215,51 @@ button:hover, button:target {
       box-shadow: none;
       outline: 0; }
 
-#create--new--admin--form,
+/* #create--new--admin--form,
 #create--new--packages--form,
 #create--new--pricing--form,
 #create--new--reviews--form,
-#create--new--service--form,
-#update--package--form,
-#update--pricing--form {
+#create--new--service--form, */
+.create--new--form,
+/* #update--package--form,
+#update--pricing--form,
+#update--reviews--form, */
+.admin--update--form {
   margin: 0 auto;
   padding: 3rem 0 5rem;
   text-align: center;
   width: 100%;
   display: table; }
-  #create--new--admin--form h1,
+  /* #create--new--admin--form h1,
   #create--new--packages--form h1,
   #create--new--pricing--form h1,
   #create--new--reviews--form h1,
-  #create--new--service--form h1,
-  #update--package--form h1,
-  #update--pricing--form h1 {
+  #create--new--service--form h1, */
+  .create--new--form h1,
+  /* #update--package--form h1,
+  #update--pricing--form h1,
+  #update--reviews--form h1, */
+  .admin--update--form h1 {
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 1.5rem;
     padding-bottom: 1.75rem; }
-  #create--new--admin--form p,
+  /* #create--new--admin--form p,
   #create--new--packages--form p,
   #create--new--pricing--form p,
   #create--new--reviews--form p,
-  #create--new--service--form p,
-  #update--package--form p,
-  #update--pricing--form p {
+  #create--new--service--form p, */
+  .create--new--form p,
+  /* #update--package--form p,
+  #update--pricing--form p,
+  #update--reviews--form p, */
+  .admin--update--form p {
     margin-bottom: 1.5rem;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-style: normal; }
-  #create--new--admin--form input,
+  /* #create--new--admin--form input,
   #create--new--admin--form label,
   #create--new--admin--form textarea,
   #create--new--packages--form input,
@@ -1253,26 +1273,38 @@ button:hover, button:target {
   #create--new--reviews--form textarea,
   #create--new--service--form input,
   #create--new--service--form label,
-  #create--new--service--form textarea,
-  #update--package--form input,
+  #create--new--service--form textarea, */
+  .create--new--form input,
+  .create--new--form label,
+  .create--new--form textarea,
+  /* #update--package--form input,
   #update--package--form label,
   #update--package--form textarea,
   #update--pricing--form input,
   #update--pricing--form label,
-  #update--pricing--form textarea {
+  #update--pricing--form textarea,
+  #update--reviews--form input,
+  #update--reviews--form label,
+  #update--reviews--form textarea, */
+  .admin--update--form input,
+  .admin--update--form label,
+  .admin--update--form textarea {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 16px; }
-  #create--new--admin--form label,
+  /* #create--new--admin--form label,
   #create--new--packages--form label,
   #create--new--pricing--form label,
   #create--new--reviews--form label,
-  #create--new--service--form label,
-  #update--package--form label,
-  #update--pricing--form label {
+  #create--new--service--form label, */
+  .create--new--form label,
+  /* #update--package--form label,
+  #update--pricing--form label,
+  #update--reviews--form label, */
+  .admin--update--form label {
     display: table-row; }
-  #create--new--admin--form input[type="text"],
+  /* #create--new--admin--form input[type="text"],
   #create--new--admin--form input[type="password"],
   #create--new--admin--form input[type="number"],
   #create--new--packages--form input[type="text"],
@@ -1286,13 +1318,22 @@ button:hover, button:target {
   #create--new--reviews--form input[type="number"],
   #create--new--service--form input[type="text"],
   #create--new--service--form input[type="password"],
-  #create--new--service--form input[type="number"],
-  #update--package--form input[type="text"],
+  #create--new--service--form input[type="number"], */
+  .create--new--form input[type="text"],
+  .create--new--form input[type="password"],
+  .create--new--form input[type="number"],
+  /* #update--package--form input[type="text"],
   #update--package--form input[type="password"],
   #update--package--form input[type="number"],
   #update--pricing--form input[type="text"],
   #update--pricing--form input[type="password"],
-  #update--pricing--form input[type="number"] {
+  #update--pricing--form input[type="number"],
+  #update--reviews--form input[type="text"],
+  #update--reviews--form input[type="password"],
+  #update--reviews--form input[type="number"], */
+  .admin--update--form input[type="text"],
+  .admin--update--form input[type="password"],
+  .admin--update--form input[type="number"] {
     background-color: rgba(42, 35, 26, 0.7);
     color: #fff;
     width: 25%;
@@ -1301,7 +1342,7 @@ button:hover, button:target {
     margin-top: .25rem;
     padding: .25rem 1rem;
     display: table-row; }
-  #create--new--admin--form option,
+  /* #create--new--admin--form option,
   #create--new--admin--form select,
   #create--new--admin--form input[type="file"],
   #create--new--packages--form option,
@@ -1315,13 +1356,22 @@ button:hover, button:target {
   #create--new--reviews--form input[type="file"],
   #create--new--service--form option,
   #create--new--service--form select,
-  #create--new--service--form input[type="file"],
-  #update--package--form option,
+  #create--new--service--form input[type="file"], */
+  .create--new--form option,
+  .create--new--form select,
+  .create--new--form input[type="file"],
+  /* #update--package--form option,
   #update--package--form select,
   #update--package--form input[type="file"],
   #update--pricing--form option,
   #update--pricing--form select,
-  #update--pricing--form input[type="file"] {
+  #update--pricing--form input[type="file"],
+  #update--reviews--form option,
+  #update--reviews--form select,
+  #update--reviews--form input[type="file"], */
+  .admin--update--form option,
+  .admin--update--form select,
+  .admin--update--form input[type="file"] {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -1334,7 +1384,7 @@ button:hover, button:target {
     border-radius: 10px;
     cursor: pointer;
     box-shadow: inset 0px 1px rgba(255, 255, 255, 0.7); }
-    #create--new--admin--form option:focus,
+    /* #create--new--admin--form option:focus,
     #create--new--admin--form select:focus,
     #create--new--admin--form input[type="file"]:focus,
     #create--new--packages--form option:focus,
@@ -1348,21 +1398,33 @@ button:hover, button:target {
     #create--new--reviews--form input[type="file"]:focus,
     #create--new--service--form option:focus,
     #create--new--service--form select:focus,
-    #create--new--service--form input[type="file"]:focus,
-    #update--package--form option:focus,
+    #create--new--service--form input[type="file"]:focus, */
+    .create--new--form option:focus,
+    .create--new--form select:focus,
+    .create--new--form input[type="file"]:focus,
+    /* #update--package--form option:focus,
     #update--package--form select:focus,
     #update--package--form input[type="file"]:focus,
     #update--pricing--form option:focus,
     #update--pricing--form select:focus,
-    #update--pricing--form input[type="file"]:focus {
+    #update--pricing--form input[type="file"]:focus,
+    #update--reviews--form option:focus,
+    #update--reviews--form select:focus,
+    #update--reviews--form input[type="file"]:focus, */
+    .admin--update--form option:focus,
+    .admin--update--form select:focus,
+    .admin--update--form input[type="file"]:focus {
       outline: 0; }
-  #create--new--admin--form textarea,
+  /* #create--new--admin--form textarea,
   #create--new--packages--form textarea,
   #create--new--pricing--form textarea,
   #create--new--reviews--form textarea,
-  #create--new--service--form textarea,
-  #update--package--form textarea,
-  #update--pricing--form textarea {
+  #create--new--service--form textarea, */
+  .create--new--form textarea,
+  /* #update--package--form textarea,
+  #update--pricing--form textarea,
+  #update--reviews--form textarea, */
+  .admin--update--form textarea {
     height: 300px;
     min-height: 300px;
     background-color: rgba(42, 35, 26, 0.7);
@@ -1373,7 +1435,7 @@ button:hover, button:target {
     margin-bottom: 1.25rem;
     padding: .5rem 1rem;
     display: table-row; }
-  #create--new--admin--form input[type="text"],
+  /* #create--new--admin--form input[type="text"],
   #create--new--admin--form input[type="password"],
   #create--new--admin--form input[type="number"],
   #create--new--admin--form textarea,
@@ -1392,17 +1454,29 @@ button:hover, button:target {
   #create--new--service--form input[type="text"],
   #create--new--service--form input[type="password"],
   #create--new--service--form input[type="number"],
-  #create--new--service--form textarea,
-  #update--package--form input[type="text"],
+  #create--new--service--form textarea, */
+  .create--new--form input[type="text"],
+  .create--new--form input[type="password"],
+  .create--new--form input[type="number"],
+  .create--new--form textarea,
+  /* #update--package--form input[type="text"],
   #update--package--form input[type="password"],
   #update--package--form input[type="number"],
   #update--package--form textarea,
   #update--pricing--form input[type="text"],
   #update--pricing--form input[type="password"],
   #update--pricing--form input[type="number"],
-  #update--pricing--form textarea {
+  #update--pricing--form textarea,
+  #update--reviews--form input[type="text"],
+  #update--reviews--form input[type="password"],
+  #update--reviews--form input[type="number"],
+  #update--reviews--form textarea, */
+  .admin--update--form input[type="text"],
+  .admin--update--form input[type="password"],
+  .admin--update--form input[type="number"],
+  .admin--update--form textarea {
     box-shadow: inset 0px 1px rgba(255, 255, 255, 0.7); }
-    #create--new--admin--form input[type="text"]:focus,
+    /* #create--new--admin--form input[type="text"]:focus,
     #create--new--admin--form input[type="password"]:focus,
     #create--new--admin--form input[type="number"]:focus,
     #create--new--admin--form textarea:focus,
@@ -1421,29 +1495,46 @@ button:hover, button:target {
     #create--new--service--form input[type="text"]:focus,
     #create--new--service--form input[type="password"]:focus,
     #create--new--service--form input[type="number"]:focus,
-    #create--new--service--form textarea:focus,
-    #update--package--form input[type="text"]:focus,
+    #create--new--service--form textarea:focus, */
+    .create--new--form input[type="text"]:focus,
+    .create--new--form input[type="password"]:focus,
+    .create--new--form input[type="number"]:focus,
+    .create--new--form textarea:focus,
+    /* #update--package--form input[type="text"]:focus,
     #update--package--form input[type="password"]:focus,
     #update--package--form input[type="number"]:focus,
     #update--package--form textarea:focus,
     #update--pricing--form input[type="text"]:focus,
     #update--pricing--form input[type="password"]:focus,
     #update--pricing--form input[type="number"]:focus,
-    #update--pricing--form textarea:focus {
+    #update--pricing--form textarea:focus,
+    #update--reviews--form input[type="text"]:focus,
+    #update--reviews--form input[type="password"]:focus,
+    #update--reviews--form input[type="number"]:focus,
+    #update--reviews--form textarea:focus, */
+    .admin--update--form input[type="text"]:focus,
+    .admin--update--form input[type="password"]:focus,
+    .admin--update--form input[type="number"]:focus,
+    .admin--update--form textarea:focus {
       outline: 0; }
-  #create--new--admin--form input[type="submit"],
+  /* #create--new--admin--form input[type="submit"],
   #create--new--packages--form input[type="submit"],
   #create--new--pricing--form input[type="submit"],
   #create--new--reviews--form input[type="submit"],
-  #create--new--service--form input[type="submit"],
-  #update--package--form input[type="submit"],
-  #update--pricing--form input[type="submit"] {
+  #create--new--service--form input[type="submit"], */
+  .create--new--form input[type="submit"],
+  /* #update--package--form input[type="submit"],
+  #update--pricing--form input[type="submit"],
+  #update--reviews--form input[type="submit"], */
+  .admin--update--form input[type="submit"] {
     background-color: #2890ce;
     color: #fff;
     border-radius: 10px;
     padding: .5rem 1.25rem;
     box-shadow: 2px 2px 2px 1px #000; }
-    #create--new--admin--form input[type="submit"]:hover, #create--new--admin--form input[type="submit"]:target, #create--new--admin--form input[type="submit"]:focus,
+    /* #create--new--admin--form input[type="submit"]:hover, 
+    #create--new--admin--form input[type="submit"]:target,
+    #create--new--admin--form input[type="submit"]:focus,
     #create--new--packages--form input[type="submit"]:hover,
     #create--new--packages--form input[type="submit"]:target,
     #create--new--packages--form input[type="submit"]:focus,
@@ -1455,13 +1546,22 @@ button:hover, button:target {
     #create--new--reviews--form input[type="submit"]:focus,
     #create--new--service--form input[type="submit"]:hover,
     #create--new--service--form input[type="submit"]:target,
-    #create--new--service--form input[type="submit"]:focus,
-    #update--package--form input[type="submit"]:hover,
+    #create--new--service--form input[type="submit"]:focus, */
+    .create--new--form input[type="submit"]:hover,
+    .create--new--form input[type="submit"]:target,
+    .create--new--form input[type="submit"]:focus,
+    /* #update--package--form input[type="submit"]:hover,
     #update--package--form input[type="submit"]:target,
     #update--package--form input[type="submit"]:focus,
     #update--pricing--form input[type="submit"]:hover,
     #update--pricing--form input[type="submit"]:target,
-    #update--pricing--form input[type="submit"]:focus {
+    #update--pricing--form input[type="submit"]:focus,
+    #update--reviews--form input[type="submit"]:hover,
+    #update--reviews--form input[type="submit"]:target,
+    #update--reviews--form input[type="submit"]:focus, */
+    .admin--update--form input[type="submit"]:hover,
+    .admin--update--form input[type="submit"]:target,
+    .admin--update--form input[type="submit"]:focus {
       background-color: rgba(40, 144, 206, 0.7);
       box-shadow: none;
       outline: 0; }

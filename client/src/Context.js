@@ -126,8 +126,8 @@ export class Provider extends Component {
   /**
    * Deletes an individual admin from the database
    */
-  deleteAdmin = async(credentials, id) => {
-    const admin = await this.data.deleteAdmin(credentials,id);
+  deleteAdmin = async(id, credentials) => {
+    const admin = await this.data.deleteAdmin(id, credentials);
     return admin;
   }
 

@@ -55,7 +55,7 @@ export default class AdminTable extends React.PureComponent {
         context={context}
       />
 
-      <div id="admins--table--container">
+      <div id="admins--table--container" className="admin--table--container">
         <h1>Administrators</h1>
         <table>
           <thead>

@@ -33,8 +33,8 @@ const NavAdmin = (props) => {
             <li><NavLink to="/admin-table">ADMINS</NavLink></li>
             <li><NavLink to="/admin-packages">PACKAGES</NavLink></li>
             <li><NavLink to="/admin-pricing">PRICING</NavLink></li>
-            <li><NavLink to="/admin-customer-reviews">REVIEWS</NavLink></li>
-            <li><NavLink to="/admin-services-table">SERVICES</NavLink></li>
+            <li><NavLink to="/admin-reviews">REVIEWS</NavLink></li>
+            <li><NavLink to="/admin-services">SERVICES</NavLink></li>
             {
               (authAdmin) ?
               <>

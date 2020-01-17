@@ -122,6 +122,7 @@ export default class UpdatePricing extends React.PureComponent {
 
         <Form 
           id={"update--pricing--form"}
+          c_name={"admin--update--form"}
           cancel={this.cancel}
           errors={this.state.errors}
           submit={this.submit}

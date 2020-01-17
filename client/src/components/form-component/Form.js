@@ -25,7 +25,7 @@ export default (props) => {
   return (
     <div>
       <ErrorsDisplay errors={errors} />
-      <form id={props.id} onSubmit={handleSubmit}>
+      <form id={props.id} className={props.c_name} onSubmit={handleSubmit}>
         {elements()}
         <div className="grid-100 pad-bottom">
           <button className="button" type="submit">{submitButtonText}</button>

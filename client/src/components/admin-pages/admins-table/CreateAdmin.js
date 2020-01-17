@@ -94,6 +94,7 @@ export default class CreateAdmin extends React.PureComponent {
 
         <Form 
           id={"create--new--admin--form"}
+          c_name={"create--new--form"}
           cancel={this.cancel}
           errors={this.state.errors}
           submit={this.submit}

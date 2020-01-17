@@ -168,17 +168,11 @@ router.delete('/reviews/:id', MW.authenticateAdmin, MW.asyncHandler(async(req, r
       try {
         // if the review list item exists
         if (reviewListItem !== null) {
-          // if the review list item adminId === current Admin Id
-          if (currentAdmin.id === reviewListItem.adminId) {
-            // DELETE the review list item and end the cycle
-            await reviewListItem.destroy();
-            res.status(204).end();
-          } else {
-            // the current admin is not authorized to delete review send (403) - status to client
-            res.status(403).json({
-              errors: `The user administrator ${currentAdmin.firstName}, ${currentAdmin.lastName.slice(0,1)} that you are logged is as is not the owner of this information.`
-            });
-          }
+          
+          // DELETE the review list item and end the cycle
+          await reviewListItem.destroy();
+          res.status(204).end();
+          
         } else {
           // if the price list item does not exist send (404) - status back to client
           res.status(404).json({  errors: "The review list item your are looking for could not be found" });

@@ -105,6 +105,7 @@ export default class CreatePricing extends React.PureComponent {
         
         <Form 
           id={"create--new--pricing--form"}
+          c_name={"create--new--form"}
           cancel={this.cancel}
           errors={this.state.errors}
           submit={this.submit}
@@ -190,70 +191,6 @@ export default class CreatePricing extends React.PureComponent {
             </>
           )}
         />
-
-      {/* <form id="create--new--pricing--form" action="#" method="POST">
-        <h1>Create A New Pricing List Item</h1>
-        <p>(Prices must be in number format)</p> */}
-        {/* <label for="vehicleSize">Vehicle Size</label>
-        <input type="text" name="vehicleSize" id="vehicleSize"/>
-        <br/> */}
-        {/* <label for="fullDetailPlus">Full Detail Plus Price</label>
-        <input 
-          type="number" 
-          name="fullDetailPlus" 
-          id="fullDetailPlus"
-          min="0"
-          max="999"
-          />
-        <br/>
-        <label for="fullDetail">Full Detail Price</label>
-        <input 
-          type="number" 
-          name="fullDetail" 
-          id="fullDetail"
-          min="0"
-          max="999"
-          />
-        <br/>
-        <label for="interiorDetail">Interior Detail Price</label>
-        <input 
-          type="number" 
-          name="interiorDetail" 
-          id="interiorDetail"
-          min="0"
-          max="999"
-          />
-        <br/>
-        <label for="theBlitz">The Blitz Price</label>
-        <input 
-          type="number" 
-          name="theBlitz" 
-          id="theBlitz"
-          min="0"
-          max="999"
-          />
-        <br/>
-        <label for="exteriorDetail">Exterior Detail Price</label>
-        <input 
-          type="number" 
-          name="exteriorDetail" 
-          id="exteriorDetail"
-          min="0"
-          max="999"
-          />
-        <br/>
-        <label for="basicWash">Basic Wash Price</label>
-        <input 
-          type="number" 
-          name="basicWash" 
-          id="basicWash"
-          min="0"
-          max="999"
-          />
-        <br/>
-        <input type="submit" value="Submit"/>
-      </form>         */}
-
       </>
     );
   }

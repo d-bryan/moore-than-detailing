@@ -30,12 +30,22 @@ import AdminDashboard from './components/admin-pages/AdminDashboard';
 import AdminTable from './components/admin-pages/AdminTable';
 import CreateAdmin from './components/admin-pages/admins-table/CreateAdmin';
 import DeleteItem from './components/admin-pages/DeleteItem';
+// admin packages
 import AdminPackagesTable from './components/admin-pages/AdminPackagesTable';
 import CreatePackage from './components/admin-pages/admin-packages/CreatePackage';
 import UpdatePackage from './components/admin-pages/admin-packages/UpdatePackage';
+// admin pricing
 import AdminPricingTable from './components/admin-pages/AdminPricingTable';
 import CreatePricing from './components/admin-pages/admin-pricing/CreatePricing';
 import UpdatePricing from './components/admin-pages/admin-pricing/UpdatePricing';
+// admin reviews
+import AdminReviewsTable from './components/admin-pages/AdminReviewsTable';
+import CreateReview from './components/admin-pages/admin-reviews/CreateReview';
+import UpdateReview from './components/admin-pages/admin-reviews/UpdateReview';
+// admin services
+import AdminServicesTable from './components/admin-pages/AdminServicesTable';
+import CreateService from './components/admin-pages/admin-services/CreateService';
+import UpdateService from './components/admin-pages/admin-services/UpdateService';
 
 
 
@@ -55,12 +65,22 @@ const AdminDashboardWithContext = withContext(AdminDashboard);
 const AdminTableWithContext = withContext(AdminTable);
 const DeleteItemWithContext = withContext(DeleteItem);
 const CreateAdminWithContext = withContext(CreateAdmin);
+// admin packages
 const AdminPackagesTableWithContext = withContext(AdminPackagesTable);
 const CreatePackageWithContext = withContext(CreatePackage);
 const UpdatePackageWithContext = withContext(UpdatePackage);
+// admin pricing
 const AdminPricingTableWithContext = withContext(AdminPricingTable);
 const CreatePricingWithContext = withContext(CreatePricing);
 const UpdatePricingWithContext = withContext(UpdatePricing);
+// admin reviews
+const AdminReviewsTableWithContext = withContext(AdminReviewsTable);
+const CreateReviewWithContext = withContext(CreateReview);
+const UpdateReviewWithContext = withContext(UpdateReview);
+// admin services
+const AdminServicesTableWithContext = withContext(AdminServicesTable);
+const CreateServiceWithContext = withContext(CreateService);
+const UpdateServiceWithContext = withContext(UpdateService);
 
 
 
@@ -90,6 +110,18 @@ export default () => (
       <PrivateRoute exact path="/admin-pricing/:id/update" component={UpdatePricingWithContext} />
       <PrivateRoute exact path="/admin-pricing/create" component={CreatePricingWithContext} />
       <PrivateRoute exact path="/admin-pricing" component={AdminPricingTableWithContext} />
+
+      {/* reviews routes */}
+      <PrivateRoute exact path="/admin-reviews/:id/delete" component={DeleteItemWithContext} />
+      <PrivateRoute exact path="/admin-reviews/:id/update" component={UpdateReviewWithContext} />
+      <PrivateRoute exact path="/admin-reviews/create" component={CreateReviewWithContext} />
+      <PrivateRoute exact path="/admin-reviews" component={AdminReviewsTableWithContext} />
+
+      {/* services routes */}
+      <PrivateRoute exact path="/admin-services/:id/delete" component={DeleteItemWithContext} />
+      <PrivateRoute exact path="/admin-services/:id/update" component={UpdateServiceWithContext} />
+      <PrivateRoute exact path="/admin-services/create" component={CreateServiceWithContext} />
+      <PrivateRoute exact path="/admin-services" component={AdminServicesTableWithContext} />
 
       {/* authentication */}
       <Route exact path="/admin-login" component={SignInWithContext} />
@@ -188,51 +220,3 @@ export default () => (
 
   </Router>
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// add context to components
-// import logo from './logo.svg';
-// import './styles/App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;

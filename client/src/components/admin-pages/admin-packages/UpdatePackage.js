@@ -115,6 +115,7 @@ export default class UpdatePackage extends React.PureComponent {
 
         <Form 
           id={"update--package--form"}
+          c_name={"admin--update--form"}
           cancel={this.cancel}
           errors={this.state.errors}
           submit={this.submit}

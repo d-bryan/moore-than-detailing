@@ -6,7 +6,6 @@ import {
 
 export default class ActionBar extends Component {
 
-
   deleteAdmin = async () => {
     const authAdmin = this.props.context.authenticatedAdmin.data;
     const context = this.props.context;
@@ -15,7 +14,7 @@ export default class ActionBar extends Component {
     
     if (authAdmin && paramsID) {
     
-      await context.actions.deleteAdmin(authAdmin, paramsID)
+      await context.actions.deleteAdmin(paramsID, authAdmin)
       .then(errors => {
         if (errors.length) {
           provider.history.push('/error');
@@ -24,7 +23,7 @@ export default class ActionBar extends Component {
         }
       })
       .catch(err => {
-        console.error(`There was an error deleting the administrative user: ${err}`);
+        console.error(`DELETE ADMIN: ${err}`);
         provider.history.push('/error');
       });
 
@@ -51,7 +50,7 @@ export default class ActionBar extends Component {
           }
         })
         .catch(err => {
-          console.error(`There was an error deleting the package from the administrative package table: ${err}`);
+          console.error(`DELETE PACKAGE: ${err}`);
           provider.history.push('/error');
         })
 
@@ -87,25 +86,61 @@ export default class ActionBar extends Component {
     }
   }
 
+  deleteReview = async () => {
+    const authAdmin = this.props.context.authenticatedAdmin.data;
+    const context = this.props.context;
+    const provider = this.props.provider;
+    const paramsID = provider.match.params.id;
 
+    if (authAdmin && paramsID) {
 
+      await context.actions.deleteReview(paramsID, authAdmin)
+        .then(errors => {
+          if (errors.length) {
+            provider.history.push('/error');
+          } else {
+            provider.history.goBack();
+          }
+        })
+        .catch(err => {
+          console.error(`DELETE REVIEW: ${err}`);
+          provider.history.push('/error');
+        })
 
+    } else {
+      provider.history.push('/forbidden');
+    }
+  }
 
-// } else if (path === '/admin/:id/delete') {
-  
-// } else if (path === '/admin-pricing') {
+  deleteService = async () => {
+    const authAdmin = this.props.context.authenticatedAdmin.data;
+    const context = this.props.context;
+    const provider = this.props.provider;
+    const paramsID = provider.match.params.id;
 
-// } else if (path === '/admin-customer-reviews') {
+    if (authAdmin && paramsID) {
 
-// } else if (path === '/admin-services-table') {
+      await context.actions.deleteService(paramsID, authAdmin)
+        .then(errors => {
+          if (errors.length) {
+            provider.history.push('/error');
+          } else {
+            provider.history.goBack();
+          }
+        })
+        .catch(err => {
+          console.error(`DELETE SERVICE: ${err}`);
+          provider.history.push('/error');
+        })
+
+    } else {
+      provider.history.push('/forbidden');
+    }
+  }
+
   render() {
     var buttonOptions;
     const path = this.props.provider.match.path;
-    const prop = this.props.provider;
-    console.log(prop)
-    
-    console.log(path)
-
     
     if (path === '/admin/:id/delete') {
       buttonOptions = (
@@ -126,6 +161,20 @@ export default class ActionBar extends Component {
         <>
           <Link to="/admin-pricing"><button>Cancel</button></Link>
           <button type="submit" onClick={this.deletePricingItem} >Delete</button>
+        </>
+      );
+    } else if (path === '/admin-reviews/:id/delete') {
+      buttonOptions = (
+        <>
+          <Link to="/admin-reviews"><button>Cancel</button></Link>
+          <button type="submit" onClick={this.deleteReview} >Delete</button>
+        </>
+      );
+    } else if (path === '/admin-services/:id/delete') {
+      buttonOptions = (
+        <>
+          <Link to="/admin-services"><button>Cancel</button></Link>
+          <button type="submit" onClick={this.deleteService} >Delete</button>
         </>
       );
     } else {

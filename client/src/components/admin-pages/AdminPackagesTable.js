@@ -50,7 +50,7 @@ export default class AdminPackagesTable extends React.PureComponent {
           context={context}
         />
 
-      <div id="admin--packages--table--container">
+      <div id="admin--packages--table" className="admin--table--container">
         <h1>Packages</h1>
         <table>
           <thead>

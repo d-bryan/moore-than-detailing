@@ -120,7 +120,7 @@ export default class Data {
    * Deletes an administrative user from the database
    * @param {Admin} credentials - Admin login credentials
    */  
-  async deleteAdmin (credentials, id) {
+  async deleteAdmin (id, credentials) {
     // route parameters
     const response = await this.api(`/admins/${id}`, 'DELETE', null, true, credentials);
 
@@ -501,7 +501,7 @@ export default class Data {
    */
   async deleteReview (id, credentials) {
     // route parameters
-    const response = await this.api(`/reviews/${id}`, 'DELETE', null, false, credentials);
+    const response = await this.api(`/reviews/${id}`, 'DELETE', null, true, credentials);
 
     // validate the response API
     if (response.status === 204) {

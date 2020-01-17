@@ -53,7 +53,7 @@ export default class AdminPricingTable extends React.PureComponent {
           context={context}
         />
 
-      <div id="admin--pricing--table--container">
+      <div id="admin--pricing--table" className="admin--table--container">
         <h1>Pricing</h1>
         <table>
           <thead>

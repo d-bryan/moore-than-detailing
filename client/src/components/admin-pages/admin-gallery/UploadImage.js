@@ -1,4 +1,6 @@
 import React from 'react';
+import config from '../../../api-config';
+import axios from 'axios';
 
 // import components
 import NavAdmin from '../../navigation/NavAdmin';
@@ -36,6 +38,68 @@ export default class UploadImage extends React.PureComponent {
     })
   }
 
+  /**
+   * Fetches the requests to the API for Multipart form data
+   * @param {URL} path - Path to the API
+   * @param {Request} method - HTTP Request Method
+   * @param {Header} body - Header option values to include
+   * @param {Boolean} requiresAuth - True | False value for if the route requires Authorization
+   * @param {Object} credentials - Pass credentials through for authorization
+   */
+  async multipartAPI(path, method = 'POST', body = null, requiresAuth = true, credentials = null) {
+    // API URL path + route
+    const url = config.apiBaseUrl + path;
+
+    // Request header options
+    const options = {
+      method,
+      url: url,
+      headers: {
+        'Content-Type': 'multipart/form-data;',
+      },
+      data: body,
+    };
+
+    // Convert body to JSON string if not null
+    if (body !== null) {
+      options.body = JSON.stringify(body);
+    }
+
+    // If the path required credentials pass them in the header
+    if (requiresAuth) {
+
+      let encodedCredentials = null;
+
+      if (credentials.emailAddress && credentials.password) {
+        encodedCredentials = btoa(`${credentials.emailAddress}:${credentials.password}`);
+      } else {
+        encodedCredentials = credentials;
+      }
+
+      options.headers['Authorization'] = `Basic ${encodedCredentials}`;
+    }
+
+    await axios(options)
+    .then(response => {
+      
+      if (response.status === 201) {
+        return response;
+      } else if (response.status === 400) {
+        return response.data.errors;
+      } else if (response.status === 401) {
+        return response.data.errors;
+      } else {
+        throw new Error("There was an issue when attempting to upload the Image.");
+      }
+
+    })
+    .catch(err =>{
+      console.error(`UPLOADING IMAGE REQUEST: ${err}`);
+      this.props.history.push('/error');
+    });    
+
+  }
+
   submit = async () => {
     const formSubmitBtn = document.getElementById('form--submit--button');
     const { context } = this.props;
@@ -60,17 +124,18 @@ export default class UploadImage extends React.PureComponent {
         imageLocation.name
       );
 
-      await context.actions.createGalleryItem(formData, authAdmin)
-      .then(errors => {
-        if (errors.length) {
-          this.setState({ errors: errors });
-        } else {
-          this.props.history.push('/admin-gallery');
-        }
-      })
-      .catch(err => {
-        console.log(`UPLOAD IMAGE: ${err}`);
-      })
+      await this.multipartAPI('/gallery', 'POST', formData, true, authAdmin)
+        .then(errors => {
+          if (errors) {
+            this.setState({ errors: errors });
+          } else {
+            this.props.history.push('/admin-gallery');
+          }
+        })
+        .catch(err => {
+          console.error(`UPLOAD IMAGE ISSUE: ${err}`);
+        });
+
     }
   }
 

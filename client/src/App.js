@@ -51,7 +51,6 @@ import AdminGalleryTable from './components/admin-pages/AdminGalleryTable';
 import UploadImage from './components/admin-pages/admin-gallery/UploadImage';
 
 
-
 // set up context components
 const FooterWithContext = withContext(Footer);
 // user pages

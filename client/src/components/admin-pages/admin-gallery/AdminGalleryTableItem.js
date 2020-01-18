@@ -19,14 +19,6 @@ export default (props) => {
       <td>
         {
           <ul>
-            {/* <li><Link to={{
-              pathname: `/admin-gallery/${props.id}/update`,
-              state: {
-                currentAdmin: currentAdmin || null,
-                adminId: props.adminId || null,
-                image: props.serviceName || null,
-              }
-            }}><button className="admin--table--update--button">Update</button></Link></li> */}
             <li><Link to={{
               pathname: `/admin-gallery/${props.id}/delete`,
               state: {

@@ -27,7 +27,7 @@ const AdminFooter = () => {
           <li><NavLink to="/">HOME</NavLink></li>
           <li><NavLink to="/about-us">ABOUT</NavLink></li>
           <li><NavLink to="/services">SERVICES</NavLink></li>
-          <li><NavLink to="/appointments">APPOINTMENTS</NavLink></li>
+          {/* <li><NavLink to="/appointments">APPOINTMENTS</NavLink></li> */}
           <li><NavLink to="/gallery">GALLERY</NavLink></li>
         </ul>
       </div>

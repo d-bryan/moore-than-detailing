@@ -37,7 +37,7 @@ export default class HomePage extends React.PureComponent {
           <meta property="og:description" content="The Leader in Automotive Detailing for Frederick, MD for the past ten years."/>
           <meta property="og:type" content="website"/>
           <meta property="og:url" content="https://www.moorethandetailing.com"/>
-          <meta property="og:image" content="../../website-mockups-assets/logo-grey-text.png"/>
+          <meta property="og:image" content="../../website-mockups-assets/apple-touch-icon-192x192.png"/>
           <meta name="keywords" content="Car, Detailing, Car Wax, Frederick Maryland"/>
         </Helmet>
 
@@ -50,7 +50,7 @@ export default class HomePage extends React.PureComponent {
               <li><NavLink to="/">HOME</NavLink></li>
               <li><NavLink to="/about-us">ABOUT US</NavLink></li>
               <li><NavLink to="/services">SERVICES</NavLink></li>
-              <li><NavLink to="/appointments">APPOINTMENTS</NavLink></li>
+              {/* <li><NavLink to="/appointments">APPOINTMENTS</NavLink></li> */}
               <li><NavLink to="/gallery">GALLERY</NavLink></li>
             </ul>
           </nav>

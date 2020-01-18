@@ -74,7 +74,7 @@ export default class Gallery extends React.PureComponent {
           <meta property="og:description" content="Images of vehicles that we have detailed, browse through to see the results we can deliver to you."/>
           <meta property="og:type" content="website"/>
           <meta property="og:url" content="https://www.moorethandetailing.com/gallery"/>
-          <meta property="og:image" content="../../website-mockups-assets/steven-about-profile.png"/>
+          <meta property="og:image" content={this.state.coupeImage}/>
           <meta name="keywords" content="Moore Than Detailing, Gallery, Detailing Images, Before and After"/>
         </Helmet>
 

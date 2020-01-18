@@ -1,5 +1,5 @@
 import config from './api-config';
-import axios from 'axios';
+
 export default class Data {
 
   /**
@@ -22,13 +22,6 @@ export default class Data {
       },
     };
 
-    // const galleryOptions = {
-    //   method,
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data;',
-    //   },
-    // };
-
     // Convert body to JSON string if not null
     if (body !== null) {
       options.body = JSON.stringify(body);
@@ -50,52 +43,6 @@ export default class Data {
 
     // fetch the url with the parameters and header options
     return fetch(url, options);
-
-  }
-
-  /**
-   * Fetches the requests to the API for Multipart form data
-   * @param {URL} path - Path to the API
-   * @param {Request} method - HTTP Request Method
-   * @param {Header} body - Header option values to include
-   * @param {Boolean} requiresAuth - True | False value for if the route requires Authorization
-   * @param {Object} credentials - Pass credentials through for authorization
-   */
-  multipartAPI(path, method = 'POST', body = null, requiresAuth = true, credentials = null) {
-    // API URL path + route
-    const url = config.apiBaseUrl + path;
-
-    // Request header options
-    const options = {
-      method,
-      url: url,
-      headers: {
-        'Content-Type': 'multipart/form-data;',
-      },
-      data: body,
-    };
-
-    // Convert body to JSON string if not null
-    if (body !== null) {
-      options.body = JSON.stringify(body);
-    }
-
-    // If the path required credentials pass them in the header
-    if (requiresAuth) {
-
-      let encodedCredentials = null;
-
-      if (credentials.emailAddress && credentials.password) {
-        encodedCredentials = btoa(`${credentials.emailAddress}:${credentials.password}`);
-      } else {
-        encodedCredentials = credentials;
-      }
-
-      options.headers['Authorization'] = `Basic ${encodedCredentials}`;
-    }
-
-    axios(options);
-    
 
   }
 
@@ -314,29 +261,11 @@ export default class Data {
 
     // validate the response API
     if (response.status === 200) {
-      return response.json();
+      return response;
     } else if (response.status === 404) {
       return response.json().then(data => data.errors);
     } else {
       throw new Error("There was an issue when attempting to retreive the Image.");
-    }
-  }
-
-  // TODO figure out how to fix the header options for posting images
-  async createGalleryItem (imageInfo, credentials) {
-    // route parameters
-    const response = await this.multipartAPI('/gallery', 'POST', imageInfo, true, credentials);
-    // const response = await this.api('/gallery', 'POST', imageInfo, true, credentials);
-
-    // validate the response API
-    if (response.status === 201) {
-      return response.json();
-    } else if (response === 400) {
-      return response.json().then(data => data.errors);
-    } else if (response === 401) {
-      return response.json().then(data => data.errors);
-    } else {
-      throw new Error("There was an issue when attempting to upload the Image.");
     }
   }
 

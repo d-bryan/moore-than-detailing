@@ -13,6 +13,7 @@ export default class GalleryImagesFull extends Component {
     images: [],
     type: '',
     keywords: [],
+    ogImage: '',
   }
 
   async componentDidMount() {
@@ -31,7 +32,8 @@ export default class GalleryImagesFull extends Component {
           // filter out for coupe vehicles and set the image state to this
           let coupeData = data.filter(d => d.vehicleType === "coupe");
           this.setState({
-            images: coupeData
+            images: coupeData,
+            ogImage: coupeData[0].imageLocation,
           });
         });
       // set state for use in react helmet
@@ -47,7 +49,8 @@ export default class GalleryImagesFull extends Component {
           // filter out for four-door vehicles and set the image state to this
           let fourDoorData = data.filter(d => d.vehicleType === "four-door");
           this.setState({
-            images: fourDoorData
+            images: fourDoorData,
+            ogImage: fourDoorData[0].imageLocation,
           });
         });
         // set state for use in react helmet
@@ -63,7 +66,8 @@ export default class GalleryImagesFull extends Component {
           // filter out for suv vehicles and set the image state to this
           let suvData = data.filter(d => d.vehicleType === "suv");
           this.setState({
-            images: suvData
+            images: suvData,
+            ogImage: suvData[0].imageLocation,
           });
         });
       // set state for use in react helmet
@@ -79,7 +83,8 @@ export default class GalleryImagesFull extends Component {
           // filter out for large vehicles and set the image state to this
           let largeData = data.filter(d => d.vehicleType === "large");
           this.setState({
-            images: largeData
+            images: largeData,
+            ogImage: largeData[0].imageLocation,
           });
         });
         // set state for use in react helmet
@@ -100,6 +105,7 @@ export default class GalleryImagesFull extends Component {
     const metaTitle = `${firstChar}${remaining} Images`;
     const locationPath = this.props.location.pathname;
     const keywords = this.state.keywords;
+    const ogImage = config.uploads + this.state.ogImage;
     var mapImages = this.state.images.map(d => {
       return(
         <GalleryImagesContainer 
@@ -120,7 +126,7 @@ export default class GalleryImagesFull extends Component {
           <meta property="og:description" content={`Gallery images featuring ${metaTitle}, please take a look at our results.`} />
           <meta property="og:type" content="website" />
           <meta property="og:url" content={`https://www.moorethandetailing.com${locationPath}`} />
-          <meta property="og:image" content="../../website-mockups-assets/logo-grey-text.png" />
+          <meta property="og:image" content={ogImage} />
           <meta name="keywords" content={keywords} />
         </Helmet>
 

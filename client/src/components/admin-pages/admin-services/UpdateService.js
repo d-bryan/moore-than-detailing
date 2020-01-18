@@ -86,7 +86,6 @@ export default class UpdateServie extends React.PureComponent {
         this.props.history.push('/error');
       });
 
-      console.log(this.state)
   };
 
   render() {

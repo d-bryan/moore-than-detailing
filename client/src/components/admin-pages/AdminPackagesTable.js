@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 // import components
 import NavAdmin from '../navigation/NavAdmin';
@@ -64,9 +64,9 @@ export default class AdminPackagesTable extends React.PureComponent {
         </table>
       </div>
 
-      <div className="create--new--container">
+      {/* <div className="create--new--container">
         <Link to="/admin-packages/create"><button>Create New Package</button></Link>
-      </div>
+      </div> */}
 
 
       </>

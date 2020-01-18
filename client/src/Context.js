@@ -42,6 +42,7 @@ export class Provider extends Component {
         // images
         generateImageList: this.generateImageList,
         generateImageDetail: this.generateImageDetail,
+        createGalleryItem: this.createGalleryItem,
         deleteGalleryItem: this.deleteGalleryItem,
         // services
         generateServiceList: this.generateServiceList,
@@ -188,6 +189,14 @@ export class Provider extends Component {
    */
   generateImageDetail = async(id) => {
     const image = await this.data.getImage(id);
+    return image;
+  }
+
+  /**
+   * Uploads a new image to the API
+   */
+  createGalleryItem = async(imageInfo, credentials) => {
+    const image = await this.data.createGalleryItem(imageInfo, credentials);
     return image;
   }
 

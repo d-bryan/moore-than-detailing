@@ -138,6 +138,32 @@ export default class ActionBar extends Component {
     }
   }
 
+  deleteGallery = async () => {
+    const authAdmin = this.props.context.authenticatedAdmin.data;
+    const context = this.props.context;
+    const provider = this.props.provider;
+    const paramsID = provider.match.params.id;
+
+    if (authAdmin && paramsID) {
+
+      await context.actions.deleteGalleryItem(paramsID, authAdmin)
+        .then(errors => {
+          if (errors.length) {
+            provider.history.push('/error');
+          } else {
+            provider.history.goBack();
+          }
+        })
+        .catch(err => {
+          console.error(`DELETE GALLERY ITEM: ${err}`);
+          provider.history.push('/error');
+        })
+
+    } else {
+      provider.history.push('/forbidden');
+    }
+  }
+
   render() {
     var buttonOptions;
     const path = this.props.provider.match.path;
@@ -177,13 +203,20 @@ export default class ActionBar extends Component {
           <button type="submit" onClick={this.deleteService} >Delete</button>
         </>
       );
+    } else if (path === '/admin-gallery/:id/delete') {
+      buttonOptions = (
+        <>
+          <Link to="/admin-gallery"><button>Cancel</button></Link>
+          <button type="submit" onClick={this.deleteGallery} >Delete</button>
+        </>
+      );
     } else {
       buttonOptions = (
         <Link to="/admin-dashboard"><button>Dashboard</button></Link>
       );
     }
 
-
+    
 
 
     return (

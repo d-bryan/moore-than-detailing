@@ -25,14 +25,14 @@ export default (props) => {
                 packageTitle: props.title || null,
               }
             }}><button className="admin--table--update--button">Update</button></Link></li>
-            <li><Link to={{
+            {/* <li><Link to={{
               pathname: `/admin-packages/${props.id}/delete`,
               state: {
                 currentAdmin: currentAdmin || null,
                 deleteAdminId: props.adminId || null,
                 packageTitle: props.title || null,
               }
-            }}><button className="admin--table--delete--button">Delete</button></Link></li>
+            }}><button className="admin--table--delete--button">Delete</button></Link></li> */}
           </ul>
         }
       </td>

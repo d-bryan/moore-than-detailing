@@ -7,11 +7,11 @@ import SectionContainer from './package-detailing-services/SectionContainer';
 export default class DetailingServices extends React.PureComponent {
 
   state = {
-    packages: '',
+    packages: [],
     descriptionList: [],
     estimatedTimeArray: [],
     packageTitleArray: [],
-    detailPricing: '',
+    detailPricing: [],
   }
 
   async componentDidMount() {

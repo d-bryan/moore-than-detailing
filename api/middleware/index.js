@@ -187,15 +187,13 @@ const checkServices = [
 const checkGallery = [
   check('vehicleType')
     .exists({ checkNull: true, checkFalsy: true })
-    .isString()
     .withMessage("Please provide a value for Vehicle Type"),
   check('imageLocation')
-    .exists({ checkNull: true, checkFalsy: true })
-    .isString()
-    .withMessage("Please provide a value for Image Location"),
+    .exists({ checkNull: true })
+    .withMessage("Please select an Image to upload"),
   check('adminId')
     .exists({ checkNull: true, checkFalsy: true })
-    .withMessage("Please provide a value for Admin ID"),    
+    .withMessage("Please provide a value for Admin ID"),
 ];
 
 

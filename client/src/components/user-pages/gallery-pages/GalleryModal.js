@@ -67,9 +67,10 @@ export default class GalleryModal extends Component {
 
   }
 
-  async stepBackwards() {
+  stepBackwards = async () => {
+
     // if the count if greater than 0 allow for subtraction
-    if (this.state.count > 0) {
+    if (this.state.count >= 1) {
       const newIndex = this.state.count - 1;
       // set the state to the new index count
       this.setState({
@@ -86,7 +87,8 @@ export default class GalleryModal extends Component {
     }
   }
 
-  async stepForwards() {
+  stepForwards = async () => {
+
     // if the count is less than the modal array length allow addition
     if (this.state.count <= 4) {
       const newIndex = this.state.count + 1;
@@ -111,7 +113,7 @@ export default class GalleryModal extends Component {
         <img 
           id="gallery--left--arrow"
           className={"gallery--modal--button"}
-          onClick={() => this.stepBackwards()}
+          onClick={this.stepBackwards}
           src={leftArrowAlt}
           alt="left arrow"
         />
@@ -121,7 +123,7 @@ export default class GalleryModal extends Component {
         <img 
           id="gallery--right--arrow"
           className={"gallery--modal--button"}
-          onClick={() => this.stepForwards()}
+          onClick={this.stepForwards}
           src={rightArrowAlt}
           alt="right arrow"
         />

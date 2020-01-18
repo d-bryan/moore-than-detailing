@@ -122,7 +122,7 @@ export default class UpdateReview extends React.PureComponent {
           cancel={this.cancel}
           errors={this.state.errors}
           submit={this.submit}
-          submitButtonText="Create"
+          submitButtonText="Update"
           elements={() => (
             <>
               <h1>Create New Customer Review</h1>

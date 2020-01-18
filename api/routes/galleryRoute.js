@@ -104,14 +104,24 @@ router.post('/gallery', MW.authenticateAdmin, upload.single('imageLocation'), MW
     // if an admin is signed in
     if (currentAdmin) {
       try {
-        // add the image to the database
-        await createGalleryItem;
 
-        // set the location header for the URI
-        await res.location(`/gallery/${createGalleryItem.id}`);
+          if (req.body.vehicleType === null && req.file.path === null) {
+            res.status(400).json({ errors: ['Please ensure all fields are filled out.'] });
+          } else if (req.body.vehicleType === null) {
+            res.status(400).json({ errors: ['Please select a vehicle type.'] });
+          } else if (req.file.path === null) {
+            res.status(400).json({ errors: ['Please select a file for upload.'] });
+          } else {
+            console.log('SUCCESS')
+            // add the image to the database
+            await createGalleryItem;
 
-        // send a (201) - status for newly created image item
-        await res.status(201).end();
+            // set the location header for the URI
+            await res.location(`/gallery/${createGalleryItem.id}`);
+
+            // send a (201) - status for newly created image item
+            await res.status(201).end();
+          }
 
       } catch (err) {
         console.error("Error posting new image item to the database: ", err);

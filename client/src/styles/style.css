@@ -972,7 +972,7 @@ button:hover, button:target {
   /* position: relative; */
   box-sizing: border-box;
   text-align: center;
-  height: 280px;
+  height: 300px;
   line-height: 1rem;
   padding: 0 1.5rem; }
   .admin--footer--container a {
@@ -1136,6 +1136,10 @@ button:hover, button:target {
       border-right: solid 2px #fff;
       text-align: center;
       padding: 1.5rem 0; }
+      .admin--table--container thead th {
+        border-right: solid 2px #fff;
+        text-align: center;
+        padding: 1.5rem 0; }
   /* #admins--table--container tbody,
   #admin--packages--table--container tbody,
   #admin--pricing--table--container tbody,
@@ -1193,6 +1197,16 @@ button:hover, button:target {
   .admin--table--update--button:focus,
   .admin--table--delete--button:focus {
     outline: 0; }
+
+.admin--gallery--table--image {
+  text-align: center;
+  margin: auto;
+  /* height: 40%; */
+}
+
+.admin--gallery--table--image img {
+  width: 50%;
+}
 
 /************************************ ADMIN FORMS **********************************************/
 .create--new--container {
@@ -1587,6 +1601,7 @@ button:hover, button:target {
   padding-top: 3rem;
   padding-bottom: 5rem;
   display: table;
+  margin: auto;
   text-align: center; }
   #admin--dashboard--container h2 {
     padding-bottom: 2.5rem;

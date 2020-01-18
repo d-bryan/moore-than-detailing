@@ -46,6 +46,9 @@ import UpdateReview from './components/admin-pages/admin-reviews/UpdateReview';
 import AdminServicesTable from './components/admin-pages/AdminServicesTable';
 import CreateService from './components/admin-pages/admin-services/CreateService';
 import UpdateService from './components/admin-pages/admin-services/UpdateService';
+// admin gallery
+import AdminGalleryTable from './components/admin-pages/AdminGalleryTable';
+import UploadImage from './components/admin-pages/admin-gallery/UploadImage';
 
 
 
@@ -81,6 +84,9 @@ const UpdateReviewWithContext = withContext(UpdateReview);
 const AdminServicesTableWithContext = withContext(AdminServicesTable);
 const CreateServiceWithContext = withContext(CreateService);
 const UpdateServiceWithContext = withContext(UpdateService);
+// admin gallery
+const AdminGalleryTableWithContext = withContext(AdminGalleryTable);
+const UploadImageWithContext = withContext(UploadImage);
 
 
 
@@ -100,7 +106,7 @@ export default () => (
       <PrivateRoute exact path="/admin-table" component={AdminTableWithContext} />
 
       {/* admin package routes */}
-      <PrivateRoute exact path="/admin-packages/:id/delete" component={DeleteItemWithContext} />
+      {/* <PrivateRoute exact path="/admin-packages/:id/delete" component={DeleteItemWithContext} /> */}
       <PrivateRoute exact path="/admin-packages/:id/update" component={UpdatePackageWithContext} />
       <PrivateRoute exact path="/admin-packages/create" component={CreatePackageWithContext} />
       <PrivateRoute exact path="/admin-packages" component={AdminPackagesTableWithContext} />
@@ -111,26 +117,33 @@ export default () => (
       <PrivateRoute exact path="/admin-pricing/create" component={CreatePricingWithContext} />
       <PrivateRoute exact path="/admin-pricing" component={AdminPricingTableWithContext} />
 
-      {/* reviews routes */}
+      {/* admin reviews routes */}
       <PrivateRoute exact path="/admin-reviews/:id/delete" component={DeleteItemWithContext} />
       <PrivateRoute exact path="/admin-reviews/:id/update" component={UpdateReviewWithContext} />
       <PrivateRoute exact path="/admin-reviews/create" component={CreateReviewWithContext} />
       <PrivateRoute exact path="/admin-reviews" component={AdminReviewsTableWithContext} />
 
-      {/* services routes */}
+      {/* admin services routes */}
       <PrivateRoute exact path="/admin-services/:id/delete" component={DeleteItemWithContext} />
       <PrivateRoute exact path="/admin-services/:id/update" component={UpdateServiceWithContext} />
       <PrivateRoute exact path="/admin-services/create" component={CreateServiceWithContext} />
       <PrivateRoute exact path="/admin-services" component={AdminServicesTableWithContext} />
 
+      {/* admin gallery routes */}
+      <PrivateRoute exact path="/admin-gallery/:id/delete" component={DeleteItemWithContext} />
+      <PrivateRoute exact path="/admin-gallery/create" component={UploadImageWithContext} />
+      <PrivateRoute exact path="/admin-gallery" component={AdminGalleryTableWithContext} />
+
       {/* authentication */}
       <Route exact path="/admin-login" component={SignInWithContext} />
       <Route exact path="/admin-logout" component={SignOutWithContext} />
+
       {/* user pages */}
       <Route exact path="/gallery/:type" component={GalleryImagesFullWithContext} />
       <Route exact path="/gallery" component={GalleryWithContext} />
       <Route exact path="/services" component={ServicesWithContext} />
       <Route exact path="/about-us" component={AboutPageWithContext} />
+
       {/* error routes */}
       <Route path="/login-required" component={LoginRequired} />
       <Route path="/forbidden" component={Forbidden} />
@@ -176,47 +189,9 @@ export default () => (
 
 
 
-
+      {/* end page wrap */}
     </div>
     <FooterWithContext />
     
-
-    {/* <Switch>
-      <Route path="/" component={} />
-      // dashboard
-      <PrivateRoute path="/admin-dashboard" component={} />
-      // admin routes
-      <PrivateRoute path="/admin/create" component={} />
-      <PrivateRoute path="/admin/:id/delete" component={} />
-      <PrivateRoute path="/admin-table" component={} />
-      // packages routes
-      <PrivateRoute path="/admin-packages/create" component={} />
-      <PrivateRoute path="/admin-packages/:id/update" component={} />
-      <PrivateRoute path="/admin-packages/:id/delete" component={} />
-      <PrivateRoute path="/admin-packages" component={} />
-      // pricing routes
-      <PrivateRoute path="/admin-pricing/create" component={} />
-      <PrivateRoute path="/admin-pricing/:id/update" component={} />
-      <PrivateRoute path="/admin-pricing/:id/delete" component={} />
-      <PrivateRoute path="/admin-pricing" component={} />
-      // reviews routes
-      <PrivateRoute path="/admin-reviews/create" component={} />
-      <PrivateRoute path="/admin-reviews/:id/update" component={} />
-      <PrivateRoute path="/admin-reviews/:id/delete" component={} />
-      <PrivateRoute path="/admin-reviews" component={} />
-      // services routes
-      <PrivateRoute path="/admin-services/create" component={} />
-      <PrivateRoute path="/admin-services/:id/update" component={} />
-      <PrivateRoute path="/admin-services/:id/delete" component={} />
-      <PrivateRoute path="/admin-services" component={} />
-      // public routes
-      <Route path="/admin-login" component={} />
-      <Route path="/about-us" component={} />
-      <Route path="/services" component={} />
-      <Route path="/appointments" component={} />
-      <Route path="/gallery" component={} />
-      <Route path="/gallery/:id" component={} />
-    </Switch> */}
-
   </Router>
 );

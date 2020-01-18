@@ -15,8 +15,8 @@ export default class GalleryImagesFull extends Component {
     keywords: [],
   }
 
-  componentDidMount() {
-    this.checkForType();
+  async componentDidMount() {
+    await this.checkForType();
   }
 
   async checkForType() {

@@ -6,7 +6,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const database = require('./models').sequelize;
-const dbName = require('./config/config.json').development.storage;
+const dbName = process.env.DB_NAME;
 
 // import routes
 const adminRoute = require('./routes/adminRoute');

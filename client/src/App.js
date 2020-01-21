@@ -96,94 +96,61 @@ export default () => (
     <div className="page-wrap bounds">
 
     <Switch>
+      <Route exact path="/" component={HomePageWithContext} />
+
       {/* dashboard */}
-      <PrivateRoute exact path="/admin-dashboard" component={AdminDashboardWithContext} />
+      <PrivateRoute exact strict path="/admin-dashboard" component={AdminDashboardWithContext} />
       
       {/* admin routes */}
       <PrivateRoute exact path="/admin/:id/delete" component={DeleteItemWithContext} />
-      <PrivateRoute exact path="/admin/create" component={CreateAdminWithContext} />
-      <PrivateRoute exact path="/admin-table" component={AdminTableWithContext} />
+      <PrivateRoute exact strict path="/admin/create" component={CreateAdminWithContext} />
+      <PrivateRoute exact strict path="/admin-table" component={AdminTableWithContext} />
 
       {/* admin package routes */}
       {/* <PrivateRoute exact path="/admin-packages/:id/delete" component={DeleteItemWithContext} /> */}
       <PrivateRoute exact path="/admin-packages/:id/update" component={UpdatePackageWithContext} />
-      <PrivateRoute exact path="/admin-packages/create" component={CreatePackageWithContext} />
-      <PrivateRoute exact path="/admin-packages" component={AdminPackagesTableWithContext} />
+      <PrivateRoute exact strict path="/admin-packages/create" component={CreatePackageWithContext} />
+      <PrivateRoute exact strict path="/admin-packages" component={AdminPackagesTableWithContext} />
 
       {/* admin pricing routes */}
       <PrivateRoute exact path="/admin-pricing/:id/delete" component={DeleteItemWithContext} />
       <PrivateRoute exact path="/admin-pricing/:id/update" component={UpdatePricingWithContext} />
-      <PrivateRoute exact path="/admin-pricing/create" component={CreatePricingWithContext} />
-      <PrivateRoute exact path="/admin-pricing" component={AdminPricingTableWithContext} />
+      <PrivateRoute exact strict path="/admin-pricing/create" component={CreatePricingWithContext} />
+      <PrivateRoute exact strict path="/admin-pricing" component={AdminPricingTableWithContext} />
 
       {/* admin reviews routes */}
       <PrivateRoute exact path="/admin-reviews/:id/delete" component={DeleteItemWithContext} />
       <PrivateRoute exact path="/admin-reviews/:id/update" component={UpdateReviewWithContext} />
-      <PrivateRoute exact path="/admin-reviews/create" component={CreateReviewWithContext} />
-      <PrivateRoute exact path="/admin-reviews" component={AdminReviewsTableWithContext} />
+      <PrivateRoute exact strict path="/admin-reviews/create" component={CreateReviewWithContext} />
+      <PrivateRoute exact strict path="/admin-reviews" component={AdminReviewsTableWithContext} />
 
       {/* admin services routes */}
       <PrivateRoute exact path="/admin-services/:id/delete" component={DeleteItemWithContext} />
       <PrivateRoute exact path="/admin-services/:id/update" component={UpdateServiceWithContext} />
-      <PrivateRoute exact path="/admin-services/create" component={CreateServiceWithContext} />
-      <PrivateRoute exact path="/admin-services" component={AdminServicesTableWithContext} />
+      <PrivateRoute exact strict path="/admin-services/create" component={CreateServiceWithContext} />
+      <PrivateRoute exact strict path="/admin-services" component={AdminServicesTableWithContext} />
 
       {/* admin gallery routes */}
       <PrivateRoute exact path="/admin-gallery/:id/delete" component={DeleteItemWithContext} />
-      <PrivateRoute exact path="/admin-gallery/create" component={UploadImageWithContext} />
-      <PrivateRoute exact path="/admin-gallery" component={AdminGalleryTableWithContext} />
+      <PrivateRoute exact strict path="/admin-gallery/create" component={UploadImageWithContext} />
+      <PrivateRoute exact strict path="/admin-gallery" component={AdminGalleryTableWithContext} />
 
       {/* authentication */}
-      <Route exact path="/admin-login" component={SignInWithContext} />
-      <Route exact path="/admin-logout" component={SignOutWithContext} />
-
+      <Route exact strict path="/admin-login" component={SignInWithContext} />
+      <Route exact strict path="/admin-logout" component={SignOutWithContext} />
       {/* user pages */}
       <Route exact path="/gallery/:type" component={GalleryImagesFullWithContext} />
-      <Route exact path="/gallery" component={GalleryWithContext} />
-      <Route exact path="/services" component={ServicesWithContext} />
-      <Route exact path="/about-us" component={AboutPageWithContext} />
+      <Route exact strict path="/gallery" component={GalleryWithContext} />
+      <Route exact strict path="/services" component={ServicesWithContext} />
+      <Route exact strict path="/about-us" component={AboutPageWithContext} />
 
       {/* error routes */}
       <Route path="/login-required" component={LoginRequired} />
       <Route path="/forbidden" component={Forbidden} />
       <Route path="/error" component={ServerError} />
       <Route path="/not-found" component={NotFound} />
-      <Route exact path="/" component={HomePageWithContext} />
-      <Route component={NotFound} />
       
-      {/* // dashboard
-      <PrivateRoute path="/admin-dashboard" component={} />
-      // admin routes
-      <PrivateRoute path="/admin/create" component={} />
-      <PrivateRoute path="/admin/:id/delete" component={} />
-      <PrivateRoute path="/admin-table" component={} />
-      // packages routes
-      <PrivateRoute path="/admin-packages/create" component={} />
-      <PrivateRoute path="/admin-packages/:id/update" component={} />
-      <PrivateRoute path="/admin-packages/:id/delete" component={} />
-      <PrivateRoute path="/admin-packages" component={} />
-      // pricing routes
-      <PrivateRoute path="/admin-pricing/create" component={} />
-      <PrivateRoute path="/admin-pricing/:id/update" component={} />
-      <PrivateRoute path="/admin-pricing/:id/delete" component={} />
-      <PrivateRoute path="/admin-pricing" component={} />
-      // reviews routes
-      <PrivateRoute path="/admin-reviews/create" component={} />
-      <PrivateRoute path="/admin-reviews/:id/update" component={} />
-      <PrivateRoute path="/admin-reviews/:id/delete" component={} />
-      <PrivateRoute path="/admin-reviews" component={} />
-      // services routes
-      <PrivateRoute path="/admin-services/create" component={} />
-      <PrivateRoute path="/admin-services/:id/update" component={} />
-      <PrivateRoute path="/admin-services/:id/delete" component={} />
-      <PrivateRoute path="/admin-services" component={} />
-      // public routes
-      <Route path="/admin-login" component={} />
-      <Route path="/about-us" component={} />
-      <Route path="/services" component={} />
-      <Route path="/appointments" component={} />
-      <Route path="/gallery" component={} />
-      <Route path="/gallery/:id" component={} /> */}
+      <Route component={NotFound} />
     </Switch>
 
 
@@ -191,6 +158,5 @@ export default () => (
       {/* end page wrap */}
     </div>
     <FooterWithContext />
-    
   </Router>
 );

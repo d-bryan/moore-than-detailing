@@ -12,7 +12,7 @@ import CustomerReviews from './CustomerReviews';
 
 // image imports
 import HeaderLogo from '../../website-mockups-assets/logo-grey-text.png';
-import Jumbotron from '../../website-mockups-assets/jumbotron-homepage.png';
+import Jumbotron from '../../website-mockups-assets/mustand-bg1200x800.png';
 import Slide2BG from '../../website-mockups-assets/slide-2-home-bg.png';
 import Slide3BG from '../../website-mockups-assets/slide-3-home-bg.png';
 import StevenPortrait from '../../website-mockups-assets/steven-portrait.png';
@@ -55,11 +55,12 @@ export default class HomePage extends React.PureComponent {
             </ul>
           </nav>
           <p className="jumbotron--description">
-            <span>Cars, Trucks, SUV's and More...</span>
-            <br/>
-            <span id="washed-waxed">WASHED <br/>& WAXED</span>
-            <br/>
-            <span>The leaders in automotive detailing of <br/> Frederick, MD for the past ten years</span>
+            <span id="jumbotron--text--shadow">Offering packages from a<br/>Basic Wash to a Full Detail<br/> and so much more!</span>
+            {/* <span>Cars, Trucks, SUV's and More...</span> */}
+            {/* <br/>
+            <span id="washed-waxed">WASHED & WAXED</span>
+            <br/> */}
+            {/* <span>The leaders in automotive detailing of <br/> Frederick, MD for the past ten years</span> */}
           </p>
           <button className="jumbotron--button btn"><a href="tel://2406261777">Schedule Now</a></button>
           <img className="jumbotron" src={Jumbotron} alt="jeep parked in the desert"/>

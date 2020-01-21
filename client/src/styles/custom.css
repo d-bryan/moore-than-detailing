@@ -108,4 +108,8 @@ div.clear input {
   box-shadow: none;
   outline: 0;
 }
+
+#jumbotron--text--shadow {
+  text-shadow: 4px 4px 2px #3b3b3b;
+}
   

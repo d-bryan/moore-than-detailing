@@ -367,9 +367,9 @@ button:hover, button:target {
   font-size: 4vw; }
 
 .jumbotron--button {
-  top: 65%;
-  left: 12.5%;
-  font-size: 3.5vw;
+  top: 54%;
+  left: 10%;
+  font-size: 2.5vw;
   position: absolute; }
 
 /***************************************** SLIDE 2 HOME PAGE **********************************************/
@@ -1467,9 +1467,9 @@ button:hover, button:target {
     line-height: 1.5rem; }
 
   .jumbotron--button {
-    top: 70%;
+    top: 52%;
     left: 10%;
-    font-size: 3vw; }
+    font-size: 2.5vw; }
 
   /************************************** SLIDE 2 HOME PAGE *********************************************/
   .slide--2--container {
@@ -1708,9 +1708,9 @@ button:hover, button:target {
     line-height: 1.75rem; }
 
   .jumbotron--button {
-    top: 65%;
+    top: 50%;
     left: 10%;
-    font-size: 3vw; }
+    font-size: 2.5vw; }
 
   /*************************************** SLIDE 2 HOME PAGE ********************************************/
   .slide--2--container {
@@ -1992,9 +1992,9 @@ button:hover, button:target {
       padding-right: 1rem; }
 
   .jumbotron--button {
-    top: 65%;
+    top: 50%;
     left: 10%;
-    font-size: 3vw; }
+    font-size: 2.5vw; }
 
   #header--logo {
     margin-top: 1rem;
@@ -2295,9 +2295,9 @@ button:hover, button:target {
       padding-right: 1rem; }
 
   .jumbotron--button {
-    top: 60%;
+    top: 47%;
     left: 10%;
-    font-size: 3.25vw; }
+    font-size: 2.5vw; }
 
   #header--logo {
     margin-top: 1rem;
@@ -2627,9 +2627,9 @@ button:hover, button:target {
       font-size: 1.5vw; }
 
   .jumbotron--button {
-    top: 62.5%;
+    top: 47%;
     left: 10%;
-    font-size: 3vw; }
+    font-size: 2.5vw; }
 
   #header--logo {
     margin-top: 1rem;
@@ -3042,9 +3042,9 @@ button:hover, button:target {
       font-size: 1.5vw; }
 
   .jumbotron--button {
-    top: 60%;
+    top: 47%;
     left: 10%;
-    font-size: 3vw; }
+    font-size: 2.5vw; }
 
   #header--logo {
     margin-top: 1rem;

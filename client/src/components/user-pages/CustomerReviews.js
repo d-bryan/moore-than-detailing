@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 // image imports
 import LeftArrow from '../../website-mockups-assets/left-arrow.png';
@@ -64,7 +63,7 @@ export default class CustomerReviews extends Component {
         <div className="slide--4--container bounds">
           <div className="slide--4--subcontainer" >
             <h3>5.0/5.0 ON GOOGLE REVIEWS</h3>
-            <h4><Link to="https://www.google.com/search?q=moore+than+detailing+frederick+md&oq=moore+than+detailing+frederick+md&aqs=chrome..69i57j69i65.4318j1j7&sourceid=chrome&ie=UTF-8#lrd=0x89c9d00a52549a6b:0xafd9839f6d81dbf6,1,,,">HEAR FROM OUR LOYAL CUSTOMERS</Link></h4>
+            <h4><a href="https://www.google.com/search?q=moore+than+detailing+frederick+md&oq=moore+than+detailing+frederick+md&aqs=chrome..69i57j69i65.4318j1j7&sourceid=chrome&ie=UTF-8#lrd=0x89c9d00a52549a6b:0xafd9839f6d81dbf6,1,,," target="_blank">HEAR FROM OUR LOYAL CUSTOMERS</a></h4>
             <div id="left--review" className="review--home">
               <p>{
                 (this.state.leftReview.customerReview !== undefined) ?
